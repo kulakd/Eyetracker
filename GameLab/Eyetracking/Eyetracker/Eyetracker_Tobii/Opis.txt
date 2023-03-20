@@ -1,0 +1,15 @@
+﻿Należy:
+.NET Framework 4.5
+Prefer 32 bit (w Properties, Build)
+
+Należy przełączyć skalowanie DPI wysokiej rozdzielczości, bo inaczej położenie kursora nie zgadza się z Gaze Trace
+
+WWW:
+http://developer.tobii.com/tobii-core-sdk/#coreheader
+https://github.com/Tobii/CoreSDK/tree/master/samples
+Ważny jest przykład Interaction_Streams_101
+
+Opis do SDK: https://tobii.github.io/CoreSDK/
+
+Kalibracja: http://developer.tobii.com/community/forums/topic/eyex-calibration-parameters/
+

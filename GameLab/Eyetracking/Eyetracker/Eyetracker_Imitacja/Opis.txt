@@ -1,0 +1,1 @@
+﻿Wersja .NET: 2.0 (ze względu na współpracę z innymi programami, w szczególności Unity3D)

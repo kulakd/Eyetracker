@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TcpAndroid", "TcpAndroid.csproj", "{E1FF817C-2353-4D33-8500-F5644B970007}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectionsMaui", "..\..\..\EyeTest\PFEyeTracker\ConnectionsMaui\ConnectionsMaui.csproj", "{3C3F968B-0246-41F2-9459-02E92C5A940F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1FF817C-2353-4D33-8500-F5644B970007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1FF817C-2353-4D33-8500-F5644B970007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1FF817C-2353-4D33-8500-F5644B970007}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E1FF817C-2353-4D33-8500-F5644B970007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1FF817C-2353-4D33-8500-F5644B970007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1FF817C-2353-4D33-8500-F5644B970007}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3C3F968B-0246-41F2-9459-02E92C5A940F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C3F968B-0246-41F2-9459-02E92C5A940F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C3F968B-0246-41F2-9459-02E92C5A940F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C3F968B-0246-41F2-9459-02E92C5A940F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6172A6E1-6F6A-4C5E-A8D4-A1FB543CA8C1}
+	EndGlobalSection
+EndGlobal

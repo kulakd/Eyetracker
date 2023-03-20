@@ -1,0 +1,6 @@
+﻿Typy używane we wszystkich projektach
+Nie powinna zawierać logiki
+
+Wersja .NET 2.0, żeby współpracowało z Unity3D
+
+Dodać typy wyjątków!!!

@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E126B5B-0396-4A69-9F2E-5A9B6BF2367D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GameLab.Eyetracking.EyetrackerControls</RootNamespace>
+    <AssemblyName>GameLab.Eyetracking.EyetrackingForms</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomCalibrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomCalibrationForm.Designer.cs">
+      <DependentUpon>CustomCalibrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomCalibrationFormEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EyetrackerCalibrationSettingsHelper.cs" />
+    <Compile Include="EyetrackerSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EyetrackerSettingsForm.Designer.cs">
+      <DependentUpon>EyetrackerSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GazeRuntimeAnalysisSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GazeRuntimeAnalysisSettingsForm.Designer.cs">
+      <DependentUpon>GazeRuntimeAnalysisSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OffsetCorrectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OffsetCorrectionForm.Designer.cs">
+      <DependentUpon>OffsetCorrectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OffsetCorrectionSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OffsetCorrectionSettingsForm.Designer.cs">
+      <DependentUpon>OffsetCorrectionSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pause\PauseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pause\PauseForm.Designer.cs">
+      <DependentUpon>PauseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pause\BasePauseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pause\BasePauseForm.Designer.cs">
+      <DependentUpon>BasePauseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pause\RestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pause\RestForm.Designer.cs">
+      <DependentUpon>RestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsConverters.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomCalibrationForm.resx">
+      <DependentUpon>CustomCalibrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EyetrackerSettingsForm.resx">
+      <DependentUpon>EyetrackerSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GazeRuntimeAnalysisSettingsForm.resx">
+      <DependentUpon>GazeRuntimeAnalysisSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OffsetCorrectionForm.resx">
+      <DependentUpon>OffsetCorrectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OffsetCorrectionSettingsForm.resx">
+      <DependentUpon>OffsetCorrectionSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pause\PauseForm.resx">
+      <DependentUpon>PauseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pause\BasePauseForm.resx">
+      <DependentUpon>BasePauseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pause\RestForm.resx">
+      <DependentUpon>RestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\GameLab.Core.csproj">
+      <Project>{198ddfac-1627-4f3d-9b8f-327e9f901fce}</Project>
+      <Name>GameLab.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\JacekMatulewski\Csv\CsvDocument\CsvDocument.csproj">
+      <Project>{bd01073f-60cb-4641-bca6-4e5ac1bb1479}</Project>
+      <Name>CsvDocument</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\JacekMatulewski\Settings\JacekMatulewski.Settings.Converters\JacekMatulewski.Settings.Converters.csproj">
+      <Project>{1b0fc9b0-018d-497a-b9b1-a7cfe37c8ab9}</Project>
+      <Name>JacekMatulewski.Settings.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\JacekMatulewski\Settings\Settings\JacekMatulewski.Settings.csproj">
+      <Project>{0baec146-a5b0-4aef-9b28-dd8bae8cfafc}</Project>
+      <Name>JacekMatulewski.Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EyetrackerControls\GameLab.Eyetracking.EyetrackerControls.csproj">
+      <Project>{48ffbcda-b606-4add-926d-f1f0a06cbac4}</Project>
+      <Name>GameLab.Eyetracking.EyetrackerControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eyetracker\GameLab.Eyetracking.Eyetracker.csproj">
+      <Project>{7447ce61-5819-4287-8624-277e186a469f}</Project>
+      <Name>GameLab.Eyetracking.Eyetracker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eyetracker_GazeDataReplay\GameLab.Eyetracking.Eyetracker_GazeDataReplay.csproj">
+      <Project>{a7e2ef07-b9a9-4a85-adcf-6432b973fee8}</Project>
+      <Name>GameLab.Eyetracking.Eyetracker_GazeDataReplay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eyetracker_Imitacja\GameLab.Eyetracking.Eyetracker_Imitation.csproj">
+      <Project>{7fe7dc86-be25-4610-a0b5-3b8fcfa5bedb}</Project>
+      <Name>GameLab.Eyetracking.Eyetracker_Imitation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eyetracker_Mirametrix\GameLab.Eyetracking.Eyetracker_OpenGaze.csproj">
+      <Project>{d0ae9194-9ee7-4faa-913a-6624ea2b19fe}</Project>
+      <Name>GameLab.Eyetracking.Eyetracker_OpenGaze</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eyetracker_SMI\GameLab.Eyetracking.Eyetracker_SMI.csproj">
+      <Project>{67d03428-30ec-412a-9dfc-00799271920b}</Project>
+      <Name>GameLab.Eyetracking.Eyetracker_SMI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eyetracker_TheEyeTribe\GameLab.Eyetracking.Eyetracker_TheEyeTribe.csproj">
+      <Project>{d0222711-0014-4b14-92c7-11a539b955af}</Project>
+      <Name>GameLab.Eyetracking.Eyetracker_TheEyeTribe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eyetracker_Tobii\GameLab.Eyetracking.Eyetracker_Tobii.csproj">
+      <Project>{e7a12b05-d87c-4e24-83bf-c0cc9f092815}</Project>
+      <Name>GameLab.Eyetracking.Eyetracker_Tobii</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameLab.Eyetracking.SimpleRuntimeGazeAnalysis\GameLab.Eyetracking.GazeRuntimeAnalysis.csproj">
+      <Project>{eabd5fd8-a5c3-4642-9115-e25ef7ada436}</Project>
+      <Name>GameLab.Eyetracking.GazeRuntimeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GazePositionSmoothingFilter\GameLab.Eyetracking.GazeSmoothingFilter.csproj">
+      <Project>{08b4e0c0-955e-4af9-87e9-3087d4b48918}</Project>
+      <Name>GameLab.Eyetracking.GazeSmoothingFilter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Opis.txt" />
+    <Content Include="Resources\kalibracja.png" />
+    <Content Include="Resources\kalibracja.wav" />
+    <Content Include="Resources\kalibracja0.png" />
+    <Content Include="Resources\kalibracja1.png" />
+    <Content Include="Resources\kalibracja2.png" />
+    <Content Include="Resources\kalibracja3.png" />
+    <Content Include="Resources\kalibracja4.png" />
+    <None Include="Resources\pauza.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
