@@ -1,4 +1,4 @@
-﻿namespace MauiApp1;
+﻿namespace Notifications;
 
 public partial class App : Application
 {
