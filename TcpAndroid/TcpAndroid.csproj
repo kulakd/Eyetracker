@@ -53,7 +53,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\EyeTest\PFEyeTracker\ConnectionsMaui\ConnectionsMaui.csproj" />
+	  <ProjectReference Include="..\PFEyeTracker\ConnectionsMaui\ConnectionsMaui.csproj" />
 	</ItemGroup>
 
 </Project>

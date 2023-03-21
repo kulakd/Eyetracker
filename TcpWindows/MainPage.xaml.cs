@@ -38,14 +38,14 @@ public partial class MainPage : ContentPage
 
         pokażAdresyIp();
 
-        faceCam.TrackEvent += FaceCam_TrackEvent;
+        faceCam.NewFrameEvent += FaceCam_TrackEvent;
         faceCam.Index = 0;
     }
 
-    private void FaceCam_TrackEvent(object sender, TrackEventArgs e)
+    private void FaceCam_TrackEvent(object sender, MemoryStream e)
     {
         if (connect != null)
-            connect.Video = e.Frame;
+            connect.Video = e;
     }
 
     private void TextReceived(object sender, string s)
