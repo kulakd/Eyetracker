@@ -1,7 +1,7 @@
 ﻿using Plugin.LocalNotification;
 using Plugin.Maui.Audio;
 
-namespace MauiApp1;
+namespace Notifications;
 
 public static class MauiProgram
 {

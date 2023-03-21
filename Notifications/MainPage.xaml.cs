@@ -53,7 +53,7 @@ public partial class MainPage : ContentPage
 
         var request = new NotificationRequest
         {
-            NotificationId = 1337,
+            NotificationId = 1338,
             Title = "Alarm.",
             Description = "Użytkownik rusza oczami.",
             BadgeNumber = 42,
@@ -73,7 +73,7 @@ public partial class MainPage : ContentPage
 
         var request = new NotificationRequest
         {
-            NotificationId = 1337,
+            NotificationId = 1339,
             Title = "Alarm!!!",
             Description = "Użytkownik krztusi się!!!",
             BadgeNumber = 42,
