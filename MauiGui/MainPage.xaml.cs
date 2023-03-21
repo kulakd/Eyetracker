@@ -25,18 +25,6 @@ public partial class MainPage : ContentPage
             Application.Current.CloseWindow(Application.Current.MainPage.Window);
             stan = -1;
         }
-        if (ComeBtn.IsPressed == true)
-        {
-            Labelka.Background = new SolidColorBrush(Colors.Yellow);
-            Labelka.Text = "YOUR KEEPERS HAVE BEEN INFORMED";
-            stan = 1;
-        }
-        if (HelpBtn.IsPressed == true)
-        {
-            Labelka.Background = new SolidColorBrush(Colors.Red);
-            Labelka.Text = "HELP IS ON THE WAY";
-            stan = 2;
-        }
     }
 }
 

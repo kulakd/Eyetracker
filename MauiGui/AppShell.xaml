@@ -4,20 +4,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiGui"
-    Shell.FlyoutBehavior="Disabled">
-
-    <TabBar>
-        <Tab Title="Switchboard">
-            <ShellContent Icon="on.png"  Title="SeeTaLater" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
-        </Tab>
-        <Tab Title="View">
-            <ShellContent Icon="camera.png" Title="SeeYaLater" ContentTemplate="{DataTemplate local:Camera}" Route="Camera" />
-        </Tab>
-        <Tab Title="Settings">
-            <ShellContent  Icon="gear.png" Title="SeeYaLater" ContentTemplate="{DataTemplate local:Settings}" Route="Settings" />
-        </Tab>
-        <Tab Title="Credits">
-            <ShellContent  Icon="books.png" Title="SeeYaLater" ContentTemplate="{DataTemplate local:Credits}" Route="Credits" />
-        </Tab>
-    </TabBar>
+    Shell.NavBarIsVisible="False"
+    >
+    <ShellContent Title="Centrala" Icon="on.png" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+    <ShellContent  Title="Podgląd Kamery" Icon="camera.png" ContentTemplate="{DataTemplate local:Camera}" Route="Camera" />
+    <ShellContent Title="Ustawienia"  Icon="gear.png"   ContentTemplate="{DataTemplate local:Settings}" Route="Settings" />
+    <ShellContent Title="Lista Płac" Icon="books.png"  ContentTemplate="{DataTemplate local:Credits}" Route="Credits" />
 </Shell>

@@ -50,6 +50,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\books.png" />
 	  <None Remove="Resources\Images\camera.png" />
+	  <None Remove="Resources\Images\dotnetbot.png" />
 	  <None Remove="Resources\Images\frog.png" />
 	  <None Remove="Resources\Images\gear.png" />
 	  <None Remove="Resources\Images\green.png" />

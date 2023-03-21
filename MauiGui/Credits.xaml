@@ -12,19 +12,19 @@
     </ContentPage.Resources>
     
     <VerticalStackLayout >
-        <Image Aspect="Center" Source="dotnet_bot.png"/>
+        <Image Aspect="Center" HeightRequest="400" WidthRequest="1000" Source="dotnetbot.png"/>
         <Label Text="/-------------------------------------------------------------------------------\" Style="{StaticResource authors}"/>
-        <Label Text="|MICROSOFT .NET MAUI EYE TRACKER APP CREATED BY:|" Style="{StaticResource authors}" />
+        <Label Text="|Aplikacja .NET MAUI EYETRACKERAPP stworzona przez:|" Style="{StaticResource authors}" />
         <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
         <Label Text="|          PROJECT MANAGER - KLAUDIA GACKOWSKA         |" Style="{StaticResource authors}"/>
         <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
-        <Label Text="|          EYE TRACKER CONNECTION - PIOTR FILIPSKI         |" Style="{StaticResource authors}"/>
+        <Label Text="|                Obsługa Eyetrackera - PIOTR FILIPSKI                |" Style="{StaticResource authors}"/>
         <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
-        <Label Text="|   CONNECTION - MACIEJ 'KOMANDOS' KOMOROWSKI   |" Style="{StaticResource authors}"/>
+        <Label Text="|      Połączenie - MACIEJ 'KOMANDOS' KOMOROWSKI     |" Style="{StaticResource authors}"/>
         <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
-        <Label Text="|                       APP UI - DAWID KUŁAKOWSKI                      |" Style="{StaticResource authors}"/>
+        <Label Text="|            Interfejs użytkownika - DAWID KUŁAKOWSKI       |" Style="{StaticResource authors}"/>
         <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
-        <Label Text="|           NOTIFICATIONS - MAKSYMILIAN KUDELSKI            |" Style="{StaticResource authors}"/>
+        <Label Text="|           Powiadomienia - MAKSYMILIAN KUDELSKI            |" Style="{StaticResource authors}"/>
         <Label Text="|                                                                                                  |" Style="{StaticResource authors}" />
         <Label Text="\-------------------------------------------------------------------------------/" Style="{StaticResource authors}"/>
     </VerticalStackLayout>

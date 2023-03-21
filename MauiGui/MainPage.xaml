@@ -3,36 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiGui.MainPage"
              BackgroundImageSource="green.png">
-    
+
     <ContentPage.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="CornerRadius" Value="90"/>
-            <Setter Property="BorderWidth" Value="5"/>
+            <Setter Property="BorderWidth" Value="2"/>
             <Setter Property="BorderColor" Value="Black"/>
             <Setter Property="FontSize" Value="50"/>
             <Setter Property="TextColor" Value="Black"/>
             <Setter Property="FontAttributes" Value="Bold"/>
         </Style>
-    </ContentPage.Resources>
-
-    <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*,*">
         
-        <Label x:Name="Labelka" Grid.Row="0"  Grid.Column="1" VerticalOptions="Center" 
-               HorizontalOptions="Center" FontAttributes="Bold" Background="Green" TextColor="Black"
-               FontSize="20" >HOW ARE YOU TODAY?</Label>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="600,*">
+        <Grid Grid.Row="0" ColumnDefinitions="*,*,*">
 
-        <Button x:Name="STOPbtn" BackgroundColor="Green" Text="I'M FINE" 
-                SemanticProperties.Hint="Turn Off" Grid.Row="1" Grid.Column="0" 
+            <Button x:Name="STOPbtn" BackgroundColor="Green"
+                SemanticProperties.Hint="Turn Off" Grid.Column="0" 
                 Clicked="ButtonPressed"  Style="{StaticResource ButtonStyle}"/>
 
-        <Button x:Name="ComeBtn" BackgroundColor="Yellow" Text="COME TO ME" 
-                SemanticProperties.Hint="Low-level alert" Grid.Row="1" Grid.Column="1" 
+            <Button x:Name="ComeBtn" BackgroundColor="Yellow"
+                SemanticProperties.Hint="Low-level alert" Grid.Column="1" 
                 Style="{StaticResource ButtonStyle}" Clicked="ButtonPressed"/>
 
-        <Button x:Name="HelpBtn" BackgroundColor="Red" Text="GET OVER HERE" 
-                SemanticProperties.Hint="High-level alert" Grid.Row="1" Grid.Column="2" 
+            <Button x:Name="HelpBtn" BackgroundColor="Red"
+                SemanticProperties.Hint="High-level alert" Grid.Column="2" 
                 Style="{StaticResource ButtonStyle}" Clicked="ButtonPressed"/>
-
-        <ProgressBar x:Name="Loading" ProgressColor="Lime" Margin="30" MinimumHeightRequest="50" Progress="0" Grid.Row="2" Grid.Column="1"/>
+        </Grid>
+        <ProgressBar x:Name="Loading" ProgressColor="Lime" Margin="30" MinimumHeightRequest="50" Progress="0" Grid.Row="1"/>
     </Grid>
 </ContentPage>
