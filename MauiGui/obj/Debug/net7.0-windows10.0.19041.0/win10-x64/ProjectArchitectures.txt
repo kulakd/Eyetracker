@@ -1,1 +1,1 @@
-C:\Users\dawid\source\repos\Eyetracker\MauiGui\MauiGui.csproj;x64
+C:\Users\macie\Desktop\Oczosledz\MauiGui\MauiGui.csproj;x64
