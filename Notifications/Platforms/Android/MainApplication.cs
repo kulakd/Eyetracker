@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace MauiApp1;
+namespace Notifications;
 
 [Application]
 public class MainApplication : MauiApplication

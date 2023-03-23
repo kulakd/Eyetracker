@@ -47,6 +47,25 @@
                 SemanticProperties.Hint="Alarm pacjent krztusi się!!!"
                 Clicked="Alarm3"
                 HorizontalOptions="Center" />
+            <Button
+                x:Name="stopButton"
+                Text="stopButton"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="stopButton_Clicked"
+                HorizontalOptions="Center" />
+            <Label
+                Text="Hello, World!"
+                x:Name="messageLabel"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="startButton"
+                Text="startButton"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="startButton_Clicked"
+                HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>
