@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GuiAndroid.Credits"
+             Title="Credits"
+             BackgroundImageSource="green.png">
+    <ContentPage.Resources>
+        <Style x:Key="authors" TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style> 
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout >
+        <Image Aspect="Center" HeightRequest="400" WidthRequest="1000" Source="dotnetbot.png"/>
+        <Label Text="/-------------------------------------------------------------------------------\" Style="{StaticResource authors}"/>
+        <Label Text="|Aplikacja .NET MAUI EYETRACKERAPP stworzona przez:|" Style="{StaticResource authors}" />
+        <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
+        <Label Text="|          PROJECT MANAGER - KLAUDIA GACKOWSKA         |" Style="{StaticResource authors}"/>
+        <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
+        <Label Text="|                Obsługa Eyetrackera - PIOTR FILIPSKI                |" Style="{StaticResource authors}"/>
+        <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
+        <Label Text="|      Połączenie - MACIEJ 'KOMANDOS' KOMOROWSKI     |" Style="{StaticResource authors}"/>
+        <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
+        <Label Text="|            Interfejs użytkownika - DAWID KUŁAKOWSKI       |" Style="{StaticResource authors}"/>
+        <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
+        <Label Text="|           Powiadomienia - MAKSYMILIAN KUDELSKI            |" Style="{StaticResource authors}"/>
+        <Label Text="|                                                                                                  |" Style="{StaticResource authors}" />
+        <Label Text="\-------------------------------------------------------------------------------/" Style="{StaticResource authors}"/>
+    </VerticalStackLayout>
+</ContentPage>
