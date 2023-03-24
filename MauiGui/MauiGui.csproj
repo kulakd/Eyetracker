@@ -62,6 +62,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\PFEyeTracker\ETracker\EyeTracker.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="Camera.xaml.cs">
 	    <DependentUpon>Camera.xaml</DependentUpon>
 	  </Compile>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiGui.ViewModel"
              x:Class="MauiGui.Camera"    
              BackgroundImageSource="green.png">
     <ContentPage.Resources>
@@ -13,9 +14,12 @@
             <Setter Property="FontAttributes" Value="Bold"/>
         </Style>
     </ContentPage.Resources>
-    
+    <ContentPage.BindingContext>
+        <vm:CameraVM />
+    </ContentPage.BindingContext>
+
     <Grid RowDefinitions="500,*" ColumnDefinitions="*">
-        <Image Grid.Row="0" HeightRequest="500" WidthRequest="1500" Source="frog.png"/>
+        <Image Grid.Row="0" HeightRequest="500" WidthRequest="1500" Source="{Binding Path=Video, Mode=OneWay}"/>
         <Grid Grid.Row="1" Grid.Column="0" ColumnDefinitions="*,20,*" Padding="10">
             <Button  Grid.Column="0" BackgroundColor="Green" Style="{StaticResource ButtonSt}"/>
             <Button  Grid.Column="2" BackgroundColor="Red" Style="{StaticResource ButtonSt}"/>
