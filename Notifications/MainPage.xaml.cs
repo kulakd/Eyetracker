@@ -18,7 +18,6 @@ public partial class MainPage : ContentPage
         LocalNotificationCenter.Current.NotificationActionTapped += Current_NotificationActionTapped;
 
         // Wyłączenie przycisku "Wyłącz"
-        stopButton.IsEnabled = false;
     }
 
     private void Current_NotificationActionTapped(Plugin.LocalNotification.EventArgs.NotificationActionEventArgs e)
@@ -92,7 +91,7 @@ public partial class MainPage : ContentPage
     {
         var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("loud_alarm.wav"));
         player.Play();
-        int secondsToVibrate = Random.Shared.Next(1, 7);
+        int secondsToVibrate = Random.Shared.Next(1, 2);
         TimeSpan vibrationLength = TimeSpan.FromSeconds(secondsToVibrate);
 
         Vibration.Default.Vibrate(vibrationLength);
@@ -104,25 +103,23 @@ public partial class MainPage : ContentPage
 
         // Włączenie aktywności budzika
         alarmActive = true;
-
+        ShowOptionsButton_Clicked();
         // Zablokowanie przycisku "Uruchom" i odblokowanie przycisku "Wyłącz"
         startButton.IsEnabled = false;
-        stopButton.IsEnabled = true;
 
 
     }
 
-    private void stopButton_Clicked(object sender, EventArgs e)
+    private void stopButton_Clicked()
     {
         // Wyłączenie aktywności budzika
         alarmActive = false;
 
         // Odblokowanie przycisku "Uruchom" i zablokowanie przycisku "Wyłącz"
         startButton.IsEnabled = true;
-        stopButton.IsEnabled = false;
 
         // Aktualizacja etykiety z komunikatem o stanie 
-        messageLabel.Text = "Alarm wyłączony";
+       
     }
 
     protected override async void OnAppearing()
@@ -145,11 +142,30 @@ public partial class MainPage : ContentPage
             }
 
             // Uspienie wątku na 1 sekundę
-            await System.Threading.Tasks.Task.Delay(1000);
+            await System.Threading.Tasks.Task.Delay(2000);
         }
     }
 
 
+    private async void ShowOptionsButton_Clicked()
+    {
+        string action = await DisplayActionSheet("Select an action", "", null, "Akcept", "nie akcept");
 
+        switch (action)
+        {
+            case "Akcept":
+                stopButton_Clicked();
+                break;
+
+            case "nie akcept":
+                stopButton_Clicked();
+                break;
+
+      
+
+            default:
+                break;
+        }
+    }
 
 }
