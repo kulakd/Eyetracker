@@ -52,4 +52,13 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Model\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\PFEyeTracker\ConnectionsMaui\ConnectionsMaui.csproj" />
+	  <ProjectReference Include="..\PFEyeTracker\ETracker\EyeTracker.csproj" />
+	</ItemGroup>
+
 </Project>
