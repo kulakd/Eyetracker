@@ -161,7 +161,7 @@ public partial class MainPage : ContentPage
                 stopButton_Clicked();
                 break;
 
-      
+ 
 
             default:
                 break;
