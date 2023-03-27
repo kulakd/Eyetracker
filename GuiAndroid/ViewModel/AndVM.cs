@@ -19,12 +19,15 @@ namespace GuiAndroid.ViewModel
                 MemoryStream tmp = _video;
                 _video = value;
                 tmp.Dispose();
+                OnPropertyChanged(nameof(Video));
             }
         }
 
+        public ImageSource Video => ImageSource.FromStream(() => video);
+
         public AndVM()
         {
-
+            model.Connection.ImageReceived += (s, im) => video = im;
         }
     }
 }

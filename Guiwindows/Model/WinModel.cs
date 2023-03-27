@@ -1,5 +1,6 @@
 ﻿using Connections;
 using EyeTracker;
+using QRCoder;
 using System.Net;
 using System.Runtime.Versioning;
 
@@ -57,5 +58,10 @@ namespace MauiGui.Model
             cam.Stop();
             connection.Disconnect();
         }
+
+        #region QR
+        private readonly QRCodeGenerator generator = new QRCodeGenerator();
+
+        #endregion
     }
 }

@@ -52,6 +52,7 @@ public partial class MainPage : ContentPage
         var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("alarm-clock-short.wav"));
         player.Play();
     }
+
     private void Alarm2(object sender, EventArgs e)
     {
         AlarmSound2();
