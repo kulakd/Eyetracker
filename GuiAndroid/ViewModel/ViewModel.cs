@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MauiGui.ViewModel
+namespace MVVMKit
 {
     public abstract class ViewModel : INotifyPropertyChanged
     {

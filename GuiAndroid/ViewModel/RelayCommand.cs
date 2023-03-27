@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace MauiGui.ViewModel
+namespace MVVMKit
 {
     public class RelayCommand : ICommand
     {
