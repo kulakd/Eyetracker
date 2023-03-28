@@ -50,7 +50,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Plugin.LocalNotification" Version="10.0.2" />
-	  <PackageReference Include="Plugin.Maui.Audio" Version="0.1.0-preview2" />
+	  <PackageReference Include="Plugin.Maui.Audio" Version="1.0.0" />
 	</ItemGroup>
 
 </Project>

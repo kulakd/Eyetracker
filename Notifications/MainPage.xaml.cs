@@ -3,94 +3,80 @@ using Android.Media;
 using Plugin.LocalNotification;
 using Plugin.Maui.Audio;
 using static Android.Webkit.ConsoleMessage;
+using AudioManager = Plugin.Maui.Audio.AudioManager;
 
 namespace Notifications;
 
 public partial class MainPage : ContentPage
 {
-    private readonly IAudioManager audioManager;
+    //private readonly IAudioManager audioManager;
     private bool alarmActive;
-    public MainPage(IAudioManager audioManager)
+    public MainPage()
     {
         InitializeComponent();
-        this.audioManager = audioManager;
-
-        LocalNotificationCenter.Current.NotificationActionTapped += Current_NotificationActionTapped;
-
+        //this.audioManager = audioManager;
         // Wyłączenie przycisku "Wyłącz"
     }
 
-    private void Current_NotificationActionTapped(Plugin.LocalNotification.EventArgs.NotificationActionEventArgs e)
-    {
-        if (e.IsDismissed)
-        {
+    //private void Alarm1(object sender, EventArgs e)
+    //{
+    //    AlarmSound1();
 
-        }
-        else if (e.IsTapped)
-        {
+    //    NotificationRequest request = new NotificationRequest
+    //    {
+    //        NotificationId = 1337,
+    //        Title = "Alarm.",
+    //        Description = "Użytkownik otworzył oczy.",
+    //        BadgeNumber = 42,
+    //    };
 
-        }
-    }
+    //    LocalNotificationCenter.Current.Show(request);
+    //}
 
-    private void Alarm1(object sender, EventArgs e)
-    {
-        AlarmSound1();
+    //private async void AlarmSound1()
+    //{
+    //    IAudioPlayer player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("alarm-clock-short.wav"));
+    //    player.Play();
+    //}
 
-        var request = new NotificationRequest
-        {
-            NotificationId = 1337,
-            Title = "Alarm.",
-            Description = "Użytkownik otworzył oczy.",
-            BadgeNumber = 42,
-        };
+    //private void Alarm2(object sender, EventArgs e)
+    //{
+    //    AlarmSound2();
 
-        LocalNotificationCenter.Current.Show(request);
-    }
+    //    NotificationRequest request = new NotificationRequest
+    //    {
+    //        NotificationId = 1338,
+    //        Title = "Alarm.",
+    //        Description = "Użytkownik rusza oczami.",
+    //        BadgeNumber = 42,
+    //    };
 
-    private async void AlarmSound1()
-    {
-        var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("alarm-clock-short.wav"));
-        player.Play();
-    }
+    //    LocalNotificationCenter.Current.Show(request);
+    //}
 
-    private void Alarm2(object sender, EventArgs e)
-    {
-        AlarmSound2();
+    //private async void AlarmSound2()
+    //{
+    //    IAudioPlayer player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("alarm2.mp3"));
+    //    player.Play();
+    //}
+    //private void Alarm3(object sender, EventArgs e)
+    //{
+    //    AlarmSound3();
 
-        var request = new NotificationRequest
-        {
-            NotificationId = 1338,
-            Title = "Alarm.",
-            Description = "Użytkownik rusza oczami.",
-            BadgeNumber = 42,
-        };
+    //    NotificationRequest request = new NotificationRequest
+    //    {
+    //        NotificationId = 1339,
+    //        Title = "Alarm!!!",
+    //        Description = "Użytkownik krztusi się!!!",
+    //        BadgeNumber = 42,
+    //    };
 
-        LocalNotificationCenter.Current.Show(request);
-    }
-
-    private async void AlarmSound2()
-    {
-        var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("alarm2.mp3"));
-        player.Play();
-    }
-    private void Alarm3(object sender, EventArgs e)
-    {
-        AlarmSound3();
-
-        var request = new NotificationRequest
-        {
-            NotificationId = 1339,
-            Title = "Alarm!!!",
-            Description = "Użytkownik krztusi się!!!",
-            BadgeNumber = 42,
-        };
-
-        LocalNotificationCenter.Current.Show(request);
-    }
+    //    LocalNotificationCenter.Current.Show(request);
+    //}
 
     private async void AlarmSound3()
     {
-        var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("loud_alarm.wav"));
+        IAudioPlayer player = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("loud_alarm.wav"));
         player.Play();
         int secondsToVibrate = Random.Shared.Next(1, 2);
         TimeSpan vibrationLength = TimeSpan.FromSeconds(secondsToVibrate);
