@@ -48,6 +48,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\aaaa.png" />
+	  <None Remove="Resources\Images\abcdefghijk.png" />
 	  <None Remove="Resources\Images\books.png" />
 	  <None Remove="Resources\Images\camera.png" />
 	  <None Remove="Resources\Images\dotnetbot.png" />
@@ -55,6 +57,7 @@
 	  <None Remove="Resources\Images\gear.png" />
 	  <None Remove="Resources\Images\green.png" />
 	  <None Remove="Resources\Images\on.png" />
+	  <None Remove="Resources\Images\zielen.png" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -70,5 +70,6 @@ namespace MauiGui.Model
         }
 
         #endregion
+
     }
 }

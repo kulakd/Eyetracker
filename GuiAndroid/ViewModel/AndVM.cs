@@ -37,8 +37,8 @@ namespace GuiAndroid.ViewModel
         public ICommand Click
         {
             get {
-                if (click == null)
-                    click = new RelayCommand();
+                //if (click == null)
+                   //click = new RelayCommand();
                 return click; }
         }
 
