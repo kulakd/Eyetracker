@@ -10,11 +10,12 @@ namespace GuiAndroid.Model
     public class AndModel
     {
         public readonly P2PTCPVideoConnection Connection = new P2PTCPVideoConnection();
-        private ConnectionSettings settings = new ConnectionSettings();
+     //   private readonly ConnectionSettings settings = new ConnectionSettings();
 
         public AndModel()
         {
-            Connection.Connect(settings);
+       //     Connection.Connect(settings);
+       
         }
     }
 }

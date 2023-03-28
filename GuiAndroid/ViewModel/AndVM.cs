@@ -1,4 +1,7 @@
-﻿using GuiAndroid.Model;
+﻿using Android.App;
+using GuiAndroid.Model;
+using MVVMKit;
+using System.Windows.Input;
 
 namespace GuiAndroid.ViewModel
 {
@@ -28,6 +31,19 @@ namespace GuiAndroid.ViewModel
         public AndVM()
         {
             model.Connection.ImageReceived += (s, im) => video = im;
+        }
+
+        private ICommand click;
+        public ICommand Click
+        {
+            get {
+                if (click == null)
+                    click = new RelayCommand();
+                return click; }
+        }
+
+        public async void Dialog()
+        {
         }
     }
 }

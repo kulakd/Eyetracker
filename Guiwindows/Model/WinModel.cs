@@ -23,12 +23,15 @@ namespace MauiGui.Model
         private CamTracker cam = new CamTracker();
         public CamTracker Camera => cam;
 
-        private P2PTCPVideoConnection connection = new P2PTCPVideoConnection();
-        private ConnectionSettings settings = new ConnectionSettings(IPAddress.Loopback, 223711, 223712);
-        //TODO: connection init via bt
+        private readonly P2PTCPVideoConnection connection = new P2PTCPVideoConnection();
+        private readonly ConnectionSettings settings;
 
         public WinModel()
         {
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+            IPAddress add = host.AddressList[0];
+            settings = new ConnectionSettings(add, 223711, 223712);
+
             cam.NewFrameEvent += (s, f) =>
             {
                 if (connection.SenderConnectionState == ConnectionState.Connected) // czy trzeba sprawdzać?
@@ -61,6 +64,10 @@ namespace MauiGui.Model
 
         #region QR
         private readonly QRCodeGenerator generator = new QRCodeGenerator();
+
+        private void CreateQR()
+        {
+        }
 
         #endregion
     }
