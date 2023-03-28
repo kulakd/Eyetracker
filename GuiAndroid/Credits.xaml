@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GuiAndroid.Credits"
              Title="Credits"
-             BackgroundImageSource="zielen.jpg">
+             BackgroundImageSource="zielen.jpg"
+             >
     <ContentPage.Resources>
         <Style x:Key="authors" TargetType="Label">
             <Setter Property="VerticalTextAlignment" Value="Center" />
@@ -16,19 +17,22 @@
     
     <VerticalStackLayout >
         <Image Aspect="Center" HeightRequest="400" WidthRequest="1000" Source="dotnetbot.png"/>
-        <Label Text="/-------------------------------------------------------------------------------\" Style="{StaticResource authors}"/>
-        <Label Text="|Aplikacja .NET MAUI EYETRACKERAPP stworzona przez:|" Style="{StaticResource authors}" />
-        <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
-        <Label Text="|          PROJECT MANAGER - KLAUDIA GACKOWSKA         |" Style="{StaticResource authors}"/>
-        <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
-        <Label Text="|                Obsługa Eyetrackera - PIOTR FILIPSKI                |" Style="{StaticResource authors}"/>
-        <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
-        <Label Text="|      Połączenie - MACIEJ 'KOMANDOS' KOMOROWSKI     |" Style="{StaticResource authors}"/>
-        <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
-        <Label Text="|            Interfejs użytkownika - DAWID KUŁAKOWSKI       |" Style="{StaticResource authors}"/>
-        <Label Text="|                                                                                                  |" Style="{StaticResource authors}"/>
-        <Label Text="|           Powiadomienia - MAKSYMILIAN KUDELSKI            |" Style="{StaticResource authors}"/>
-        <Label Text="|                                                                                                  |" Style="{StaticResource authors}" />
-        <Label Text="\-------------------------------------------------------------------------------/" Style="{StaticResource authors}"/>
-    </VerticalStackLayout>
+        <Label Text="APLIKACJA .NET MAUI STWORZONA POD PATRONATEM PROF. UMK DR HAB. JACKA MATULEWSKIEGO PRZEZ ZESPÓŁ:" Style="{StaticResource authors}" />
+        <Label Text=""/>
+        <Label Text="PROJECT MANAGER" Style="{StaticResource authors}"/>
+        <Label Text="KLAUDIA GACKOWSKA" Style="{StaticResource authors}"/>
+        <Label Text=""/>
+        <Label Text="OBSŁUGA EYETRACKERA" Style="{StaticResource authors}"/>
+        <Label Text="PIOTR FILIPSKI" Style="{StaticResource authors}"/>
+        <Label Text=""/>
+        <Label Text="POŁĄCZENIE I MOBLIZACJA ODDZIAŁÓW LĄDOWYCH" Style="{StaticResource authors}"/>
+        <Label Text="MACIEJ 'KOMANDOS' KOMOROWSKI" Style="{StaticResource authors}"/>
+        <Label Text=""/>
+        <Label Text="INTERFEJS UŻYTKOWNIKA" Style="{StaticResource authors}"/>
+        <Label Text="DAWID KUŁAKOWSKI" Style="{StaticResource authors}"/>
+        <Label Text=""/>
+        <Label Text="SYSTEM POWIADOMIEŃ" Style="{StaticResource authors}"/>
+        <Label Text="MAKSYMILIAN KUDELSKI" Style="{StaticResource authors}"/>
+        <Label Text=""/>
+        </VerticalStackLayout>
 </ContentPage>
