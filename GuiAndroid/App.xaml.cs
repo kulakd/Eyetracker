@@ -1,11 +1,16 @@
-﻿namespace GuiAndroid;
+﻿using Notifications;
+
+namespace GuiAndroid;
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
-
-		MainPage = new AppShell();
-	}
+	public static IServiceProvider Services { get; private set; }
+	public static IAlertService AlertServices { get; private set; }
+    public App(IServiceProvider provider)
+    {
+        InitializeComponent();
+        Services = provider;
+        AlertServices = Services.GetService<IAlertService>();
+        MainPage = new AppShell();
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using GuiAndroid.Model;
+using System.Net;
 using System.Windows.Input;
 
 namespace GuiAndroid.ViewModel
