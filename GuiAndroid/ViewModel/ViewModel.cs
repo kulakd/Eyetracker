@@ -1,14 +1,4 @@
-﻿using Android.App;
-using GuiAndroid.Model;
-using GuiAndroid.ViewModel;
-using MVVMKit;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.ComponentModel;
 
 namespace MVVMKit
 {

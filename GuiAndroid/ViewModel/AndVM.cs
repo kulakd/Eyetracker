@@ -1,6 +1,4 @@
-﻿using Android.App;
-using GuiAndroid.Model;
-using MVVMKit;
+﻿using GuiAndroid.Model;
 using System.Windows.Input;
 
 namespace GuiAndroid.ViewModel

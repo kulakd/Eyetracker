@@ -1,7 +1,4 @@
-﻿using Connections;
-using CoreData;
-
-namespace GuiAndroid;
+﻿namespace GuiAndroid;
 
 public partial class AppShell : Shell
 {
@@ -9,4 +6,6 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 	}
+
+
 }
