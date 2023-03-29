@@ -24,8 +24,10 @@ namespace MauiGui.Model
         private CamTracker cam = new CamTracker();
         public CamTracker Camera => cam;
 
-        private readonly P2PTCPVideoConnection connection = new P2PTCPVideoConnection();
-        private readonly ConnectionSettings settings;
+        public readonly P2PTCPVideoConnection Connection = new P2PTCPVideoConnection();
+        public readonly ConnectionSettings Settings;
+
+        public readonly string Address;
 
         public event EventHandler<string> Alert;
         private void FireAlert(string message)
@@ -37,19 +39,19 @@ namespace MauiGui.Model
         {
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
             IPAddress add = host.AddressList[0];
-            settings = new ConnectionSettings(add, 223711, 223712);
+            Settings = new ConnectionSettings(add, 223711, 223712);
 
             cam.NewFrameEvent += (s, f) =>
             {
-                if (connection.SenderConnectionState == ConnectionState.Connected) // czy trzeba sprawdzać?
-                    connection.Video = f;
+                if (Connection.SenderConnectionState == ConnectionState.Connected) // czy trzeba sprawdzać?
+                    Connection.Video = f;
             };
             cam.Index = 0;
         }
 
         public void Start()
         {
-            FireAlert($"Connect on {settings}");
+            FireAlert($"Connect on {Settings}");
             Task.Run(LoopWait);
         }
 
@@ -66,12 +68,12 @@ namespace MauiGui.Model
         }
 
         public async Task<bool> AwaitConnection() =>
-            await Task.FromResult(connection.WaitForConnection(settings));
+            await Task.FromResult(Connection.WaitForConnection(Settings));
 
         public void OnClose()
         {
             cam.Stop();
-            connection.Disconnect();
+            Connection.Disconnect();
         }
 
         #region QR 

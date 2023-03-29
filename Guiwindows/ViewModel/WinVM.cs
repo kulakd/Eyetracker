@@ -2,6 +2,7 @@
 using MVVMKit;
 using System.Runtime.Versioning;
 using System.Windows.Input;
+using Connections;
 
 namespace Guiwindows.ViewModel
 {
@@ -10,11 +11,28 @@ namespace Guiwindows.ViewModel
     {
         private readonly WinModel model;
 
+        public bool ShowIP { get; private set; }
+        public bool ShowBtns { get; private set; }
+        public string Address => model.Settings.ToString();
+
         public WinVM()
         {
             model = new WinModel();
             model.Alert += (s, m) => App.AlertServices.AlertAsync("Connection", m, "ok");
+            model.Connection.ConnectionStateChanged += ConnectionStateChanged;
             model.Start();
+            OnPropertyChanged(nameof(Address));
+        }
+
+        private void ConnectionStateChanged(object sender, ConnectionEventEventArgs e)
+        {
+            ShowIP =
+                e.SenderState == ConnectionState.NotConnected ||
+                e.ReceiverState == ConnectionState.NotConnected;
+            ShowBtns =
+                e.SenderState == ConnectionState.Connected &&
+                e.ReceiverState == ConnectionState.Connected;
+            OnPropertyChanged(nameof(ShowIP), nameof(ShowBtns));
         }
 
         private ICommand stop;

@@ -23,17 +23,18 @@
     <Grid RowDefinitions="800,*">
         <Grid Grid.Row="0" ColumnDefinitions="*,*,*">
 
-            <Button x:Name="STOPbtn" BackgroundColor="Green"
+            <Button x:Name="STOPbtn" BackgroundColor="Green" IsVisible="{Binding Path=ShowBtns,Mode=OneWay}"
                 SemanticProperties.Hint="Turn Off" Grid.Column="0" 
                 Command="{Binding Path=Stop}"  Style="{StaticResource ButtonStyle}"/>
 
-            <Button x:Name="ComeBtn" BackgroundColor="Yellow"
+            <Button x:Name="ComeBtn" BackgroundColor="Yellow" IsVisible="{Binding Path=ShowBtns,Mode=OneWay}"
                 SemanticProperties.Hint="Low-level alert" Grid.Column="1" 
                 Command="{Binding Path=Come}" Style="{StaticResource ButtonStyle}" />
 
-            <Button x:Name="HelpBtn" BackgroundColor="Red"
+            <Button x:Name="HelpBtn" BackgroundColor="Red" IsVisible="{Binding Path=ShowBtns,Mode=OneWay}"
                 SemanticProperties.Hint="High-level alert" Grid.Column="2" 
                 Command="{Binding Path=Help}" Style="{StaticResource ButtonStyle}" />
+            <Label Text="{Binding Path=Address, Mode=OneWay}" IsVisible="{Binding Path=ShowIP,Mode=OneWay}" />
         </Grid>
         <ProgressBar x:Name="Loading" ProgressColor="Lime" Margin="30" MinimumHeightRequest="50" Progress="0" Grid.Row="1"/>
     </Grid>
