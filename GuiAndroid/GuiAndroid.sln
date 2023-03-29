@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuiAndroid", "GuiAndroid.cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectionsMaui", "..\PFEyeTracker\ConnectionsMaui\ConnectionsMaui.csproj", "{5FC9D573-02D8-4685-95CC-5CBB2C2DB6A3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifications", "..\Notifications\Notifications\Notifications.csproj", "{2F50677B-815B-4BBC-8007-EA605B0DC669}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{5FC9D573-02D8-4685-95CC-5CBB2C2DB6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FC9D573-02D8-4685-95CC-5CBB2C2DB6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FC9D573-02D8-4685-95CC-5CBB2C2DB6A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F50677B-815B-4BBC-8007-EA605B0DC669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F50677B-815B-4BBC-8007-EA605B0DC669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F50677B-815B-4BBC-8007-EA605B0DC669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F50677B-815B-4BBC-8007-EA605B0DC669}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

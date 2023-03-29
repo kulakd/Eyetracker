@@ -1,4 +1,5 @@
 ﻿using GuiAndroid.Model;
+using System.Net;
 using System.Windows.Input;
 
 namespace GuiAndroid.ViewModel
@@ -42,6 +43,17 @@ namespace GuiAndroid.ViewModel
 
         public async void Dialog()
         {
+        }
+
+        public async void OnCall()
+        {
+            var Potwierdzenie = Application.Current.MainPage.DisplayAlert(
+               "Adres IP 100%",
+               message: $"Przygotuj adres IP do wpisania",
+               "Okey"
+            );
+
+  
         }
 
     }
