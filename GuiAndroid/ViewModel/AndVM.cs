@@ -45,5 +45,6 @@ namespace GuiAndroid.ViewModel
         public async void Dialog()
         {
         }
+
     }
 }

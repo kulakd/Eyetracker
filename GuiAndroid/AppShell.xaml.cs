@@ -1,4 +1,7 @@
-﻿namespace GuiAndroid;
+﻿using Connections;
+using CoreData;
+
+namespace GuiAndroid;
 
 public partial class AppShell : Shell
 {
