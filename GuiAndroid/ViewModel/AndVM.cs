@@ -45,16 +45,5 @@ namespace GuiAndroid.ViewModel
         {
         }
 
-        public async void OnCall()
-        {
-            var Potwierdzenie = Application.Current.MainPage.DisplayAlert(
-               "Adres IP 100%",
-               message: $"Przygotuj adres IP do wpisania",
-               "Okey"
-            );
-
-  
-        }
-
     }
 }
