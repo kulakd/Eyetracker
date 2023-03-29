@@ -1,5 +1,6 @@
 ﻿using GuiAndroid.Model;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Input;
 
 namespace GuiAndroid.ViewModel
@@ -30,6 +31,7 @@ namespace GuiAndroid.ViewModel
         public AndVM()
         {
             model.Connection.ImageReceived += (s, im) => video = im;
+            //public string IpAddress = IPAddress
         }
 
         private ICommand click;
@@ -44,6 +46,7 @@ namespace GuiAndroid.ViewModel
         public async void Dialog()
         {
         }
+
 
     }
 }
