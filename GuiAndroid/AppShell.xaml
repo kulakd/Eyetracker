@@ -16,7 +16,8 @@
             <Grid ColumnDefinitions="0.2*,0.8*">
                 <Image Source="{Binding FlyoutIcon}"
                        Margin="5"
-                       HeightRequest="45" />
+                       HeightRequest="50" 
+                       WidthRequest="100"/>
                 <Label Grid.Column="1"
                        Text="{Binding Title}"
                        FontAttributes="Bold"

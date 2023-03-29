@@ -17,8 +17,8 @@
     <Grid RowDefinitions="500,*" ColumnDefinitions="*">
         <Image Grid.Row="0" HeightRequest="500" WidthRequest="1500" Source="{Binding Path=Video, Mode=OneWay}"/>
         <Grid Grid.Row="1" Grid.Column="0" ColumnDefinitions="*,20,*" Padding="10">
-            <Button  Grid.Column="0" BackgroundColor="Green" Style="{StaticResource ButtonSt}"/>
-            <Button  Grid.Column="2" BackgroundColor="Red" Style="{StaticResource ButtonSt}"/>
+            <Button  Grid.Column="0" BackgroundColor="Green" Style="{StaticResource ButtonSt}" Clicked="GreenButtonClicked"/>
+            <Button  Grid.Column="2" BackgroundColor="Red" Style="{StaticResource ButtonSt}"  Clicked="RedButtonClicked"/>
         </Grid>
     </Grid>
 </ContentPage>
