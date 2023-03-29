@@ -1,5 +1,6 @@
 ﻿using Connections;
 using EyeTracker;
+using Notifications;
 using QRCoder;
 using System.Net;
 using System.Runtime.Versioning;
@@ -26,6 +27,12 @@ namespace MauiGui.Model
         private readonly P2PTCPVideoConnection connection = new P2PTCPVideoConnection();
         private readonly ConnectionSettings settings;
 
+        public event EventHandler<string> Alert;
+        private void FireAlert(string message)
+        {
+            if (Alert != null) Alert(this, message);
+        }
+
         public WinModel()
         {
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
@@ -38,6 +45,11 @@ namespace MauiGui.Model
                     connection.Video = f;
             };
             cam.Index = 0;
+        }
+
+        public void Start()
+        {
+            FireAlert($"Connect on {settings}");
             Task.Run(LoopWait);
         }
 

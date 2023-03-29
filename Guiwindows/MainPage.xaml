@@ -25,15 +25,15 @@
 
             <Button x:Name="STOPbtn" BackgroundColor="Green"
                 SemanticProperties.Hint="Turn Off" Grid.Column="0" 
-                Clicked="ButtonPressed"  Style="{StaticResource ButtonStyle}"/>
+                Command="{Binding Path=Stop}"  Style="{StaticResource ButtonStyle}"/>
 
             <Button x:Name="ComeBtn" BackgroundColor="Yellow"
                 SemanticProperties.Hint="Low-level alert" Grid.Column="1" 
-                Style="{StaticResource ButtonStyle}" Clicked="ButtonPressed"/>
+                Command="{Binding Path=Come}" Style="{StaticResource ButtonStyle}" />
 
             <Button x:Name="HelpBtn" BackgroundColor="Red"
                 SemanticProperties.Hint="High-level alert" Grid.Column="2" 
-                Style="{StaticResource ButtonStyle}" Clicked="ButtonPressed"/>
+                Command="{Binding Path=Help}" Style="{StaticResource ButtonStyle}" />
         </Grid>
         <ProgressBar x:Name="Loading" ProgressColor="Lime" Margin="30" MinimumHeightRequest="50" Progress="0" Grid.Row="1"/>
     </Grid>
