@@ -11,6 +11,7 @@ public partial class MainPage : ContentPage
         Runnin(flaga);
 #endif
     }
+
     async void Runnin(bool flaga)
     {
         await Loading.ProgressTo(1, 60000, Easing.Linear);

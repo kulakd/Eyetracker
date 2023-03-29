@@ -1,4 +1,4 @@
-﻿namespace GuiAndroid;
+﻿namespace Notifications;
 
 public partial class AppShell : Shell
 {
@@ -6,6 +6,4 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 	}
-
-
 }

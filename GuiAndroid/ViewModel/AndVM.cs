@@ -1,6 +1,4 @@
-﻿using Android.App;
-using GuiAndroid.Model;
-using MVVMKit;
+﻿using GuiAndroid.Model;
 using System.Windows.Input;
 
 namespace GuiAndroid.ViewModel
@@ -37,13 +35,14 @@ namespace GuiAndroid.ViewModel
         public ICommand Click
         {
             get {
-                if (click == null)
-                    click = new RelayCommand();
+                //if (click == null)
+                   //click = new RelayCommand();
                 return click; }
         }
 
         public async void Dialog()
         {
         }
+
     }
 }
