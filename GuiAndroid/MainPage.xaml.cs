@@ -1,13 +1,18 @@
-﻿namespace GuiAndroid;
+﻿using GuiAndroid.Model;
+using GuiAndroid.ViewModel;
+
+namespace GuiAndroid;
 
 
 public partial class MainPage : ContentPage
 {
     public MainPage()
     {
+        Instance = this;
         InitializeComponent();
     }
 
+    public static MainPage Instance { get; private set; }
 
 
     private void GreenButtonClicked(object sender, EventArgs e)
