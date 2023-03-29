@@ -1,5 +1,7 @@
-﻿using GuiAndroid.Model;
+﻿using Connections;
+using GuiAndroid.Model;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Input;
 
 namespace GuiAndroid.ViewModel
@@ -30,6 +32,13 @@ namespace GuiAndroid.ViewModel
         public AndVM()
         {
             model.Connection.ImageReceived += (s, im) => video = im;
+
+            MainPage.Instance.Appearing += Instance_Appearing;            
+        }
+
+        private void Instance_Appearing(object sender, EventArgs e)
+        {
+            ConnectPlease();
         }
 
         private ICommand click;
@@ -45,5 +54,22 @@ namespace GuiAndroid.ViewModel
         {
         }
 
+        public async void ConnectPlease()
+        {
+            bool flaga = false;
+            while (!flaga)
+            {
+                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Podane");
+                try 
+                {
+                    ConnectionSettings CS = ConnectionSettings.Parse(IPaddress);
+                    flaga = model.Connection.Connect(CS);
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
+            }
+        }
     }
 }
