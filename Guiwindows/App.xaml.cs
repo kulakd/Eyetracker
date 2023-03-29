@@ -4,18 +4,18 @@ namespace Guiwindows;
 
 public partial class App : Application
 {
-    public static IServiceProvider Services;
-    public static IAlertService AlertService;
+    public static IServiceProvider Services { get; private set; }
+    public static IAlertService AlertServices { get; private set; }
 
-	public App(IServiceProvider provider)
-	{
-		InitializeComponent();
+    public App(IServiceProvider provider)
+    {
+        InitializeComponent();
 
         Services = provider;
-        AlertService = Services.GetService<AlertService>();
+        AlertServices = Services.GetService<IAlertService>();
 
-		MainPage = new AppShell();
-	}
+        MainPage = new AppShell();
+    }
 
     protected override Window CreateWindow(IActivationState activationState)
     {
