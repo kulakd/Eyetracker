@@ -62,7 +62,8 @@ namespace MauiGui.Model
             connection.Disconnect();
         }
 
-        #region QR
+        #region QR 
+        // na przyszłość
         private readonly QRCodeGenerator generator = new QRCodeGenerator();
 
         private void CreateQR()

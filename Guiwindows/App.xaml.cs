@@ -1,10 +1,18 @@
-﻿namespace Guiwindows;
+﻿using Notifications;
+
+namespace Guiwindows;
 
 public partial class App : Application
 {
-	public App()
+    public static IServiceProvider Services;
+    public static IAlertService AlertService;
+
+	public App(IServiceProvider provider)
 	{
 		InitializeComponent();
+
+        Services = provider;
+        AlertService = Services.GetService<AlertService>();
 
 		MainPage = new AppShell();
 	}

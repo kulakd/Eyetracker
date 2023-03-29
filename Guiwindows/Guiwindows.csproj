@@ -58,6 +58,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Notifications\Notifications\Notifications.csproj" />
 	  <ProjectReference Include="..\PFEyeTracker\ConnectionsMaui\ConnectionsMaui.csproj" />
 	  <ProjectReference Include="..\PFEyeTracker\ETracker\EyeTracker.csproj" />
 	</ItemGroup>

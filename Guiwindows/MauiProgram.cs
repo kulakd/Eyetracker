@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Notifications;
 
 namespace Guiwindows;
 
@@ -18,6 +19,8 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+
+		builder.Services.AddSingleton<IAlertService, AlertService>();
 
 		return builder.Build();
 	}
