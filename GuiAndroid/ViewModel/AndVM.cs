@@ -59,7 +59,7 @@ namespace GuiAndroid.ViewModel
             bool flaga = false;
             while (!flaga)
             {
-                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Podane");
+                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Podane","");
                 try 
                 {
                     ConnectionSettings CS = ConnectionSettings.Parse(IPaddress);
