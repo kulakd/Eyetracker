@@ -11,28 +11,39 @@ namespace Guiwindows.ViewModel
     {
         private readonly WinModel model;
 
-        public bool ShowIP { get; private set; }
-        public bool ShowBtns { get; private set; }
-        public string Address => model.Settings.ToString();
+        public bool NotConnected { get; private set; }
+        public bool Connected { get; private set; }
 
         public WinVM()
         {
             model = new WinModel();
             model.Alert += (s, m) => App.AlertServices.AlertAsync("Connection", m, "ok");
+            model.ConnectionAttempt += (s, m) => DisplayIP();
+
             model.Connection.ConnectionStateChanged += ConnectionStateChanged;
+
             model.Start();
-            OnPropertyChanged(nameof(Address));
+            Application.Current.MainPage.Appearing += (s, a) => Task.Run(DisplayIP);
         }
 
         private void ConnectionStateChanged(object sender, ConnectionEventEventArgs e)
         {
-            ShowIP =
+            NotConnected =
                 e.SenderState == ConnectionState.NotConnected ||
-                e.ReceiverState == ConnectionState.NotConnected;
-            ShowBtns =
+                e.ReceiverState == ConnectionState.NotConnected ||
+                e.SenderState == ConnectionState.Waiting ||
+                e.ReceiverState == ConnectionState.Waiting;
+            Connected =
                 e.SenderState == ConnectionState.Connected &&
                 e.ReceiverState == ConnectionState.Connected;
-            OnPropertyChanged(nameof(ShowIP), nameof(ShowBtns));
+            OnPropertyChanged(nameof(NotConnected), nameof(Connected));
+            if (Connected)
+                model.Camera.Index = 0;
+        }
+
+        private async void DisplayIP()
+        {
+            await App.AlertServices.AlertAsync("IP PLEASE", model.Settings.ToString(), "Maybe");
         }
 
         private ICommand stop;
@@ -44,10 +55,7 @@ namespace Guiwindows.ViewModel
             get
             {
                 if (stop == null)
-                    stop = new RelayCommand((o) =>
-                    {
-                        App.AlertServices.AlertAsync("ok", "ok", "ok");
-                    });
+                    stop = new RelayCommand((o) => DisplayIP());
                 return stop;
             }
         }

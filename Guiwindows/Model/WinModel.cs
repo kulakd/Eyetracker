@@ -27,18 +27,22 @@ namespace MauiGui.Model
         public readonly P2PTCPVideoConnection Connection = new P2PTCPVideoConnection();
         public readonly ConnectionSettings Settings;
 
-        public readonly string Address;
-
         public event EventHandler<string> Alert;
         private void FireAlert(string message)
         {
             if (Alert != null) Alert(this, message);
         }
 
+        public event EventHandler ConnectionAttempt;
+        private void FireCA()
+        {
+            if (ConnectionAttempt != null) ConnectionAttempt(this, EventArgs.Empty);
+        }
+
         public WinModel()
         {
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress add = host.AddressList[0];
+            IPAddress add = host.AddressList[1];
             Settings = new ConnectionSettings(add, 223711, 223712);
 
             cam.NewFrameEvent += (s, f) =>
@@ -46,7 +50,6 @@ namespace MauiGui.Model
                 if (Connection.SenderConnectionState == ConnectionState.Connected) // czy trzeba sprawdzać?
                     Connection.Video = f;
             };
-            cam.Index = 0;
         }
 
         public void Start()

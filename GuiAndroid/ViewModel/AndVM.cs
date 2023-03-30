@@ -33,7 +33,7 @@ namespace GuiAndroid.ViewModel
         {
             model.Connection.ImageReceived += (s, im) => video = im;
 
-            MainPage.Instance.Appearing += Instance_Appearing;            
+            Application.Current.MainPage.Appearing += Instance_Appearing;            
         }
 
         private void Instance_Appearing(object sender, EventArgs e)

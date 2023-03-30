@@ -26,6 +26,6 @@ namespace Connections
         }
 
         public override string ToString() =>
-           $"IP: {Address}; Send:Receive ports {SendPort}:{ReceivePort}";
+           $"{Address}:{SendPort}:{ReceivePort}";
     }
 }
