@@ -3,6 +3,7 @@ using MVVMKit;
 using System.Runtime.Versioning;
 using System.Windows.Input;
 using Connections;
+using Android.Views;
 
 namespace Guiwindows.ViewModel
 {
@@ -55,7 +56,7 @@ namespace Guiwindows.ViewModel
             get
             {
                 if (stop == null)
-                    stop = new RelayCommand((o) => DisplayIP());
+                    stop = new RelayCommand((o) => Application.Current.CloseWindow(Application.Current.MainPage.Window));
                 return stop;
             }
         }
@@ -80,5 +81,22 @@ namespace Guiwindows.ViewModel
 
         public void OnClose() => // wywołać to, jak się zamyka aplikacja
             model.OnClose();
+
+        //public ICommand ConnectoReparum
+        //{
+        //    get
+        //    {
+        //        {
+        //            bool flaga = false;
+        //            while (!flaga)
+        //            {
+        //                if (stop == null)
+        //                    stop = new RelayCommand((o) => DisplayIP());
+        //            }
+        //            return stop;
+        //        }
+        //    }
+        //}
+
     }
 }
