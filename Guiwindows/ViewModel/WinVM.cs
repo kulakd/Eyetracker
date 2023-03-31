@@ -3,7 +3,6 @@ using MVVMKit;
 using System.Runtime.Versioning;
 using System.Windows.Input;
 using Connections;
-using Android.Views;
 
 namespace Guiwindows.ViewModel
 {
@@ -56,7 +55,7 @@ namespace Guiwindows.ViewModel
             get
             {
                 if (stop == null)
-                    stop = new RelayCommand((o) => Application.Current.CloseWindow(Application.Current.MainPage.Window));
+                    stop = new RelayCommand((o) => { return; });
                 return stop;
             }
         }

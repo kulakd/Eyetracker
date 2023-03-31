@@ -64,4 +64,10 @@
 	  <ProjectReference Include="..\PFEyeTracker\ETracker\EyeTracker.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="View\IPPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
