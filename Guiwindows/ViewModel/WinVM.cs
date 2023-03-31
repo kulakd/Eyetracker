@@ -17,7 +17,7 @@ namespace Guiwindows.ViewModel
 
         public WinVM()
         {
-            model = new WinModel();
+            model = WinModel.Instance;
             model.Alert += (s, m) => App.AlertServices.AlertAsync("Connection", m, "ok");
             model.ConnectionAttempt += (s, m) => DisplayIP();
 
