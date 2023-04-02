@@ -10,8 +10,10 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
         double Y = (double)AndUstawienia.Przycisk();
+        string t = AndUstawienia.Tlo();
         green.ScaleY = Y / 100;
         red.ScaleY = Y / 100;
+        BackgroundImageSource = t + ".png";
     }
 
     private void GreenButtonClicked(object sender, EventArgs e)

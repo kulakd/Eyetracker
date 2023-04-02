@@ -9,7 +9,9 @@ public partial class Settings : ContentPage
 		InitializeComponent();
         sliderB.Value = AndUstawienia.Przycisk();
         sliderC.Value = AndUstawienia.Czcionka();
+        picker.SelectedItem = AndUstawienia.Tlo();
 	}
+
 
     private void sliders_ValueChanged(object sender, EventArgs e)
     {
@@ -21,9 +23,10 @@ public partial class Settings : ContentPage
 
     private void Zapis(object sender, EventArgs e)
     {
-        test.Text = "Zapisano";
+        test.Text = "Zapisano" + " " + picker.SelectedItem + ".png";
         int b = (int)sliderB.Value;
         int c = (int)sliderC.Value;
-        AndUstawienia.Zapisz(b, c);
+        string t = picker.SelectedItem.ToString();
+        AndUstawienia.Zapisz(b, c, t);
     }
 }

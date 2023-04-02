@@ -8,10 +8,11 @@ namespace GuiAndroid.Model
 {
     public class AndUstawienia
     { 
-        public static void Zapisz(int b, int c)
+        public static void Zapisz(int b, int c, string t)
         {
             Preferences.Default.Set("Rozmiar_przyciskow", b);
             Preferences.Default.Set("Rozmiar_czcionki", c);
+            Preferences.Default.Set("Tlo", t);
         }
 
         public static double Przycisk()
@@ -23,6 +24,12 @@ namespace GuiAndroid.Model
         {
             int c = Preferences.Default.Get("Rozmiar_czcionki", 18);
             return c;
+        }
+
+        public static string Tlo()
+        {
+            string t = Preferences.Default.Get("Tlo", "aaaa");
+            return t;
         }
     }
 }

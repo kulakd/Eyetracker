@@ -39,7 +39,17 @@
                 ValueChanged="sliders_ValueChanged"
             />
         <Entry x:Name="C" 
-            />        
+            />
+        <Picker x:Name="picker"
+        Title="Wybierz tło">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>aaaa</x:String>
+                    <x:String>frog</x:String>
+                    <x:String>dark_theme</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
         <Button 
             x:Name="Zapisz"
             Text="Zapisz"
