@@ -7,6 +7,9 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
+        ContentTemplate="{DataTemplate local:IPPage}"
+        Route="IPPage" />
+    <ShellContent
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

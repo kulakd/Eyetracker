@@ -39,7 +39,7 @@ namespace MauiGui.Model
             if (ConnectionAttempt != null) ConnectionAttempt(this, EventArgs.Empty);
         }
 
-        public WinModel()
+        private WinModel()
         {
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
             IPAddress add = host.AddressList[1];

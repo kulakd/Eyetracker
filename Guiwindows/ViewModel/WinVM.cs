@@ -16,7 +16,7 @@ namespace Guiwindows.ViewModel
 
         public WinVM()
         {
-            model = new WinModel();
+            model = WinModel.Instance;
             model.Alert += (s, m) => App.AlertServices.AlertAsync("Connection", m, "ok");
             model.ConnectionAttempt += (s, m) => DisplayIP();
 
@@ -55,7 +55,7 @@ namespace Guiwindows.ViewModel
             get
             {
                 if (stop == null)
-                    stop = new RelayCommand((o) => DisplayIP());
+                    stop = new RelayCommand((o) => { return; });
                 return stop;
             }
         }
@@ -80,5 +80,22 @@ namespace Guiwindows.ViewModel
 
         public void OnClose() => // wywołać to, jak się zamyka aplikacja
             model.OnClose();
+
+        //public ICommand ConnectoReparum
+        //{
+        //    get
+        //    {
+        //        {
+        //            bool flaga = false;
+        //            while (!flaga)
+        //            {
+        //                if (stop == null)
+        //                    stop = new RelayCommand((o) => DisplayIP());
+        //            }
+        //            return stop;
+        //        }
+        //    }
+        //}
+
     }
 }

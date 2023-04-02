@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Guiwindows.ViewModel"
+             x:Class="Guiwindows.IPPage"
+             Title="IPPage">
+    <ContentPage.BindingContext>
+        <vm:IPVM />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label Text="Type the address below into the app to attepmt connection"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+        <Label Text="{Binding Path=Address, Mode=OneWay}"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <Label Text="{Binding Path=State}"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
