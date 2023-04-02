@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GuiAndroid.Credits"
              Title="Credits"
-             BackgroundImageSource="zielen.jpg"
+             BackgroundImageSource="{AppThemeBinding Light=zielen.jpg, Dark=dark_theme.png}"
              >
     <ContentPage.Resources>
-        <Style x:Key="authors" TargetType="Label">
+        <Style x:Name="autorzy" x:Key="authors" TargetType="Label">
             <Setter Property="VerticalTextAlignment" Value="Center" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="FontAutoScalingEnabled" Value="True"/>
-            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
         </Style> 
     </ContentPage.Resources>
     
@@ -19,20 +19,20 @@
         <Image Aspect="Center" HeightRequest="400" WidthRequest="1000" Source="dotnetbot.png"/>
         <Label Text="APLIKACJA .NET MAUI STWORZONA POD PATRONATEM PROF. UMK DR HAB. JACKA MATULEWSKIEGO PRZEZ ZESPÓŁ:" Style="{StaticResource authors}" />
         <Label Text=""/>
-        <Label Text="PROJECT MANAGER" Style="{StaticResource authors}"/>
-        <Label Text="KLAUDIA GACKOWSKA" Style="{StaticResource authors}"/>
+        <Label x:Name="l1" Text="PROJECT MANAGER" Style="{StaticResource authors}"/>
+        <Label x:Name="l2" Text="KLAUDIA GACKOWSKA" Style="{StaticResource authors}"/>
         <Label Text=""/>
-        <Label Text="OBSŁUGA EYETRACKERA" Style="{StaticResource authors}"/>
-        <Label Text="PIOTR FILIPSKI" Style="{StaticResource authors}"/>
+        <Label x:Name="l3" Text="OBSŁUGA EYETRACKERA" Style="{StaticResource authors}"/>
+        <Label x:Name="l4" Text="PIOTR FILIPSKI" Style="{StaticResource authors}"/>
         <Label Text=""/>
-        <Label Text="POŁĄCZENIE I MOBLIZACJA ODDZIAŁÓW LĄDOWYCH" Style="{StaticResource authors}"/>
-        <Label Text="MACIEJ 'KOMANDOS' KOMOROWSKI" Style="{StaticResource authors}"/>
+        <Label x:Name="l5" Text="POŁĄCZENIE I MOBLIZACJA ODDZIAŁÓW LĄDOWYCH" Style="{StaticResource authors}"/>
+        <Label x:Name="l6" Text="MACIEJ 'KOMANDOS' KOMOROWSKI" Style="{StaticResource authors}"/>
         <Label Text=""/>
-        <Label Text="INTERFEJS UŻYTKOWNIKA" Style="{StaticResource authors}"/>
-        <Label Text="DAWID KUŁAKOWSKI" Style="{StaticResource authors}"/>
+        <Label x:Name="l7" Text="INTERFEJS UŻYTKOWNIKA" Style="{StaticResource authors}"/>
+        <Label x:Name="l8" Text="DAWID KUŁAKOWSKI" Style="{StaticResource authors}"/>
         <Label Text=""/>
-        <Label Text="SYSTEM POWIADOMIEŃ" Style="{StaticResource authors}"/>
-        <Label Text="MAKSYMILIAN KUDELSKI" Style="{StaticResource authors}"/>
+        <Label x:Name="l9" Text="SYSTEM POWIADOMIEŃ" Style="{StaticResource authors}"/>
+        <Label x:Name="l10" Text="MAKSYMILIAN KUDELSKI" Style="{StaticResource authors}"/>
         <Label Text=""/>
         </VerticalStackLayout>
 </ContentPage>

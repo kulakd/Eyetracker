@@ -6,7 +6,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:GuiAndroid"
     Shell.NavBarIsVisible="False"
-    FlyoutBackgroundImage="zielen.jpg"
+    FlyoutBackgroundImage="{AppThemeBinding Light=zielen.jpg, Dark=dark_theme.png}"
     FlyoutBackgroundImageAspect="Fill"
     FlyoutWidth="300"
     FlyoutHeight="200"
@@ -32,11 +32,11 @@
         <DataTemplate>
             <StackLayout>
                 <Label Text=""
-                       TextColor="GhostWhite"
+                       TextColor="{AppThemeBinding Light=Black, Dark=GhostWhite}"
                        FontAttributes="Bold"
                        HorizontalOptions="Center" />
                 <Label Text="Sprawny Zespół do Spraw Zespołowych"
-                       TextColor="GhostWhite"
+                       TextColor="{AppThemeBinding Light=Black, Dark=GhostWhite}"
                        FontAttributes="Bold"
                        HorizontalOptions="Center" />
             </StackLayout>

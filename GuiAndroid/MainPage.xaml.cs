@@ -9,6 +9,9 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        double Y = (double)AndUstawienia.Przycisk();
+        green.ScaleY = Y / 100;
+        red.ScaleY = Y / 100;
     }
 
     private void GreenButtonClicked(object sender, EventArgs e)
