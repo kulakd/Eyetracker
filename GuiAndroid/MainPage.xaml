@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:GuiAndroid.ViewModel"
              x:Class="GuiAndroid.MainPage"    
-             BackgroundImageSource="aaaa.png">
+             BackgroundImageSource="{Binding T}">
     <ContentPage.Resources>
         <Style x:Key="ButtonSt" TargetType="Button">
             <Setter Property="CornerRadius" Value="90"/>
@@ -12,6 +12,7 @@
             <Setter Property="FontSize" Value="50"/>
             <Setter Property="TextColor" Value="Black"/>
             <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="ScaleY" Value="{Binding B, Mode=OneWay}"/>
         </Style>
     </ContentPage.Resources>
     <ContentPage.BindingContext>

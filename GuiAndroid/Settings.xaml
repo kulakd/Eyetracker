@@ -10,12 +10,6 @@
         <vm:AndVM />
     </ContentPage.BindingContext>
     <VerticalStackLayout>
-        <Label 
-            x:Name="test"
-            Text="ToDO"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
         <Label x:Name="RozmiarPrzycisków"
                Text="Rozmiar przycisków"
                FontSize="18"
@@ -23,11 +17,12 @@
                VerticalOptions="Center" />
         <Slider 
                 x:Name="sliderB"
-                Maximum="200"
-                ValueChanged="sliders_ValueChanged"
+                Maximum="2"
+                Value="{Binding B, Mode=TwoWay}"
                 />
         <Entry x:Name="B" 
-            />
+               Text="{Binding B, Mode=TwoWay}"
+               />
         <Label x:Name="RozmiarCzcionki"
                Text="Rozmiar czcionki"
                FontSize="18"
@@ -36,24 +31,25 @@
         <Slider 
                 x:Name="sliderC"
                 Minimum="14" Maximum="24"
-                ValueChanged="sliders_ValueChanged"
+                Value="{Binding C, Mode=TwoWay}"
             />
-        <Entry x:Name="C" 
+        <Entry x:Name="C"
+               Text="{Binding C, Mode=TwoWay}"
             />
         <Picker x:Name="picker"
-        Title="Wybierz tło">
+                Title="Wybierz tło"
+                SelectedItem="{Binding T, Mode=TwoWay}">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
-                    <x:String>aaaa</x:String>
-                    <x:String>frog</x:String>
-                    <x:String>dark_theme</x:String>
+                    <x:String>aaaa.png</x:String>
+                    <x:String>frog.png</x:String>
+                    <x:String>dark_theme.png</x:String>
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>
         <Button 
             x:Name="Zapisz"
             Text="Zapisz"
-            Clicked="Zapis"
             Command="{Binding Zapisz}"/>
     </VerticalStackLayout>
 </ContentPage>

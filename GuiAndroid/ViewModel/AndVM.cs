@@ -11,7 +11,7 @@ namespace GuiAndroid.ViewModel
     {
         private readonly AndModel model = new AndModel();
 
-        //private AndUstawienia ustawienia = new AndUstawienia();
+        private readonly Parameters ustawienia = AndUstawienia.Wczytaj();
 
         private MemoryStream _video;
         private MemoryStream video
@@ -32,13 +32,9 @@ namespace GuiAndroid.ViewModel
 
         public ImageSource Video => ImageSource.FromStream(() => video);
 
-        public (int, int) rozmiary;
-
         public AndVM()
         {
             model.Connection.ImageReceived += (s, im) => video = im;
-
-            //rozmiary = AndUstawienia.Czytaj();
 
             Application.Current.MainPage.Appearing += Instance_Appearing;            
         }
@@ -79,41 +75,53 @@ namespace GuiAndroid.ViewModel
             }
         }
 
-        //public int B
-        //{
-        //    get
-        //    {
-        //        return ustawienia.B;
-        //    }
-        //    set
-        //    {
-        //        ustawienia.B = value;
-        //        OnPropertyChanged(nameof(B));
-        //    }
-        //}
-        //public int C
-        //{
-        //    get
-        //    {
-        //        return ustawienia.C;
-        //    }
-        //    set
-        //    {
-        //        ustawienia.C = value;
-        //        OnPropertyChanged(nameof(C));
-        //    }
-        //}
-        //public void _Zapisz()
-        //{
-        //    AndUstawienia.Zapisz(ustawienia.B, ustawienia.C);
-        //}
+        public double B
+        {
+            get
+            {
+                return ustawienia.B;
+            }
+            set
+            {
+                ustawienia.B = value;
+                OnPropertyChanged(nameof(B));
+            }
+        }
+        public int C
+        {
+            get
+            {
+                return ustawienia.C;
+            }
+            set
+            {
+                ustawienia.C = value;
+                OnPropertyChanged(nameof(C));
+            }
+        }
+        public string T
+        {
+            get
+            {
+                return ustawienia.T;
+            }
+            set
+            {
+                ustawienia.T = value;
+                OnPropertyChanged(nameof(T));
+            }
+        }
+        public void _Zapisz()
+        {
+            AndUstawienia.Zapisz(ustawienia.B, ustawienia.C, ustawienia.T);
+        }
 
-        //public ICommand Zapisz
-        //{
-        //    get
-        //    {
-        //        return new RelayCommand((object p) => { _Zapisz(); });
-        //    }
-        //}
+        public ICommand Zapisz
+        {
+            get
+            {
+                return new RelayCommand((object p) => { _Zapisz(); });
+            }
+        }
     }
 }
