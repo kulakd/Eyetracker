@@ -43,7 +43,7 @@ namespace MauiGui.Model
         {
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
             IPAddress add = host.AddressList[1];
-            Settings = new ConnectionSettings(add, 223711, 223712);
+            Settings = new ConnectionSettings(add, 4000, 4001);
 
             cam.NewFrameEvent += (s, f) =>
             {

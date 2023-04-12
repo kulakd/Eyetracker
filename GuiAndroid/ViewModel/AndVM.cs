@@ -36,7 +36,7 @@ namespace GuiAndroid.ViewModel
         {
             model.Connection.ImageReceived += (s, im) => video = im;
 
-            Application.Current.MainPage.Appearing += Instance_Appearing;            
+            Application.Current.MainPage.Appearing += Instance_Appearing;
         }
 
         private void Instance_Appearing(object sender, EventArgs e)
@@ -47,10 +47,12 @@ namespace GuiAndroid.ViewModel
         private ICommand click;
         public ICommand Click
         {
-            get {
-                //if (click == null)
-                   //click = new RelayCommand();
-                return click; }
+            get
+            {
+                if (click == null)
+                    click = new RelayCommand((o) => ConnectPlease());
+                return click;
+            }
         }
 
         public async void Dialog()
@@ -62,8 +64,8 @@ namespace GuiAndroid.ViewModel
             bool flaga = false;
             while (!flaga)
             {
-                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Podane","");
-                try 
+                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Podane", "");
+                try
                 {
                     ConnectionSettings CS = ConnectionSettings.Parse(IPaddress);
                     flaga = model.Connection.Connect(CS);

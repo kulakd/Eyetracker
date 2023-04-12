@@ -25,6 +25,7 @@ namespace Guiwindows.ViewModel
                 await Task.Delay(15000);
                 await SwitchPage();
             });
+            model.Start();
         }
 
         private async Task SwitchPage()
