@@ -1,8 +1,9 @@
-﻿using MauiGui.Model;
+﻿using Connections;
+using MauiGui.Model;
 using MVVMKit;
+using Notifications;
 using System.Runtime.Versioning;
 using System.Windows.Input;
-using Connections;
 
 namespace Guiwindows.ViewModel
 {
@@ -46,6 +47,7 @@ namespace Guiwindows.ViewModel
         private ICommand stop;
         private ICommand come;
         private ICommand help;
+        private ICommand polacz;
 
         public ICommand Stop
         {
@@ -77,22 +79,5 @@ namespace Guiwindows.ViewModel
 
         public void OnClose() => // wywołać to, jak się zamyka aplikacja
             model.OnClose();
-
-        //public ICommand ConnectoReparum
-        //{
-        //    get
-        //    {
-        //        {
-        //            bool flaga = false;
-        //            while (!flaga)
-        //            {
-        //                if (stop == null)
-        //                    stop = new RelayCommand((o) => DisplayIP());
-        //            }
-        //            return stop;
-        //        }
-        //    }
-        //}
-
     }
 }
