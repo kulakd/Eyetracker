@@ -25,7 +25,7 @@ namespace GuiAndroid.ViewModel
             {
                 MemoryStream tmp = _video;
                 _video = value;
-                tmp.Dispose();
+                if (tmp != null) tmp.Dispose();
                 OnPropertyChanged(nameof(Video));
             }
         }
@@ -34,9 +34,14 @@ namespace GuiAndroid.ViewModel
 
         public AndVM()
         {
-            model.Connection.ImageReceived += (s, im) => video = im;
+            model.Connection.ImageReceived += Connection_ImageReceived; ;
 
             Application.Current.MainPage.Appearing += Instance_Appearing;
+        }
+
+        private void Connection_ImageReceived(object sender, MemoryStream e)
+        {
+            video = e;
         }
 
         private void Instance_Appearing(object sender, EventArgs e)

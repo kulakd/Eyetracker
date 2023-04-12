@@ -18,7 +18,6 @@ namespace Guiwindows.ViewModel
         {
             model = WinModel.Instance;
             model.Alert += (s, m) => App.AlertServices.AlertAsync("Connection", m, "ok");
-            model.ConnectionAttempt += (s, m) => DisplayIP();
             model.Connection.ConnectionStateChanged += ConnectionStateChanged;
             model.Start();
             model.Camera.Index = 0;
@@ -37,11 +36,6 @@ namespace Guiwindows.ViewModel
             OnPropertyChanged(nameof(NotConnected), nameof(Connected));
             if (Connected)
                 model.Camera.Index = 0;
-        }
-
-        private async void DisplayIP()
-        {
-            await App.AlertServices.AlertAsync("IP PLEASE", model.Settings.ToString(), "Maybe");
         }
 
         private ICommand stop;
