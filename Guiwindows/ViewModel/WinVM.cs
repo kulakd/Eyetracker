@@ -10,7 +10,6 @@ namespace Guiwindows.ViewModel
     public class WinVM : MVVMKit.ViewModel
     {
         private readonly WinModel model;
-
         public bool NotConnected { get; private set; }
         public bool Connected { get; private set; }
 
@@ -19,9 +18,7 @@ namespace Guiwindows.ViewModel
             model = WinModel.Instance;
             model.Alert += (s, m) => App.AlertServices.AlertAsync("Connection", m, "ok");
             model.ConnectionAttempt += (s, m) => DisplayIP();
-
             model.Connection.ConnectionStateChanged += ConnectionStateChanged;
-
             model.Start();
             Application.Current.MainPage.Appearing += (s, a) => Task.Run(DisplayIP);
         }
