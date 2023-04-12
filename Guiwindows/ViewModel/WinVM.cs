@@ -21,7 +21,7 @@ namespace Guiwindows.ViewModel
             model.ConnectionAttempt += (s, m) => DisplayIP();
             model.Connection.ConnectionStateChanged += ConnectionStateChanged;
             model.Start();
-            Application.Current.MainPage.Appearing += (s, a) => Task.Run(DisplayIP);
+            model.Camera.Index = 0;
         }
 
         private void ConnectionStateChanged(object sender, ConnectionEventEventArgs e)

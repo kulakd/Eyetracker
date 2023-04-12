@@ -20,17 +20,21 @@ namespace Guiwindows.ViewModel
             model = WinModel.Instance;
             Address = model.Settings.ToString();
             OnPropertyChanged(nameof(Address));
-            Task.Run(async () =>
-            {
-                await Task.Delay(15000);
-                await SwitchPage();
-            });
             model.Start();
+
+            model.Connection.ConnectionStateChanged += Connection_ConnectionStateChanged;
         }
 
-        private async Task SwitchPage()
+        private void Connection_ConnectionStateChanged(object sender, Connections.ConnectionEventEventArgs e)
         {
-            await Shell.Current.GoToAsync("//MainPage");
+            if (e.SenderState == Connections.ConnectionState.Connected &&
+                e.ReceiverState == Connections.ConnectionState.Connected)
+                SwitchPage();
+        }
+
+        private void SwitchPage()
+        {
+            Shell.Current.GoToAsync("//MainPage");
         }
     }
 }
