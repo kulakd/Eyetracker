@@ -1,5 +1,6 @@
 ﻿using Connections;
 using GuiAndroid.Model;
+using MVVMKit;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Input;
@@ -9,6 +10,8 @@ namespace GuiAndroid.ViewModel
     public class AndVM : MVVMKit.ViewModel
     {
         private readonly AndModel model = new AndModel();
+
+        private readonly Parameters ustawienia = AndUstawienia.Wczytaj();
 
         private MemoryStream _video;
         private MemoryStream video
@@ -69,6 +72,55 @@ namespace GuiAndroid.ViewModel
                 {
                     continue;
                 }
+            }
+        }
+
+        public double B
+        {
+            get
+            {
+                return ustawienia.B;
+            }
+            set
+            {
+                ustawienia.B = value;
+                OnPropertyChanged(nameof(B));
+            }
+        }
+        public int C
+        {
+            get
+            {
+                return ustawienia.C;
+            }
+            set
+            {
+                ustawienia.C = value;
+                OnPropertyChanged(nameof(C));
+            }
+        }
+        public string T
+        {
+            get
+            {
+                return ustawienia.T;
+            }
+            set
+            {
+                ustawienia.T = value;
+                OnPropertyChanged(nameof(T));
+            }
+        }
+        public void _Zapisz()
+        {
+            AndUstawienia.Zapisz(ustawienia.B, ustawienia.C, ustawienia.T);
+        }
+
+        public ICommand Zapisz
+        {
+            get
+            {
+                return new RelayCommand((object p) => { _Zapisz(); });
             }
         }
     }

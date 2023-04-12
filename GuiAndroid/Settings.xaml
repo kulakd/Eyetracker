@@ -1,13 +1,55 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:GuiAndroid.ViewModel"
              x:Class="GuiAndroid.Settings"
              Title="Settings"
              BackgroundImageSource="aaaa.png">
+
+    <ContentPage.BindingContext>
+        <vm:AndVM />
+    </ContentPage.BindingContext>
     <VerticalStackLayout>
-        <Label 
-            Text="ToDO"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label x:Name="RozmiarPrzycisków"
+               Text="Rozmiar przycisków"
+               FontSize="18"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+        <Slider 
+                x:Name="sliderB"
+                Maximum="2"
+                Value="{Binding B, Mode=TwoWay}"
+                />
+        <Entry x:Name="B" 
+               Text="{Binding B, Mode=TwoWay}"
+               />
+        <Label x:Name="RozmiarCzcionki"
+               Text="Rozmiar czcionki"
+               FontSize="18"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+        <Slider 
+                x:Name="sliderC"
+                Minimum="14" Maximum="24"
+                Value="{Binding C, Mode=TwoWay}"
+            />
+        <Entry x:Name="C"
+               Text="{Binding C, Mode=TwoWay}"
+            />
+        <Picker x:Name="picker"
+                Title="Wybierz tło"
+                SelectedItem="{Binding T, Mode=TwoWay}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>aaaa.png</x:String>
+                    <x:String>frog.png</x:String>
+                    <x:String>dark_theme.png</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Button 
+            x:Name="Zapisz"
+            Text="Zapisz"
+            Command="{Binding Zapisz}"/>
     </VerticalStackLayout>
 </ContentPage>
