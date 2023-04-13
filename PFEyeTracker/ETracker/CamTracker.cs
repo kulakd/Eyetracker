@@ -103,6 +103,7 @@ namespace EyeTracker
             if (isStreaming)
                 device.Stop();
             faceRects.Clear();
+            index = -1;
         }
 
         public void RefreshDeviceList()

@@ -45,11 +45,7 @@ namespace MauiGui.Model
             IPAddress add = host.AddressList[1];
             Settings = new ConnectionSettings(add, 4000, 4001);
 
-            cam.NewFrameEvent += (s, f) =>
-            {
-                if (Connection.SenderConnectionState == ConnectionState.Connected) // czy trzeba sprawdzać?
-                    Connection.Video = f;
-            };
+            cam.NewFrameEvent += (s, f) => Connection.Video = f;
         }
 
         public void Start()

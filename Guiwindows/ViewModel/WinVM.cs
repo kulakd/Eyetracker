@@ -11,37 +11,36 @@ namespace Guiwindows.ViewModel
     public class WinVM : MVVMKit.ViewModel
     {
         private readonly WinModel model;
-        public bool NotConnected { get; private set; }
-        public bool Connected { get; private set; }
 
         public WinVM()
         {
             model = WinModel.Instance;
-            model.Alert += (s, m) => App.AlertServices.AlertAsync("Connection", m, "ok");
             model.Connection.ConnectionStateChanged += ConnectionStateChanged;
-            model.Start();
-            model.Camera.Index = 0;
         }
 
         private void ConnectionStateChanged(object sender, ConnectionEventEventArgs e)
         {
-            NotConnected =
-                e.SenderState == ConnectionState.NotConnected ||
-                e.ReceiverState == ConnectionState.NotConnected ||
-                e.SenderState == ConnectionState.Waiting ||
-                e.ReceiverState == ConnectionState.Waiting;
-            Connected =
-                e.SenderState == ConnectionState.Connected &&
-                e.ReceiverState == ConnectionState.Connected;
+            bool NotConnected =
+                   e.SenderState == ConnectionState.NotConnected ||
+                   e.ReceiverState == ConnectionState.NotConnected ||
+                   e.SenderState == ConnectionState.Waiting ||
+                   e.ReceiverState == ConnectionState.Waiting;
+            bool Connected =
+                  e.SenderState == ConnectionState.Connected &&
+                  e.ReceiverState == ConnectionState.Connected;
             OnPropertyChanged(nameof(NotConnected), nameof(Connected));
-            if (Connected)
-                model.Camera.Index = 0;
+            //if (Connected)
+            //    model.Camera.Index = 0;
+            //else if (NotConnected)
+            //{
+            //    model.Camera.Stop();
+            //    Shell.Current.GoToAsync("//IPPage");
+            //}
         }
 
         private ICommand stop;
         private ICommand come;
         private ICommand help;
-        private ICommand polacz;
 
         public ICommand Stop
         {

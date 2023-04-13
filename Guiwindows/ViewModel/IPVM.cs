@@ -23,18 +23,14 @@ namespace Guiwindows.ViewModel
             model.Start();
 
             model.Connection.ConnectionStateChanged += Connection_ConnectionStateChanged;
+            model.Camera.Index = 0;
         }
 
         private void Connection_ConnectionStateChanged(object sender, Connections.ConnectionEventEventArgs e)
         {
             if (e.SenderState == Connections.ConnectionState.Connected &&
                 e.ReceiverState == Connections.ConnectionState.Connected)
-                SwitchPage();
-        }
-
-        private void SwitchPage()
-        {
-            Shell.Current.GoToAsync("//MainPage");
+                Shell.Current.GoToAsync("//MainPage");
         }
     }
 }
