@@ -8,19 +8,19 @@ namespace GuiAndroid.Model
 {
     public class AndUstawienia
     {
-        public static void Zapisz(double b, int c, string t)
+        public static void Zapisz(double buttons, int font, string background)
         {
-            Preferences.Default.Set("Rozmiar_przyciskow", b);
-            Preferences.Default.Set("Rozmiar_czcionki", c);
-            Preferences.Default.Set("Tlo", t);
+            Preferences.Default.Set("Rozmiar_przyciskow", buttons);
+            Preferences.Default.Set("Rozmiar_czcionki", font);
+            Preferences.Default.Set("Tlo", background);
         }
 
         public static Parameters Wczytaj()
         {
-            double b = Preferences.Default.Get("Rozmiar_przyciskow", 1.0);
-            int c = Preferences.Default.Get("Rozmiar_czcionki", 18);
-            string t = Preferences.Default.Get("Tlo", "aaaa.png");
-            return new Parameters(b, c, t);
+            double buttons = Preferences.Default.Get("Rozmiar_przyciskow", 1.0);
+            int font = Preferences.Default.Get("Rozmiar_czcionki", 18);
+            string background = Preferences.Default.Get("Tlo", "aaaa");
+            return new Parameters(buttons, font, background);
         }
     }
 }

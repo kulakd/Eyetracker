@@ -18,10 +18,10 @@
         <Slider 
                 x:Name="sliderB"
                 Maximum="2"
-                Value="{Binding B, Mode=TwoWay}"
+                Value="{Binding Buttons, Mode=TwoWay}"
                 />
-        <Entry x:Name="B" 
-               Text="{Binding B, Mode=TwoWay}"
+        <Entry x:Name="Buttons" 
+               Text="{Binding Buttons, Mode=TwoWay}"
                />
         <Label x:Name="RozmiarCzcionki"
                Text="Rozmiar czcionki"
@@ -29,21 +29,21 @@
                HorizontalOptions="Center"
                VerticalOptions="Center" />
         <Slider 
-                x:Name="sliderC"
+                x:Name="sliderFont"
                 Minimum="14" Maximum="24"
-                Value="{Binding C, Mode=TwoWay}"
+                Value="{Binding Font, Mode=TwoWay}"
             />
-        <Entry x:Name="C"
-               Text="{Binding C, Mode=TwoWay}"
+        <Entry x:Name="Font"
+               Text="{Binding Font, Mode=TwoWay}"
             />
         <Picker x:Name="picker"
                 Title="Wybierz tło"
-                SelectedItem="{Binding T, Mode=TwoWay}">
+                SelectedItem="{Binding Background, Mode=TwoWay}">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
-                    <x:String>aaaa.png</x:String>
-                    <x:String>frog.png</x:String>
-                    <x:String>dark_theme.png</x:String>
+                    <x:String>aaaa</x:String>
+                    <x:String>frog</x:String>
+                    <x:String>dark_theme</x:String>
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>

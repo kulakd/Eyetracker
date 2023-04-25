@@ -14,7 +14,7 @@
         <Style x:Name="autorzy" x:Key="authors" TargetType="Label">
             <Setter Property="VerticalTextAlignment" Value="Center" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
-            <Setter Property="FontSize" Value="{Binding C}" />
+            <Setter Property="FontSize" Value="{Binding Font}" />
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="FontAutoScalingEnabled" Value="True"/>
             <Setter Property="TextColor" Value="{AppThemeBinding Light=DarkGray, Dark=White}"/>
