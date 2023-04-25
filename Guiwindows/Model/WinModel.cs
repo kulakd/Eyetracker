@@ -41,6 +41,7 @@ namespace MauiGui.Model
 
         private WinModel()
         {
+            cam.DebugFullCam = true;
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
             IPAddress add = host.AddressList[1];
             Settings = new ConnectionSettings(add, 4000, 4001);

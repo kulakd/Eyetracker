@@ -277,7 +277,8 @@ namespace Connections
                         throw new Exception("Not Connected");
                     Message.Send(m, sendStream, sendingSource.Token);
                 }
-                catch (Exception e) { ThrowException(e); }
+                catch (Exception e) { 
+                    ThrowException(e); }
             }
         }
         #endregion

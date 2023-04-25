@@ -168,6 +168,10 @@ namespace EyeTracker
                 else
                     result = btm;
 #endif                
+                ResizeBilinear resize = new ResizeBilinear(400,225);
+                Bitmap old = result;
+                result = resize.Apply(result);
+                old.Dispose();
 
                 try
                 {
