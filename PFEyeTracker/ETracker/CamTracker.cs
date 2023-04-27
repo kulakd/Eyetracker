@@ -122,7 +122,6 @@ namespace EyeTracker
         private void Device_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
             MemoryStream stream = new MemoryStream();
-            //Bitmap btm = (Bitmap)eventArgs.Frame.Clone();
             Bitmap btm = eventArgs.Frame;
             Image<Bgr, byte> image = btm.ToImage<Bgr, byte>();
             Rectangle[] rects = faceCascadeClassifier.DetectMultiScale(image);
@@ -154,7 +153,6 @@ namespace EyeTracker
             catch { }
 
             result.Dispose();
-            //btm.Dispose();
             image.Dispose();
             FireNewFrameEvent(stream);
         }
