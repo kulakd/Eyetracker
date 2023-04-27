@@ -11,7 +11,6 @@ namespace CamView.View_Model
         public TrackerVM()
         {
             cam = new CamTracker();
-            cam.DebugFPSCounter = true;
             cam.NewFrameEvent += HandleNewFrame;
         }
 
@@ -44,24 +43,10 @@ namespace CamView.View_Model
                 onPropretyChanged(nameof(Index));
                 onPropretyChanged(nameof(Streaming));
                 onPropretyChanged(nameof(CurrentCamera));
-                onPropretyChanged(nameof(Res));
             }
         }
 
         public float Padding { get => cam.Padding; set => cam.Padding = value; }
-
-        private (int x, int y) res;
-        public (int x, int y) Res
-        {
-            get => res;
-            set
-            {
-                res = value;
-                onPropretyChanged(nameof(Res));
-            }
-        }
-
-        public float FPS => cam.FPS;
 
         public bool Streaming => cam.isStreaming;
         public string CurrentCamera => Streaming ? cam.Cameras[cam.Index] : "None";
@@ -77,7 +62,6 @@ namespace CamView.View_Model
         private void HandleNewFrame(object sender, MemoryStream args)
         {
             Video = args;
-            onPropretyChanged(nameof(FPS));
         }
     }
 }
