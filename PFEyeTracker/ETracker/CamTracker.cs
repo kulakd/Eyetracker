@@ -20,7 +20,6 @@ namespace EyeTracker
         private FilterInfoCollection filters;
         private VideoCaptureDevice device;
         private int index;
-        private Size res;
         private Queue<Rectangle> faceRects = new Queue<Rectangle>();
 
         private float rectPercent;
