@@ -22,7 +22,7 @@ namespace EyeTracker
         private int index;
         private Queue<Rectangle> faceRects = new Queue<Rectangle>();
 
-        private float rectPercent;
+        private float rectPercent = 1f;
 
         private (int w, int h) aspect = (16, 9);
         private (int w, int h) imgSize = (400, 225);
@@ -120,7 +120,6 @@ namespace EyeTracker
 
         private void Device_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
-            MemoryStream stream = new MemoryStream();
             Bitmap btm = eventArgs.Frame;
             Image<Bgr, byte> image = btm.ToImage<Bgr, byte>();
             Rectangle[] rects = faceCascadeClassifier.DetectMultiScale(image);
@@ -145,6 +144,7 @@ namespace EyeTracker
             ResizeBilinear resize = new ResizeBilinear(imgSize.w, imgSize.h);
             Bitmap result = resize.Apply(imgROI);
 
+            MemoryStream stream = new MemoryStream();
             try
             {
                 result.Save(stream, Format);

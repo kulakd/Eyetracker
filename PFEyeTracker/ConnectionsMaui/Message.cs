@@ -77,7 +77,7 @@ namespace Connections
             while (read != len.Length)
             {
                 await Task.Delay(delayMilis);
-                read += await stream.ReadAsync(len, read, len.Length - read, cancellationToken);
+                read += await stream.ReadAsync(len, 0, len.Length - read, cancellationToken);
             }
             int leni = BitConverter.ToInt32(len);
 
@@ -92,7 +92,7 @@ namespace Connections
                 while (read != leni)
                 {
                     await Task.Delay(delayMilis);
-                    read += await stream.ReadAsync(data, read, leni - read, cancellationToken);
+                    read += await stream.ReadAsync(data, 0, leni - read, cancellationToken);
                 }
                 message.data = data;
             }
