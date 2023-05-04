@@ -27,7 +27,7 @@ namespace GuiAndroid.ViewModel
             {
                 MemoryStream tmp = _video;
                 _video = value;
-                tmp.Dispose();
+                if (tmp != null) tmp.Dispose();
                 OnPropertyChanged(nameof(Video));
             }
         }
@@ -36,9 +36,14 @@ namespace GuiAndroid.ViewModel
 
         public AndVM()
         {
-            model.Connection.ImageReceived += (s, im) => video = im;
+            model.Connection.ImageReceived += Connection_ImageReceived; ;
 
-            Application.Current.MainPage.Appearing += Instance_Appearing;            
+            Application.Current.MainPage.Appearing += Instance_Appearing;
+        }
+
+        private void Connection_ImageReceived(object sender, MemoryStream e)
+        {
+            video = e;
         }
 
         private void Instance_Appearing(object sender, EventArgs e)
@@ -49,10 +54,12 @@ namespace GuiAndroid.ViewModel
         private ICommand click;
         public ICommand Click
         {
-            get {
-                //if (click == null)
-                   //click = new RelayCommand();
-                return click; }
+            get
+            {
+                if (click == null)
+                    click = new RelayCommand((o) => ConnectPlease());
+                return click;
+            }
         }
 
         public async void Dialog()
@@ -61,9 +68,10 @@ namespace GuiAndroid.ViewModel
 
         public async void ConnectPlease()
         {
-            bool flaga = false;
+            bool flaga = model.Connection.SenderConnectionState != ConnectionState.NotConnected;
             while (!flaga)
             {
+
                 string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Zatwierdź","Anuluj");
                 try 
                 {

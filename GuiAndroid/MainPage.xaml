@@ -21,9 +21,10 @@
     <Grid RowDefinitions="500,*" ColumnDefinitions="*">
         <Image Grid.Row="0" HeightRequest="500" WidthRequest="1500" Source="{Binding Path=Video, Mode=OneWay}"/>
         <Grid Grid.Row="1" Grid.Column="0" ColumnDefinitions="*,90,*" Padding="10">
-            <Button x:Name="green" Grid.Column="0" BackgroundColor="{AppThemeBinding Light=Green, Dark=SeaGreen}" Style="{StaticResource ButtonSt}" Clicked="GreenButtonClicked"/>
-            <Button x:Name="grey" Grid.Column="1" BackgroundColor="{AppThemeBinding Light=LightGrey, Dark=Grey}" Style="{StaticResource ButtonSt}" Clicked="GreyButtonClicked"/>
-            <Button x:Name="red"  Grid.Column="2" BackgroundColor="{AppThemeBinding Light=Red, Dark=Maroon}" Style="{StaticResource ButtonSt}"  Clicked="RedButtonClicked"/>
+
+            <Button x:Name="green" ImageSource="up.png" Grid.Column="0" BackgroundColor="{AppThemeBinding Light=Green, Dark=SeaGreen}" Style="{StaticResource ButtonSt}" Clicked="GreenButtonClicked"/>
+            <Button x:Name="grey" ImageSource="connect.png" Grid.Column="1" BackgroundColor="{AppThemeBinding Light=LightGrey, Dark=Grey}" Style="{StaticResource ButtonSt}" Clicked="GreyButtonClicked"/>
+            <Button x:Name="red"  ImageSource="down.png" Grid.Column="2" BackgroundColor="{AppThemeBinding Light=Red, Dark=Maroon}" Style="{StaticResource ButtonSt}"  Clicked="RedButtonClicked"/>
         </Grid>
     </Grid>
 </ContentPage>

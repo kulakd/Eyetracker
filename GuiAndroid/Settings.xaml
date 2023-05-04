@@ -4,47 +4,70 @@
              xmlns:vm="clr-namespace:GuiAndroid.ViewModel"
              x:Class="GuiAndroid.Settings"
              Title="Settings"
-             BackgroundImageSource="aaaa.png">
+             BackgroundImageSource="dark_theme.png">
 
     <ContentPage.BindingContext>
         <vm:AndVM />
     </ContentPage.BindingContext>
-	<!--<Grid RowDefinitions="*,*,*,*">
+
+    <Grid RowDefinitions="*,*,*,*">
+		<Grid Grid.Row="0" RowDefinitions="*,*">
+            <Label Grid.Row="0"
+			    Text="Wybierz rozmiar przycisków"
+			    FontSize="22"
+			    HorizontalOptions="Center"
+			    VerticalOptions="Center"/>
+            <Picker Grid.Row="1"
+                    x:Name="RozmiarPrzycisków"
+                    Title="{Binding Source={x:Reference RozmiarPrzycisków}, Path=SelectedItem}"
+                    FontSize="80"
+                    FontFamily="Bold"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    BackgroundColor="DarkOliveGreen"
+                    >
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>50%</x:String>
+                        <x:String>100%</x:String>
+                        <x:String>150%</x:String>
+                        <x:String>200%</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </Grid>
+
 		<Grid Grid.Row="1" RowDefinitions="*,*">
-			<Label x:Name="RozmiarPrzycisków"
-			Text="Rozmiar przycisków"
-			FontSize="18"
-			HorizontalOptions="Center"
-			VerticalOptions="Center">Rozmiar Przeciskow</Label>
-			<Grid Grid.Row="2" ColumnDefintions="*,*,*,*">
-				<Button x:Name="BtnTiny">0.5x</Button>
-				<Button x:Name="BtnSmall">x</Button>
-				<Button x:Name="BtnMedium">1.5x</Button>
-				<Button x:Name="BtnLarge">
-					x2</Button>
-				</Grid>
+            <Label Grid.Row="0" x:Name="RozmiarCzcionki"
+				   Text="Rozmiar frontu"
+				   FontSize="22"
+				   HorizontalOptions="Center"
+				   VerticalOptions="Center"/>
+            <Slider 
+                Grid.Row="1"
+                x:Name="sliderFont"
+                Minimum="14" Maximum="24"
+                Value="{Binding Font, Mode=TwoWay}"
+                />
 		</Grid>
 
 		<Grid Grid.Row="2" RowDefinitions="*,*">
-			<Label Grid.Row="1" x:Name="RozmiarCzcionki"
-				   Text="Rozmiar czcionki"
-				   FontSize="18"
+            <Label Grid.Row="0" x:Name="picker"
+				   Text="Wybierz tlo:"
+				   FontSize="22"
 				   HorizontalOptions="Center"
-				   VerticalOptions="Center">Rozmiar fontu</Label>
-			<Slider Grid.Row="2"></Slider>
-		</Grid>
+				   VerticalOptions="Center"/>
 
-		<Grid Grid.Row="3" RowDefinitions="*,*">
-			<Label Grid.Row="1" x:Name="picker"
-				   Text="Rozmiar czcionki"
-				   FontSize="18"
-				   HorizontalOptions="Center"
-				   VerticalOptions="Center">Wybierz tlo:</Label>
-
-			<Picker Grid.Row="2" x:Name="backgroundpicker"
+            <Picker Grid.Row="1" x:Name="backgroundpicker"
 					Title="Wybierz tło"
-					SelectedItem="{Binding Background, Mode=TwoWay}">
-				<Picker.ItemsSource>
+					SelectedItem="{Binding Background, Mode=TwoWay}"
+                    FontSize="40"
+                    FontFamily="Bold"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    BackgroundColor="DarkOliveGreen">
+                <Picker.ItemsSource>
+
 					<x:Array Type="{x:Type x:String}">
 						<x:String>aaaa</x:String>
 						<x:String>frog</x:String>
@@ -54,11 +77,15 @@
 			</Picker>
 		</Grid>
 
-		<Button Grid.Row="4" x:Name="Zapisz"
-				Text="Zapisz"
-				Command="{Binding Zapisz}"/>
-	</Grid>-->
-	<VerticalStackLayout>
+
+		<Button Grid.Row="3" x:Name="Zapisz"
+				Text="ZAPISZ"
+				Command="{Binding Zapisz}" BackgroundColor="#00FF63" 
+                TextColor="Black" FontSize="40" FontFamily="Bold" 
+                BorderColor="Black" BorderWidth="10" CornerRadius="90"/>
+	</Grid>
+	<!--<VerticalStackLayout>
+
         <Label x:Name="RozmiarPrzycisków"
                Text="Rozmiar przycisków"
                FontSize="18"
@@ -77,11 +104,9 @@
                FontSize="18"
                HorizontalOptions="Center"
                VerticalOptions="Center" />
-        <Slider 
-                x:Name="sliderFont"
-                Minimum="14" Maximum="24"
-                Value="{Binding Font, Mode=TwoWay}"
-            />
+
+        <Slider x:Name="sliderFont" Minimum="14" Maximum="24" Value="{Binding Font, Mode=TwoWay}"/>
+
         <Entry x:Name="Font"
                Text="{Binding Font, Mode=TwoWay}"
             />
@@ -100,5 +125,5 @@
             x:Name="Zapisz"
             Text="Zapisz"
             Command="{Binding Zapisz}"/>
-    </VerticalStackLayout>
+    </VerticalStackLayout>-->
 </ContentPage>

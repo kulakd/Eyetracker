@@ -29,11 +29,7 @@
             <Label Text="{Binding Path=CurrentCamera, Mode=OneWay}"
                    HorizontalOptions="Center"
                    TextColor="{Binding Path=Streaming, Converter={StaticResource B2B}, Mode=OneWay}" />
-            <Label Text="{Binding Path=Res, Mode=OneWay, Converter={StaticResource iitos}}"
-                   HorizontalOptions="Center" />
-            <Label Text="{Binding Path=FPS, Mode=OneWay, StringFormat='{0:F2} FPS'}" 
-                   HorizontalOptions="Center"/>
-            <Slider Value="{Binding Path=Padding,Mode=TwoWay}" Minimum="0" Maximum="1" />
+            <Slider Value="{Binding Path=Padding,Mode=TwoWay}" Minimum="0" Maximum=".9" />
         </VerticalStackLayout>
     </ScrollView>
 
