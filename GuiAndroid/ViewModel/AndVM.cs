@@ -66,7 +66,7 @@ namespace GuiAndroid.ViewModel
 
         public async void ConnectPlease()
         {
-            bool flaga = false;
+            bool flaga = model.Connection.SenderConnectionState != ConnectionState.NotConnected;
             while (!flaga)
             {
                 string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Podane", "");

@@ -20,12 +20,12 @@ namespace EyeTracker
         private FilterInfoCollection filters;
         private VideoCaptureDevice device;
         private int index;
-        private Size res;
         private Queue<Rectangle> faceRects = new Queue<Rectangle>();
 
-        private Stopwatch stopwatch;
-        private long msBtwFrames;
-        private float padding;
+        private float rectPercent = 1f;
+
+        private (int w, int h) aspect = (16, 9);
+        private (int w, int h) imgSize = (400, 225);
         #endregion
 
         public event EventHandler<MemoryStream> NewFrameEvent;
@@ -66,30 +66,37 @@ namespace EyeTracker
 
         public float Padding
         {
-            get => padding;
+            get => 1f - rectPercent;
             set
             {
-                if (value < 0 || value > 1f)
+                if (value < 0 || value >= 1f)
                     throw new ArgumentOutOfRangeException(nameof(value), value, "Must be between 0 and 1");
-                padding = value;
+                rectPercent = 1f - value;
             }
         }
 
-#if DEBUG
-        public bool DebugFullCam { get; set; } = false;
-#endif
-        public bool DebugFPSCounter { get; set; } = false;
-
-        public float FPS => 1000f / msBtwFrames;
-
-        public int Width
+        public int AspectWidth { get => aspect.w; set => aspect.w = value; }
+        public int AspectHeight { get => aspect.h; set => aspect.h = value; }
+        public int VideoWidth
         {
-            get => res.Width;
+            get => imgSize.w;
+            set
+            {
+                imgSize.w = value;
+                imgSize.h = value * aspect.h / aspect.w;
+            }
         }
-        public int Heigh
+        public int VideoHeight
         {
-            get => res.Height;
+            get => imgSize.h;
+            set
+            {
+                imgSize.h = value;
+                imgSize.w = value * aspect.w / aspect.h;
+            }
         }
+
+        public ImageFormat Format { get; set; } = ImageFormat.Jpeg;
         #endregion
 
         public CamTracker()
@@ -113,76 +120,39 @@ namespace EyeTracker
 
         private void Device_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
-            //diagnostics
-            if (DebugFPSCounter)
-            {
-                if (stopwatch == null) stopwatch = Stopwatch.StartNew();
-                else
-                {
-                    msBtwFrames = stopwatch.ElapsedMilliseconds;
-                    stopwatch.Restart();
-                }
-            }
-
-            MemoryStream stream = new MemoryStream();
-            Bitmap btm = (Bitmap)eventArgs.Frame.Clone();
+            Bitmap btm = eventArgs.Frame;
             Image<Bgr, byte> image = btm.ToImage<Bgr, byte>();
             Rectangle[] rects = faceCascadeClassifier.DetectMultiScale(image);
 
-#if DEBUG
-            //Draw face rects
-            if (DebugFullCam)
+            //Jeżeli nie ma twarzy, wybiera cały ekran
+            Rectangle rect = rects.Length > 0 ?
+                rects.OrderByDescending(r => (r.Height * r.Width)).First() :
+                new Rectangle(0, 0, btm.Width, btm.Height);
+
+            Size ROISize = new Size((int)(btm.Width * rectPercent), (int)(btm.Height * rectPercent));
+            Point ROILocation = rect.Location;
+
+            ROILocation.X += rect.Width / 2;
+            ROILocation.Y += rect.Height / 2;
+
+            ROILocation.X -= ROISize.Width / 2;
+            ROILocation.Y -= ROISize.Height / 2;
+
+            image.ROI = new Rectangle(ROILocation, ROISize);
+            Bitmap imgROI = image.AsBitmap();
+
+            ResizeBilinear resize = new ResizeBilinear(imgSize.w, imgSize.h);
+            Bitmap result = resize.Apply(imgROI);
+
+            MemoryStream stream = new MemoryStream();
+            try
             {
-                foreach (Rectangle r in rects)
-                    using (Graphics graphics = Graphics.FromImage(btm))
-                    {
-                        using (Pen pen = new Pen(Color.Red, 4))
-                            graphics.DrawRectangle(pen, r);
-                    }
+                result.Save(stream, Format);
             }
-#endif
+            catch { }
 
-            if (rects.Length > 0)
-            {
-                Rectangle rect = rects.OrderByDescending(r => (r.Height * r.Width)).First();
-
-                Size ROISize = new Size((int)(btm.Width * (1f - Padding)), (int)(btm.Height * (1f - Padding)));
-                Point ROILocation = rect.Location;
-
-                ROILocation.X += rect.Width / 2;
-                ROILocation.Y += rect.Height / 2;
-
-                ROILocation.X -= ROISize.Width / 2;
-                ROILocation.Y -= ROISize.Height / 2;
-
-                Bitmap result;
-#if DEBUG // jeżeli jest na release, nie ma ifa
-                if (!DebugFullCam)
-                {
-#endif
-                    image.ROI = new Rectangle(ROILocation, ROISize);
-                    result = (Bitmap)image.AsBitmap().Clone();
-                    image.ROI = Rectangle.Empty;
-#if DEBUG
-                }
-                else
-                    result = btm;
-#endif                
-
-                try
-                {
-                    if (result != null)
-                        result.Save(stream, ImageFormat.Png);
-                }
-                catch { }
-
-#if DEBUG
-                if (!DebugFullCam && result != null)
-                    result.Dispose();
-#endif
-            }
-
-            btm.Dispose();
+            result.Dispose();
+            image.Dispose();
             FireNewFrameEvent(stream);
         }
 

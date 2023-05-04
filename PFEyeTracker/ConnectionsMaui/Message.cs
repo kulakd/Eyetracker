@@ -58,6 +58,11 @@ namespace Connections
                 await stream.WriteAsync(len, 0, len.Length, cancellationToken);
                 await stream.WriteAsync(message.data, 0, message.data.Length, cancellationToken);
             }
+            else if (message.data == null)
+            {
+                byte[] len = BitConverter.GetBytes(0);
+                await stream.WriteAsync(len, 0, len.Length, cancellationToken);
+            }
         }
         private const int delayMilis = 10;
         public static async Task<Message> Receive(Stream stream, CancellationToken cancellationToken)
@@ -72,18 +77,25 @@ namespace Connections
             while (read != len.Length)
             {
                 await Task.Delay(delayMilis);
-                read += await stream.ReadAsync(len, read, len.Length - read, cancellationToken);
+                read += await stream.ReadAsync(len, 0, len.Length - read, cancellationToken);
             }
             int leni = BitConverter.ToInt32(len);
 
-            byte[] data = new byte[leni];
-            read = await stream.ReadAsync(data, 0, leni, cancellationToken);
-            while (read != leni)
+            if (leni == 0)
             {
-                await Task.Delay(delayMilis);
-                read += await stream.ReadAsync(data, read, leni - read, cancellationToken);
+                message.data = null;
             }
-            message.data = data;
+            else
+            {
+                byte[] data = new byte[leni];
+                read = await stream.ReadAsync(data, 0, leni, cancellationToken);
+                while (read != leni)
+                {
+                    await Task.Delay(delayMilis);
+                    read += await stream.ReadAsync(data, 0, leni - read, cancellationToken);
+                }
+                message.data = data;
+            }
 
             return message;
         }
