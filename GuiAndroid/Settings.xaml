@@ -9,6 +9,7 @@
     <ContentPage.BindingContext>
         <vm:AndVM />
     </ContentPage.BindingContext>
+
     <Grid RowDefinitions="*,*,*,*">
 		<Grid Grid.Row="0" RowDefinitions="*,*">
             <Label Grid.Row="0"
@@ -66,6 +67,7 @@
                     VerticalTextAlignment="Center"
                     BackgroundColor="DarkOliveGreen">
                 <Picker.ItemsSource>
+
 					<x:Array Type="{x:Type x:String}">
 						<x:String>aaaa</x:String>
 						<x:String>frog</x:String>
@@ -75,6 +77,7 @@
 			</Picker>
 		</Grid>
 
+
 		<Button Grid.Row="3" x:Name="Zapisz"
 				Text="ZAPISZ"
 				Command="{Binding Zapisz}" BackgroundColor="#00FF63" 
@@ -82,6 +85,7 @@
                 BorderColor="Black" BorderWidth="10" CornerRadius="90"/>
 	</Grid>
 	<!--<VerticalStackLayout>
+
         <Label x:Name="RozmiarPrzycisków"
                Text="Rozmiar przycisków"
                FontSize="18"
@@ -90,28 +94,30 @@
         <Slider 
                 x:Name="sliderB"
                 Maximum="2"
-                Value="{Binding B, Mode=TwoWay}"
+                Value="{Binding Buttons, Mode=TwoWay}"
                 />
-        <Entry x:Name="B" 
-               Text="{Binding B, Mode=TwoWay}"
+        <Entry x:Name="Buttons" 
+               Text="{Binding Buttons, Mode=TwoWay}"
                />
         <Label x:Name="RozmiarCzcionki"
                Text="Rozmiar czcionki"
                FontSize="18"
                HorizontalOptions="Center"
                VerticalOptions="Center" />
+
         <Slider x:Name="sliderFont" Minimum="14" Maximum="24" Value="{Binding Font, Mode=TwoWay}"/>
+
         <Entry x:Name="Font"
                Text="{Binding Font, Mode=TwoWay}"
             />
         <Picker x:Name="picker"
                 Title="Wybierz tło"
-                SelectedItem="{Binding T, Mode=TwoWay}">
+                SelectedItem="{Binding Background, Mode=TwoWay}">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
-                    <x:String>aaaa.png</x:String>
-                    <x:String>frog.png</x:String>
-                    <x:String>dark_theme.png</x:String>
+                    <x:String>aaaa</x:String>
+                    <x:String>frog</x:String>
+                    <x:String>dark_theme</x:String>
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>

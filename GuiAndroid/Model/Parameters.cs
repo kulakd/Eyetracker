@@ -8,15 +8,15 @@ namespace GuiAndroid.Model
 {
     public class Parameters
     {
-        public double B;
-        public int C;
-        public string T;
+        public double Buttons;
+        public int Font;
+        public string Background;
 
-        public Parameters(double b, int c, string t)
+        public Parameters(double buttons, int font, string background)
         {
-            this.B = b;
-            this.C = c;
-            this.T = t;
+            this.Buttons = buttons;
+            this.Font = font;
+            this.Background = background;
         }
     }
 }

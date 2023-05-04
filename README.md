@@ -6,3 +6,7 @@ https://docs.google.com/spreadsheets/d/19QGhhnSz-BwBt4dhHIU7llaEbTVv2n5dWbzH7Vcr
 
 * Aktualny stan psychiczny programistów:
  https://www.youtube.com/watch?v=ghh0ttnRdiQ
+ 
+* Strona internetowa z opisem projektu(do konfiguracji)
+Hasło i login: zabiroot
+http://fizyka.umk.pl/~308119/wp-admin/profile.php

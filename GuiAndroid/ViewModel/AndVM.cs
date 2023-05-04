@@ -4,6 +4,8 @@ using MVVMKit;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Input;
+using System.Threading.Tasks;
+using Microsoft.Maui.Devices;
 
 namespace GuiAndroid.ViewModel
 {
@@ -69,58 +71,59 @@ namespace GuiAndroid.ViewModel
             bool flaga = model.Connection.SenderConnectionState != ConnectionState.NotConnected;
             while (!flaga)
             {
-                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Podane", "");
-                try
+
+                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Zatwierdź","Anuluj");
+                try 
                 {
                     ConnectionSettings CS = ConnectionSettings.Parse(IPaddress);
                     flaga = model.Connection.Connect(CS);
                 }
                 catch (Exception ex)
                 {
-                    continue;
+                    flaga = true;
                 }
             }
         }
 
-        public double B
+        public double Buttons
         {
             get
             {
-                return ustawienia.B;
+                return ustawienia.Buttons;
             }
             set
             {
-                ustawienia.B = value;
-                OnPropertyChanged(nameof(B));
+                ustawienia.Buttons = value;
+                OnPropertyChanged(nameof(Buttons));
             }
         }
-        public int C
+        public int Font
         {
             get
             {
-                return ustawienia.C;
+                return ustawienia.Font;
             }
             set
             {
-                ustawienia.C = value;
-                OnPropertyChanged(nameof(C));
+                ustawienia.Font = value;
+                OnPropertyChanged(nameof(Font));
             }
         }
-        public string T
+        public string Background
         {
             get
             {
-                return ustawienia.T;
+                return ustawienia.Background;
             }
             set
             {
-                ustawienia.T = value;
-                OnPropertyChanged(nameof(T));
+                ustawienia.Background = value;
+                OnPropertyChanged(nameof(Background));
             }
         }
         public void _Zapisz()
         {
-            AndUstawienia.Zapisz(ustawienia.B, ustawienia.C, ustawienia.T);
+            AndUstawienia.Zapisz(ustawienia.Buttons, ustawienia.Font, ustawienia.Background);
         }
 
         public ICommand Zapisz
