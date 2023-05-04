@@ -26,4 +26,5 @@
             <Button x:Name="red"  ImageSource="down.png" Grid.Column="2" BackgroundColor="{AppThemeBinding Light=Red, Dark=Maroon}" Style="{StaticResource ButtonSt}"  Clicked="RedButtonClicked"/>
         </Grid>
     </Grid>
+	<Label>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</Label>
 </ContentPage>
