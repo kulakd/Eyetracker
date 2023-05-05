@@ -19,7 +19,11 @@ namespace GuiAndroid.ViewModel
             get
             {
                 _video.Position = 0;
-                return _video;
+                MemoryStream ms = new MemoryStream();
+                _video.CopyTo(ms);
+                ms.Position = 0;
+                _video.Position = 0;
+                return ms;
             }
             set
             {
@@ -75,11 +79,12 @@ namespace GuiAndroid.ViewModel
                     ConnectionSettings CS = ConnectionSettings.Parse(IPaddress);
                     flaga = model.Connection.Connect(CS);
                 }
-                catch (Exception ex)
+                catch
                 {
                     continue;
                 }
             }
+            model.Connection.ReceiveVideo = true;
         }
 
         public double B

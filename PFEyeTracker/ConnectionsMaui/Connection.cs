@@ -35,7 +35,17 @@ namespace Connections
         private Task sendingTask;
         private IDispatcher dispatcher;
 
-        public bool ReceiveVideo { get; set; }
+        private bool receiveVideo = false;
+        public bool ReceiveVideo { 
+            get=>receiveVideo;
+            set
+            {
+                if (value && value != receiveVideo)
+                    RequestVideo();
+                    
+                receiveVideo = value;
+            }
+        }
 
         private NetworkStream sendStream;
         private NetworkStream receiveStream;
@@ -124,16 +134,15 @@ namespace Connections
         }
         #endregion
 
-        public P2PTCPVideoConnection(bool receiveVideo = false)
+        public P2PTCPVideoConnection()
         {
-            ReceiveVideo = receiveVideo;
             dispatcher = Dispatcher.GetForCurrentThread();
         }
 
         public bool Connect(ConnectionSettings server, int timeoutMs = 10000)
         {
             try
-            {
+            { //TODO: Connect both at the same time
                 //Sender
                 SenderConnectionState = ConnectionState.Connecting;
                 sendClient = new TcpClient();
@@ -257,7 +266,7 @@ namespace Connections
         public void SendVideo() =>
             sendQ.Enqueue(new Message(Video));
 
-        public void RequestVideo() =>
+        private void RequestVideo() =>
             sendQ.Enqueue(Message.NextFrameMessage);
 
         private async void SendingLoop()
