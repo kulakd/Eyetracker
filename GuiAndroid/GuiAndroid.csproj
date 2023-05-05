@@ -52,14 +52,19 @@
 	  <None Remove="Resources\Images\abcdefghijk.png" />
 	  <None Remove="Resources\Images\books.png" />
 	  <None Remove="Resources\Images\camera.png" />
+	  <None Remove="Resources\Images\capybara.png" />
+	  <None Remove="Resources\Images\cat.png" />
 	  <None Remove="Resources\Images\connect.png" />
 	  <None Remove="Resources\Images\dark_theme.png" />
 	  <None Remove="Resources\Images\dotnetbot.png" />
 	  <None Remove="Resources\Images\down.png" />
 	  <None Remove="Resources\Images\frog.png" />
+	  <None Remove="Resources\Images\frog1.png" />
 	  <None Remove="Resources\Images\gear.png" />
 	  <None Remove="Resources\Images\green.png" />
+	  <None Remove="Resources\Images\monkey.png" />
 	  <None Remove="Resources\Images\on.png" />
+	  <None Remove="Resources\Images\tiger.png" />
 	  <None Remove="Resources\Images\up.png" />
 	  <None Remove="Resources\Images\zielen.png" />
 	</ItemGroup>
