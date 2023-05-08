@@ -46,7 +46,7 @@
             <Slider 
                 Grid.Row="1"
                 x:Name="sliderFont"
-                Minimum="14" Maximum="24"
+                Minimum="14" Maximum="20"
                 Value="{Binding Font, Mode=TwoWay}"
                 />
 		</Grid>
