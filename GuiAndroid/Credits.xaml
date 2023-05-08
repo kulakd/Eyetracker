@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:GuiAndroid.ViewModel"
              x:Class="GuiAndroid.Credits"
              Title="Credits"
-             BackgroundImageSource="{AppThemeBinding Light=zielen.jpg, Dark=dark_theme.png}"
+             BackgroundImageSource="{Binding Background}"
              >
     <ContentPage.BindingContext>
         <vm:AndVM />
@@ -17,8 +17,8 @@
             <Setter Property="FontSize" Value="{Binding Font}" />
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="FontAutoScalingEnabled" Value="True"/>
-            <Setter Property="TextColor" Value="{AppThemeBinding Light=Gold, Dark=Gold}"/>
-        </Style> 
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=Black}"/>
+        </Style>
     </ContentPage.Resources>
     <Grid RowDefinitions="200,*,*,*,*,*,10">
         <Label Grid.Row="0"  CharacterSpacing="5" Text="APLIKACJA .NET MAUI STWORZONA POD PATRONATEM PROF. UMK DR HAB. JACKA MATULEWSKIEGO PRZEZ ZESPÓŁ:" Style="{StaticResource authors}" />

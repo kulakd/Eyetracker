@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using Microsoft.Maui.Devices;
+using Microsoft.Maui.Controls;
 
 namespace GuiAndroid.ViewModel
 {
@@ -85,18 +86,18 @@ namespace GuiAndroid.ViewModel
             }
         }
 
-        public double Buttons
-        {
-            get
-            {
-                return ustawienia.Buttons;
-            }
-            set
-            {
-                ustawienia.Buttons = value;
-                OnPropertyChanged(nameof(Buttons));
-            }
-        }
+        //public double Buttons
+        //{
+        //    get
+        //    {
+        //        return ustawienia.Buttons;
+        //    }
+        //    set
+        //    {
+        //        ustawienia.Buttons = value;
+        //        OnPropertyChanged(nameof(Buttons));
+        //    }
+        //}
         public int Font
         {
             get
@@ -123,7 +124,7 @@ namespace GuiAndroid.ViewModel
         }
         public void _Zapisz()
         {
-            AndUstawienia.Zapisz(ustawienia.Buttons, ustawienia.Font, ustawienia.Background);
+            AndUstawienia.Zapisz(ustawienia.Font, ustawienia.Background);
         }
 
         public ICommand Zapisz
