@@ -25,17 +25,14 @@ namespace Guiwindows.ViewModel
                    e.ReceiverState == ConnectionState.NotConnected ||
                    e.SenderState == ConnectionState.Waiting ||
                    e.ReceiverState == ConnectionState.Waiting;
-            bool Connected =
-                  e.SenderState == ConnectionState.Connected &&
-                  e.ReceiverState == ConnectionState.Connected;
-            OnPropertyChanged(nameof(NotConnected), nameof(Connected));
-            //if (Connected)
-            //    model.Camera.Index = 0;
-            //else if (NotConnected)
-            //{
-            //    model.Camera.Stop();
-            //    Shell.Current.GoToAsync("//IPPage");
-            //}
+
+            if (NotConnected)
+            {
+                model.Camera.Stop();
+                Shell.Current.GoToAsync("//IPPage");
+            }
+            else
+                model.Camera.Index = 0;
         }
 
         private ICommand stop;

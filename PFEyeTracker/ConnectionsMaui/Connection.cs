@@ -36,13 +36,14 @@ namespace Connections
         private IDispatcher dispatcher;
 
         private bool receiveVideo = false;
-        public bool ReceiveVideo { 
-            get=>receiveVideo;
+        public bool ReceiveVideo
+        {
+            get => receiveVideo;
             set
             {
                 if (value && value != receiveVideo)
                     RequestVideo();
-                    
+
                 receiveVideo = value;
             }
         }
@@ -142,7 +143,7 @@ namespace Connections
         public bool Connect(ConnectionSettings server, int timeoutMs = 10000)
         {
             try
-            { //TODO: Connect both at the same time
+            {
                 //Sender
                 SenderConnectionState = ConnectionState.Connecting;
                 sendClient = new TcpClient();
@@ -286,8 +287,10 @@ namespace Connections
                         throw new Exception("Not Connected");
                     Message.Send(m, sendStream, sendingSource.Token);
                 }
-                catch (Exception e) { 
-                    ThrowException(e); }
+                catch (Exception e)
+                {
+                    ThrowException(e);
+                }
             }
         }
         #endregion
@@ -332,6 +335,7 @@ namespace Connections
                 catch (Exception e)
                 {
                     ThrowException(e);
+                    Disconnect();
                 };
             }
         }

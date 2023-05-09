@@ -21,11 +21,7 @@ namespace GuiAndroid.ViewModel
             get
             {
                 _video.Position = 0;
-                MemoryStream ms = new MemoryStream();
-                _video.CopyTo(ms);
-                ms.Position = 0;
-                _video.Position = 0;
-                return ms;
+                return _video;
             }
             set
             {
