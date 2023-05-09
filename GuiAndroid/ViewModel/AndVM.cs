@@ -127,11 +127,16 @@ namespace GuiAndroid.ViewModel
             AndUstawienia.Zapisz(ustawienia.Buttons, ustawienia.Font, ustawienia.Background);
         }
 
+        public async void Info()
+        {
+            await App.Current.MainPage.DisplayAlert("Uwaga", "Zmiany zostaną wprowadzone po ponownym uruchomieniu aplikacji.", "OK");
+        }
+
         public ICommand Zapisz
         {
             get
             {
-                return new RelayCommand((object p) => { _Zapisz(); });
+                return new RelayCommand((object p) => { Info(); _Zapisz(); });
             }
         }
     }

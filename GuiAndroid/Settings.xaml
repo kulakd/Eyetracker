@@ -15,6 +15,7 @@
             <Label Grid.Row="0"
 			    Text="Wybierz rozmiar przycisków"
 			    FontSize="22"
+                TextColor="LightGrey"
 			    HorizontalOptions="Center"
 			    VerticalOptions="Center"/>
             <Picker Grid.Row="1"
@@ -37,10 +38,11 @@
             </Picker>
         </Grid>
 
-		<Grid Grid.Row="1" RowDefinitions="*,*">
+		<Grid Grid.Row="1" RowDefinitions="*,*,*">
             <Label Grid.Row="0" x:Name="RozmiarCzcionki"
-				   Text="Rozmiar frontu"
+				   Text="Rozmiar czcionki"
 				   FontSize="22"
+                   TextColor="LightGrey"
 				   HorizontalOptions="Center"
 				   VerticalOptions="Center"/>
             <Slider 
@@ -49,12 +51,21 @@
                 Minimum="14" Maximum="24"
                 Value="{Binding Font, Mode=TwoWay}"
                 />
-		</Grid>
+            <Label
+                Grid.Row="2"
+                x:Name="FontSizeInfo"
+                FontSize="32"
+                TextColor="LightGrey"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Font, Mode=OneWay}"
+                />
+        </Grid>
 
 		<Grid Grid.Row="2" RowDefinitions="*,*">
             <Label Grid.Row="0" x:Name="picker"
 				   Text="Wybierz tlo:"
 				   FontSize="22"
+                   TextColor="LightGrey"
 				   HorizontalOptions="Center"
 				   VerticalOptions="Center"/>
 
@@ -80,7 +91,7 @@
 
 		<Button Grid.Row="3" x:Name="Zapisz"
 				Text="ZAPISZ"
-				Command="{Binding Zapisz}" BackgroundColor="#00FF63" 
+				Command="{Binding Zapisz}" BackgroundColor="LimeGreen" 
                 TextColor="Black" FontSize="40" FontFamily="Bold" 
                 BorderColor="Black" BorderWidth="10" CornerRadius="90"/>
 	</Grid>
