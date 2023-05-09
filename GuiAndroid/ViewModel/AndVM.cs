@@ -1,11 +1,7 @@
 ﻿using Connections;
 using GuiAndroid.Model;
 using MVVMKit;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Input;
-using System.Threading.Tasks;
-using Microsoft.Maui.Devices;
 
 namespace GuiAndroid.ViewModel
 {
@@ -15,35 +11,52 @@ namespace GuiAndroid.ViewModel
 
         private readonly Parameters ustawienia = AndUstawienia.Wczytaj();
 
-        private MemoryStream _video;
-        private MemoryStream video
-        {
-            get
-            {
-                _video.Position = 0;
-                return _video;
-            }
-            set
-            {
-                MemoryStream tmp = _video;
-                _video = value;
-                if (tmp != null) tmp.Dispose();
-                OnPropertyChanged(nameof(Video));
-            }
-        }
+        //private MemoryStream[] _video = new MemoryStream[2];
+        //private int _videoIndex = 0;
+        //private bool firstVisible = true;
+        //private MemoryStream video
+        //{
+        //    set
+        //    {
+        //        if (value == null || value.Length == 0 || !value.CanRead)
+        //            throw new ArgumentNullException("value");
+        //        MemoryStream tmp = _video[_videoIndex];
+        //        _video[_videoIndex] = value;
+        //        if (tmp != null) tmp.Dispose();
+        //        switch (_videoIndex)
+        //        {
+        //            case 0:
+        //                firstVisible = false;
+        //                OnPropertyChanged(nameof(Video1), nameof(Visible1), nameof(Visible2));
+        //                break;
+        //            case 1:
+        //                firstVisible = true;
+        //                OnPropertyChanged(nameof(Video2), nameof(Visible1), nameof(Visible2));
+        //                break;
+        //        }
+        //        //_videoIndex = ++_videoIndex % _video.Length;
+        //        _videoIndex = 1;
+        //        model.Connection.ReceiveVideo = false;
+        //    }
+        //}
 
-        public ImageSource Video => ImageSource.FromStream(() => video);
+        //public ImageSource[] Video => _video.Select(v => ImageSource.FromStream(() => v)).ToArray();
+        //public ImageSource Video1 => ImageSource.FromStream(() => { _video[0].Position = 0; return _video[0]; });
+        //public ImageSource Video2 => ImageSource.FromStream(() => { _video[1].Position = 0; return _video[1]; });
+        //public bool Visible1 => !firstVisible;
+        //public bool Visible2 => firstVisible;
 
         public AndVM()
         {
-            model.Connection.ImageReceived += Connection_ImageReceived; ;
+            model.Connection.ImageReceived += Connection_ImageReceived;
 
             Application.Current.MainPage.Appearing += Instance_Appearing;
         }
 
         private void Connection_ImageReceived(object sender, MemoryStream e)
         {
-            video = e;
+            DrawableCanvas.Stream = e;
+            MainPage.Canvas.Invalidate();
         }
 
         private void Instance_Appearing(object sender, EventArgs e)
@@ -72,8 +85,8 @@ namespace GuiAndroid.ViewModel
             while (!flaga)
             {
 
-                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Zatwierdź","Anuluj");
-                try 
+                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Zatwierdź", "Anuluj");
+                try
                 {
                     ConnectionSettings CS = ConnectionSettings.Parse(IPaddress);
                     flaga = model.Connection.Connect(CS);

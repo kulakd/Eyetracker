@@ -5,9 +5,11 @@ namespace GuiAndroid;
 
 public partial class MainPage : ContentPage
 {
+    public static GraphicsView Canvas;
     public MainPage()
     {
         InitializeComponent();
+        Canvas = GraphicsV;
     }
 
     private void GreenButtonClicked(object sender, EventArgs e)
