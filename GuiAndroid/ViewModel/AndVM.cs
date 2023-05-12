@@ -11,41 +11,6 @@ namespace GuiAndroid.ViewModel
 
         private readonly Parameters ustawienia = AndUstawienia.Wczytaj();
 
-        //private MemoryStream[] _video = new MemoryStream[2];
-        //private int _videoIndex = 0;
-        //private bool firstVisible = true;
-        //private MemoryStream video
-        //{
-        //    set
-        //    {
-        //        if (value == null || value.Length == 0 || !value.CanRead)
-        //            throw new ArgumentNullException("value");
-        //        MemoryStream tmp = _video[_videoIndex];
-        //        _video[_videoIndex] = value;
-        //        if (tmp != null) tmp.Dispose();
-        //        switch (_videoIndex)
-        //        {
-        //            case 0:
-        //                firstVisible = false;
-        //                OnPropertyChanged(nameof(Video1), nameof(Visible1), nameof(Visible2));
-        //                break;
-        //            case 1:
-        //                firstVisible = true;
-        //                OnPropertyChanged(nameof(Video2), nameof(Visible1), nameof(Visible2));
-        //                break;
-        //        }
-        //        //_videoIndex = ++_videoIndex % _video.Length;
-        //        _videoIndex = 1;
-        //        model.Connection.ReceiveVideo = false;
-        //    }
-        //}
-
-        //public ImageSource[] Video => _video.Select(v => ImageSource.FromStream(() => v)).ToArray();
-        //public ImageSource Video1 => ImageSource.FromStream(() => { _video[0].Position = 0; return _video[0]; });
-        //public ImageSource Video2 => ImageSource.FromStream(() => { _video[1].Position = 0; return _video[1]; });
-        //public bool Visible1 => !firstVisible;
-        //public bool Visible2 => firstVisible;
-
         public AndVM()
         {
             model.Connection.ImageReceived += Connection_ImageReceived;
@@ -62,21 +27,6 @@ namespace GuiAndroid.ViewModel
         private void Instance_Appearing(object sender, EventArgs e)
         {
             ConnectPlease();
-        }
-
-        private ICommand click;
-        public ICommand Click
-        {
-            get
-            {
-                if (click == null)
-                    click = new RelayCommand((o) => ConnectPlease());
-                return click;
-            }
-        }
-
-        public async void Dialog()
-        {
         }
 
         public async void ConnectPlease()
@@ -99,6 +49,66 @@ namespace GuiAndroid.ViewModel
             model.Connection.ReceiveVideo = true;
         }
 
+        #region MainPage Buttons
+        private ICommand green;
+        private ICommand red;
+        private ICommand gray;
+
+        public ICommand GreenBtnClick
+        {
+            get
+            {
+                if (green == null)
+                    green = new RelayCommand(o =>
+                    {
+
+                    });
+                return green;
+            }
+        }
+        public ICommand RedBtnClick
+        {
+            get
+            {
+                if (red == null)
+                    red = new RelayCommand(o =>
+                    {
+                        Task<bool> answer = App.AlertServices.ChoiceAsync("Potwierdzenie", "Na pewno chcesz odmówić pomocy?", "Owszem", "Nie");
+                        answer.ContinueWith(AnswerCont);
+                    });
+                return red;
+            }
+        }
+        private async Task AnswerCont(Task<bool> answerTask)
+        {
+            bool answer = answerTask.Result;
+            if (answer)
+            {
+                await App.AlertServices.AlertAsync("Potwierdzenie", "To bierz się do roboty! :)", "Aye Aye Captain");
+                return;
+            }
+            else
+            {
+                await App.AlertServices.AlertAsync("Potwierdzenie", "Odmówiłeś Pomocy Osobie Potrzebującej :)", "Cieszę się :)");
+                Application.Current.CloseWindow(Application.Current.MainPage.Window);
+            }
+        }
+
+        public ICommand GrayBtnClick
+        {
+            get
+            {
+                if (gray == null)
+                    gray = new RelayCommand(o =>
+                    {
+                        ConnectPlease();
+                    });
+                return gray;
+            }
+        }
+        #endregion
+
+        #region Settings
         public double Buttons
         {
             get
@@ -152,5 +162,6 @@ namespace GuiAndroid.ViewModel
                 return new RelayCommand((object p) => { Info(); _Zapisz(); });
             }
         }
+        #endregion
     }
 }

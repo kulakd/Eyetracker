@@ -1,9 +1,7 @@
-﻿using AForge.Imaging;
-using AForge.Imaging.Filters;
+﻿using AForge.Imaging.Filters;
 using AForge.Video.DirectShow;
 using Emgu.CV;
 using Emgu.CV.Structure;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.Versioning;
