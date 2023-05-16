@@ -20,27 +20,27 @@
             <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=Black}"/>
         </Style>
     </ContentPage.Resources>
-    <Grid RowDefinitions="200,*,*,*,*,*,10">
+    <Grid RowDefinitions="200,*,*,*,*,*,10" Margin="10">
         <Label Grid.Row="0"  CharacterSpacing="5" Text="APLIKACJA .NET MAUI STWORZONA POD PATRONATEM PROF. UMK DR HAB. JACKA MATULEWSKIEGO PRZEZ ZESPÓŁ:" Style="{StaticResource authors}" />
-        
+
         <Grid Grid.Row="1" ColumnDefinitions="60,*">
             <Image Grid.Column="0" Source="cat.png"/>
             <Grid Grid.Column="1">
-                <Label CharacterSpacing="5" Text="PROJECT MANAGER: &#10;KLAUDIA GACKOWSKA" Style="{StaticResource authors}"/>
+                <Label CharacterSpacing="5" Text="PROJECT MANAGER  &#10;KLAUDIA GACKOWSKA" Style="{StaticResource authors}"/>
             </Grid>
         </Grid>
 
         <Grid Grid.Row="2" ColumnDefinitions="*,60">
             <Image Grid.Column="1" Source="capybara.png"/>
             <Grid Grid.Column="0" >
-                <Label CharacterSpacing="5" Text="OBSŁUGA EYETRACKERA:&#10;PIOTR FILIPSKI" Style="{StaticResource authors}"/>
+                <Label CharacterSpacing="5" Text="OBSŁUGA EYETRACKERA &#10;PIOTR FILIPSKI" Style="{StaticResource authors}"/>
             </Grid>
         </Grid>
 
         <Grid Grid.Row="3" ColumnDefinitions="60,*">
             <Image Grid.Column="0" Source="monkey.png"/>
             <Grid Grid.Column="1" >
-                <Label CharacterSpacing="5" Text="POŁĄCZNIE PO SIECI:&#10;MACIEJ KOMOROWSKI" Style="{StaticResource authors}"/>
+                <Label CharacterSpacing="5" Text="POŁĄCZNIE PO SIECI &#10;MACIEJ KOMOROWSKI" Style="{StaticResource authors}"/>
             </Grid>
         </Grid>
 
@@ -54,32 +54,12 @@
         <Grid Grid.Row="5" ColumnDefinitions="60,*">
             <Image Grid.Column="0" Source="tiger.png"/>
             <Grid Grid.Column="1" >
-                <Label CharacterSpacing="5" Text="SYSTEM POWIADOMIEŃ:&#10;MAKSYMILIAN KUDELSKI" Style="{StaticResource authors}"/>
+                <Label CharacterSpacing="5" Text="SYSTEM POWIADOMIEŃ &#10;MAKSYMILIAN KUDELSKI" Style="{StaticResource authors}"/>
             </Grid>
         </Grid>
 
         <Grid Grid.Row="6">
-            <Label CharacterSpacing="5" FontAttributes="Bold" FontSize="8" TextColor="Gold" HorizontalTextAlignment="Center" Text="©SPRAWNY ZESPÓŁ DO SPRAW ZESPOŁOWYCH 2023"/>
+            <Label CharacterSpacing="5" FontAttributes="Bold" FontSize="8" TextColor="Black" HorizontalTextAlignment="Center" Text="©SPRAWNY ZESPÓŁ DO SPRAW ZESPOŁOWYCH 2023"/>
         </Grid>
     </Grid>
-    <!--<VerticalStackLayout >
-        <Image Aspect="Center" HeightRequest="400" WidthRequest="1000" Source="dotnetbot.png"/>
-        <Label Text="APLIKACJA .NET MAUI STWORZONA POD PATRONATEM PROF. UMK DR HAB. JACKA MATULEWSKIEGO PRZEZ ZESPÓŁ:" Style="{StaticResource authors}" />
-        <Label Text=""/>
-        <Label Text="PROJECT MANAGER" Style="{StaticResource authors}"/>
-        <Label Text="KLAUDIA GACKOWSKA" Style="{StaticResource authors}"/>
-        <Label Text=""/>
-        <Label Text="OBSŁUGA EYETRACKERA" Style="{StaticResource authors}"/>
-        <Label Text="PIOTR FILIPSKI" Style="{StaticResource authors}"/>
-        <Label Text=""/>
-        <Label Text="POŁĄCZENIE I MOBLIZACJA ODDZIAŁÓW LĄDOWYCH" Style="{StaticResource authors}"/>
-        <Label Text="MACIEJ 'KOMANDOS' KOMOROWSKI" Style="{StaticResource authors}"/>
-        <Label Text=""/>
-        <Label Text="INTERFEJS UŻYTKOWNIKA" Style="{StaticResource authors}"/>
-        <Label Text="DAWID KUŁAKOWSKI" Style="{StaticResource authors}"/>
-        <Label Text=""/>
-        <Label Text="SYSTEM POWIADOMIEŃ" Style="{StaticResource authors}"/>
-        <Label Text="MAKSYMILIAN KUDELSKI" Style="{StaticResource authors}"/>
-        <Label Text=""/>
-        </VerticalStackLayout>-->
 </ContentPage>
