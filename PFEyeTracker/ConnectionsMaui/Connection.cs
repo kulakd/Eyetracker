@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Drawing;
+using System.Net;
 using System.Net.Sockets;
 
 namespace Connections
@@ -35,7 +36,18 @@ namespace Connections
         private Task sendingTask;
         private IDispatcher dispatcher;
 
-        public bool ReceiveVideo { get; set; }
+        private bool receiveVideo = false;
+        public bool ReceiveVideo
+        {
+            get => receiveVideo;
+            set
+            {
+                if (value && value != receiveVideo)
+                    RequestVideo();
+
+                receiveVideo = value;
+            }
+        }
 
         private NetworkStream sendStream;
         private NetworkStream receiveStream;
@@ -124,9 +136,8 @@ namespace Connections
         }
         #endregion
 
-        public P2PTCPVideoConnection(bool receiveVideo = false)
+        public P2PTCPVideoConnection()
         {
-            ReceiveVideo = receiveVideo;
             dispatcher = Dispatcher.GetForCurrentThread();
         }
 
@@ -257,7 +268,7 @@ namespace Connections
         public void SendVideo() =>
             sendQ.Enqueue(new Message(Video));
 
-        public void RequestVideo() =>
+        private void RequestVideo() =>
             sendQ.Enqueue(Message.NextFrameMessage);
 
         private async void SendingLoop()
@@ -277,8 +288,10 @@ namespace Connections
                         throw new Exception("Not Connected");
                     Message.Send(m, sendStream, sendingSource.Token);
                 }
-                catch (Exception e) { 
-                    ThrowException(e); }
+                catch (Exception e)
+                {
+                    ThrowException(e);
+                }
             }
         }
         #endregion
@@ -323,6 +336,7 @@ namespace Connections
                 catch (Exception e)
                 {
                     ThrowException(e);
+                    Disconnect();
                 };
             }
         }

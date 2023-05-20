@@ -1,12 +1,13 @@
 ﻿using Connections;
 using GuiAndroid.Model;
 using MVVMKit;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics;
 using System.Windows.Input;
+
 using System.Threading.Tasks;
 using Microsoft.Maui.Devices;
 using Microsoft.Maui.Controls;
+
 
 namespace GuiAndroid.ViewModel
 {
@@ -16,55 +17,29 @@ namespace GuiAndroid.ViewModel
 
         private readonly Parameters ustawienia = AndUstawienia.Wczytaj();
 
-        private MemoryStream _video;
-        private MemoryStream video
-        {
-            get
-            {
-                _video.Position = 0;
-                return _video;
-            }
-            set
-            {
-                MemoryStream tmp = _video;
-                _video = value;
-                if (tmp != null) tmp.Dispose();
-                OnPropertyChanged(nameof(Video));
-            }
-        }
-
-        public ImageSource Video => ImageSource.FromStream(() => video);
-
         public AndVM()
         {
-            model.Connection.ImageReceived += Connection_ImageReceived; ;
+            model.Connection.ImageReceived += Connection_ImageReceived;
 
             Application.Current.MainPage.Appearing += Instance_Appearing;
         }
 
+
+        private Stopwatch _watch = Stopwatch.StartNew();
         private void Connection_ImageReceived(object sender, MemoryStream e)
         {
-            video = e;
+            DrawableCanvas.Stream = e;
+
+            if (_watch.ElapsedMilliseconds < 100)
+                return;
+            _watch.Restart();
+
+            MainPage.Canvas.Invalidate();
         }
 
         private void Instance_Appearing(object sender, EventArgs e)
         {
             ConnectPlease();
-        }
-
-        private ICommand click;
-        public ICommand Click
-        {
-            get
-            {
-                if (click == null)
-                    click = new RelayCommand((o) => ConnectPlease());
-                return click;
-            }
-        }
-
-        public async void Dialog()
-        {
         }
 
         public async void ConnectPlease()
@@ -73,31 +48,79 @@ namespace GuiAndroid.ViewModel
             while (!flaga)
             {
 
-                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Zatwierdź","Anuluj");
-                try 
+                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Zatwierdź", "Anuluj");
+                try
                 {
                     ConnectionSettings CS = ConnectionSettings.Parse(IPaddress);
                     flaga = model.Connection.Connect(CS);
                 }
-                catch (Exception ex)
+                catch
                 {
                     flaga = true;
                 }
             }
+            model.Connection.ReceiveVideo = true;
         }
 
-        //public double Buttons
-        //{
-        //    get
-        //    {
-        //        return ustawienia.Buttons;
-        //    }
-        //    set
-        //    {
-        //        ustawienia.Buttons = value;
-        //        OnPropertyChanged(nameof(Buttons));
-        //    }
-        //}
+        #region MainPage Buttons
+        private ICommand green;
+        private ICommand red;
+        private ICommand gray;
+
+        public ICommand GreenBtnClick
+        {
+            get
+            {
+                if (green == null)
+                    green = new RelayCommand(o =>
+                    {
+
+                    });
+                return green;
+            }
+        }
+        public ICommand RedBtnClick
+        {
+            get
+            {
+                if (red == null)
+                    red = new RelayCommand(o =>
+                    {
+                        Task<bool> answer = App.AlertServices.ChoiceAsync("Potwierdzenie", "Na pewno chcesz odmówić pomocy?", "Owszem", "Nie");
+                        answer.ContinueWith(AnswerCont);
+                    });
+                return red;
+            }
+        }
+        private async Task AnswerCont(Task<bool> answerTask)
+        {
+            bool answer = answerTask.Result;
+            if (answer)
+            {
+                await App.AlertServices.AlertAsync("Potwierdzenie", "To bierz się do roboty! :)", "Aye Aye Captain");
+                return;
+            }
+            else
+            {
+                await App.AlertServices.AlertAsync("Potwierdzenie", "Odmówiłeś Pomocy Osobie Potrzebującej :)", "Cieszę się :)");
+                Application.Current.CloseWindow(Application.Current.MainPage.Window);
+            }
+        }
+
+        public ICommand GrayBtnClick
+        {
+            get
+            {
+                if (gray == null)
+                    gray = new RelayCommand(o =>
+                    {
+                        ConnectPlease();
+                    });
+                return gray;
+            }
+        }
+        #endregion
+
         public int Font
         {
             get
@@ -132,6 +155,11 @@ namespace GuiAndroid.ViewModel
             await App.Current.MainPage.DisplayAlert("Uwaga", "Zmiany zostaną wprowadzone po ponownym uruchomieniu aplikacji.", "OK");
         }
 
+        public async void Info()
+        {
+            await App.Current.MainPage.DisplayAlert("Uwaga", "Zmiany zostaną wprowadzone po ponownym uruchomieniu aplikacji.", "OK");
+        }
+
         public ICommand Zapisz
         {
             get
@@ -139,5 +167,6 @@ namespace GuiAndroid.ViewModel
                 return new RelayCommand((object p) => { Info(); _Zapisz(); });
             }
         }
+        #endregion
     }
 }

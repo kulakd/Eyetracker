@@ -7,8 +7,11 @@ namespace Connections
         private static readonly Encoding encoding = Encoding.UTF8;
         public enum MessageType : byte { EndConnection, String, MemoryStream, SendNextFrame }
 
+        #region Object
         public MessageType Type { get; private set; }
         private byte[] data;
+        private bool HasContents =>
+           Type == MessageType.MemoryStream || Type == MessageType.String;
 
 
         private Message(MessageType type)
@@ -29,6 +32,7 @@ namespace Connections
         public Message(MemoryStream stream)
         {
             Type = MessageType.MemoryStream;
+            stream.Position = 0;
             data = stream.ToArray();
         }
 
@@ -48,56 +52,43 @@ namespace Connections
             }
             return null;
         }
+        #endregion
 
         public static async void Send(Message message, Stream stream, CancellationToken cancellationToken)
         {
             stream.WriteByte((byte)message.Type);
-            if (message.data != null && message.Type != MessageType.EndConnection)
+            if (message.HasContents)
             {
                 byte[] len = BitConverter.GetBytes(message.data.Length);
                 await stream.WriteAsync(len, 0, len.Length, cancellationToken);
                 await stream.WriteAsync(message.data, 0, message.data.Length, cancellationToken);
             }
-            else if (message.data == null)
-            {
-                byte[] len = BitConverter.GetBytes(0);
-                await stream.WriteAsync(len, 0, len.Length, cancellationToken);
-            }
         }
-        private const int delayMilis = 10;
+
         public static async Task<Message> Receive(Stream stream, CancellationToken cancellationToken)
         {
             Message message = new Message((MessageType)stream.ReadByte());
 
-            if (message.Type == MessageType.EndConnection || message.Type == MessageType.SendNextFrame)
-                return message;
+            if (message.HasContents)
+            {
+                byte[] lenBytes = await ReadBytes(4, stream, cancellationToken);
+                int dataLength = BitConverter.ToInt32(lenBytes);
 
-            byte[] len = new byte[4];
-            int read = await stream.ReadAsync(len, 0, len.Length, cancellationToken);
-            while (read != len.Length)
-            {
-                await Task.Delay(delayMilis);
-                read += await stream.ReadAsync(len, 0, len.Length - read, cancellationToken);
-            }
-            int leni = BitConverter.ToInt32(len);
+                if (dataLength == 0)
+                    throw new Exception("Message Invalid");
 
-            if (leni == 0)
-            {
-                message.data = null;
-            }
-            else
-            {
-                byte[] data = new byte[leni];
-                read = await stream.ReadAsync(data, 0, leni, cancellationToken);
-                while (read != leni)
-                {
-                    await Task.Delay(delayMilis);
-                    read += await stream.ReadAsync(data, 0, leni - read, cancellationToken);
-                }
-                message.data = data;
+                message.data = await ReadBytes(dataLength, stream, cancellationToken);
             }
 
             return message;
+        }
+        private static async Task<byte[]> ReadBytes(int count, Stream stream, CancellationToken cancellationToken)
+        {
+            byte[] data = new byte[count];
+            int read = 0;
+            while (read != count)
+                read += await stream.ReadAsync(data, 0, count - read, cancellationToken);
+            return data;
         }
     }
 }

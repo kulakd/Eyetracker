@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:GuiAndroid.ViewModel"
+             xmlns:local="clr-namespace:GuiAndroid"
              x:Class="GuiAndroid.MainPage"    
              BackgroundImageSource="{Binding Background}">
     <ContentPage.Resources>
@@ -14,17 +15,27 @@
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="ScaleY" Value="{Binding Buttons, Mode=OneWay}"/>
         </Style>
+        <local:DrawableCanvas x:Key="drawable" />
     </ContentPage.Resources>
     <ContentPage.BindingContext>
         <vm:AndVM />
     </ContentPage.BindingContext>
-    <Grid RowDefinitions="500,*" ColumnDefinitions="*" Margin="10">
-        <Image  Grid.Row="0" HeightRequest="500" WidthRequest="1500" Source="{Binding Path=Video, Mode=OneWay}"/>
+    <Grid RowDefinitions="500,*" ColumnDefinitions="*">
+        <GraphicsView x:Name="GraphicsV" HeightRequest="225" WidthRequest="400" Drawable="{StaticResource drawable}" />
         <Grid Grid.Row="1" Grid.Column="0" ColumnDefinitions="*,90,*" Padding="10">
 
-            <Button x:Name="green" ImageSource="up.png" Grid.Column="0" BackgroundColor="{AppThemeBinding Light=Green, Dark=SeaGreen}" Style="{StaticResource ButtonSt}" Clicked="GreenButtonClicked"/>
-            <Button x:Name="grey" ImageSource="connect.png" Grid.Column="1" BackgroundColor="{AppThemeBinding Light=LightGrey, Dark=Grey}" Style="{StaticResource ButtonSt}" Clicked="GreyButtonClicked"/>
-            <Button x:Name="red"  ImageSource="down.png" Grid.Column="2" BackgroundColor="{AppThemeBinding Light=Red, Dark=Maroon}" Style="{StaticResource ButtonSt}"  Clicked="RedButtonClicked"/>
+            <Button x:Name="green" ImageSource="up.png" Grid.Column="0"
+                    BackgroundColor="{AppThemeBinding Light=Green, Dark=SeaGreen}"
+                    Style="{StaticResource ButtonSt}"
+                    Command="{Binding GreenBtnClick}" />
+            <Button x:Name="grey" ImageSource="connect.png" Grid.Column="1"
+                    BackgroundColor="{AppThemeBinding Light=LightGrey, Dark=Grey}"
+                    Style="{StaticResource ButtonSt}"
+                    Command="{Binding GrayBtnClick}" />
+            <Button x:Name="red"  ImageSource="down.png" Grid.Column="2"
+                    BackgroundColor="{AppThemeBinding Light=Red, Dark=Maroon}"
+                    Style="{StaticResource ButtonSt}"
+                    Command="{Binding RedBtnClick}" />
         </Grid>
     </Grid>
 </ContentPage>
