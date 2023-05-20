@@ -4,6 +4,11 @@ using MVVMKit;
 using System.Diagnostics;
 using System.Windows.Input;
 
+using System.Threading.Tasks;
+using Microsoft.Maui.Devices;
+using Microsoft.Maui.Controls;
+
+
 namespace GuiAndroid.ViewModel
 {
     public class AndVM : MVVMKit.ViewModel
@@ -116,19 +121,6 @@ namespace GuiAndroid.ViewModel
         }
         #endregion
 
-        #region Settings
-        public double Buttons
-        {
-            get
-            {
-                return ustawienia.Buttons;
-            }
-            set
-            {
-                ustawienia.Buttons = value;
-                OnPropertyChanged(nameof(Buttons));
-            }
-        }
         public int Font
         {
             get
@@ -155,7 +147,12 @@ namespace GuiAndroid.ViewModel
         }
         public void _Zapisz()
         {
-            AndUstawienia.Zapisz(ustawienia.Buttons, ustawienia.Font, ustawienia.Background);
+            AndUstawienia.Zapisz(ustawienia.Font, ustawienia.Background);
+        }
+
+        public async void Info()
+        {
+            await App.Current.MainPage.DisplayAlert("Uwaga", "Zmiany zostaną wprowadzone po ponownym uruchomieniu aplikacji.", "OK");
         }
 
         public async void Info()

@@ -4,137 +4,52 @@
              xmlns:vm="clr-namespace:GuiAndroid.ViewModel"
              x:Class="GuiAndroid.Settings"
              Title="Settings"
-             BackgroundImageSource="dark_theme.png">
+             BackgroundImageSource="{Binding Background}">
 
     <ContentPage.BindingContext>
         <vm:AndVM />
     </ContentPage.BindingContext>
 
-    <Grid RowDefinitions="*,*,*,*">
-		<Grid Grid.Row="0" RowDefinitions="*,*">
-            <Label Grid.Row="0"
-			    Text="Wybierz rozmiar przycisków"
-			    FontSize="22"
-                TextColor="LightGrey"
-			    HorizontalOptions="Center"
-			    VerticalOptions="Center"/>
-            <Picker Grid.Row="1"
-                    x:Name="RozmiarPrzycisków"
-                    Title="{Binding Source={x:Reference RozmiarPrzycisków}, Path=SelectedItem}"
-                    FontSize="80"
-                    FontFamily="Bold"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"
-                    BackgroundColor="DarkOliveGreen"
-                    >
+            <Slider 
+                Grid.Row="1"
+                x:Name="sliderFont"
+                Minimum="14" Maximum="20"
+                Value="{Binding Font, Mode=TwoWay}"
+                />
+
+            <Picker Grid.Column="1" x:Name="backgroundpicker"
+					Title="Wybierz tło"
+					SelectedItem="{Binding Background, Mode=TwoWay}"
+                    FontSize="20" TextColor="Black"
+                    FontFamily="Bold" CharacterSpacing="3"
+                    HorizontalTextAlignment="Center" VerticalOptions="Center"
+                    VerticalTextAlignment="Center" IsVisible="True">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>50%</x:String>
-                        <x:String>100%</x:String>
-                        <x:String>150%</x:String>
-                        <x:String>200%</x:String>
+                        <x:String>white</x:String>
+                        <x:String>blue</x:String>
+                        <x:String>skyblue</x:String>
+                        <x:String>darkblue</x:String>
+                        <x:String>green</x:String>
+                        <x:String>olive</x:String>
+                        <x:String>lawenda</x:String>
+                        <x:String>purple</x:String>
+                        <x:String>red</x:String>
+                        <x:String>sand</x:String>
+                        <x:String>pastelalmond</x:String>
+                        <x:String>pastelblue</x:String>
+                        <x:String>pastelgreen</x:String>
+                        <x:String>pastelsand</x:String>
+                        <x:String>pastelviolet</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
         </Grid>
+        <Button Grid.Row="2" x:Name="Zapisz"
+				ImageSource="save.png"
+				Command="{Binding Zapisz}" BackgroundColor="ForestGreen"
 
-		<Grid Grid.Row="1" RowDefinitions="*,*,*">
-            <Label Grid.Row="0" x:Name="RozmiarCzcionki"
-				   Text="Rozmiar czcionki"
-				   FontSize="22"
-                   TextColor="LightGrey"
-				   HorizontalOptions="Center"
-				   VerticalOptions="Center"/>
-            <Slider 
-                Grid.Row="1"
-                x:Name="sliderFont"
-                Minimum="14" Maximum="24"
-                Value="{Binding Font, Mode=TwoWay}"
-                />
-            <Label
-                Grid.Row="2"
-                x:Name="FontSizeInfo"
-                FontSize="32"
-                TextColor="LightGrey"
-                HorizontalTextAlignment="Center"
-                Text="{Binding Font, Mode=OneWay}"
-                />
-        </Grid>
-
-		<Grid Grid.Row="2" RowDefinitions="*,*">
-            <Label Grid.Row="0" x:Name="picker"
-				   Text="Wybierz tlo:"
-				   FontSize="22"
-                   TextColor="LightGrey"
-				   HorizontalOptions="Center"
-				   VerticalOptions="Center"/>
-
-            <Picker Grid.Row="1" x:Name="backgroundpicker"
-					Title="Wybierz tło"
-					SelectedItem="{Binding Background, Mode=TwoWay}"
-                    FontSize="40"
-                    FontFamily="Bold"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"
-                    BackgroundColor="DarkOliveGreen">
-                <Picker.ItemsSource>
-
-					<x:Array Type="{x:Type x:String}">
-						<x:String>aaaa</x:String>
-						<x:String>frog</x:String>
-						<x:String>dark_theme</x:String>
-					</x:Array>
-				</Picker.ItemsSource>
-			</Picker>
-		</Grid>
-
-
-		<Button Grid.Row="3" x:Name="Zapisz"
-				Text="ZAPISZ"
-				Command="{Binding Zapisz}" BackgroundColor="LimeGreen" 
                 TextColor="Black" FontSize="40" FontFamily="Bold" 
-                BorderColor="Black" BorderWidth="10" CornerRadius="90"/>
-	</Grid>
-	<!--<VerticalStackLayout>
-
-        <Label x:Name="RozmiarPrzycisków"
-               Text="Rozmiar przycisków"
-               FontSize="18"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-        <Slider 
-                x:Name="sliderB"
-                Maximum="2"
-                Value="{Binding Buttons, Mode=TwoWay}"
-                />
-        <Entry x:Name="Buttons" 
-               Text="{Binding Buttons, Mode=TwoWay}"
-               />
-        <Label x:Name="RozmiarCzcionki"
-               Text="Rozmiar czcionki"
-               FontSize="18"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-
-        <Slider x:Name="sliderFont" Minimum="14" Maximum="24" Value="{Binding Font, Mode=TwoWay}"/>
-
-        <Entry x:Name="Font"
-               Text="{Binding Font, Mode=TwoWay}"
-            />
-        <Picker x:Name="picker"
-                Title="Wybierz tło"
-                SelectedItem="{Binding Background, Mode=TwoWay}">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>aaaa</x:String>
-                    <x:String>frog</x:String>
-                    <x:String>dark_theme</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
-        <Button 
-            x:Name="Zapisz"
-            Text="Zapisz"
-            Command="{Binding Zapisz}"/>
-    </VerticalStackLayout>-->
+                BorderColor="Black" BorderWidth="4" CornerRadius="90"/>
+    </Grid>
 </ContentPage>

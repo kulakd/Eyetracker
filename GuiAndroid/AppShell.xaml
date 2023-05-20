@@ -6,12 +6,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:GuiAndroid"
     Shell.NavBarIsVisible="False"
-    FlyoutBackgroundImage="{AppThemeBinding Light=zielen.jpg, Dark=dark_theme.png}"
-    FlyoutBackgroundImageAspect="Fill"
-    FlyoutWidth="300"
-    FlyoutHeight="200"
+    TabBarBackgroundColor="Black"
+    TabBarUnselectedColor="Grey"
     >
-    <Shell.ItemTemplate>
+
+    <TabBar x:Name="tadbar">
+        <Tab Title="KAMERA" Icon="camera.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+        </Tab>
+        <Tab Title="USTAWIENIA"  Icon="gear.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Settings}" Route="Settings" />
+        </Tab>
+        <Tab Title="LISTA PŁAC" Icon="books.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Credits}" Route="Credits" />
+        </Tab>
+    </TabBar>
+    <!--<Shell.ItemTemplate>
         <DataTemplate>
             <Grid ColumnDefinitions="0.2*,0.8*">
                 <Image Source="{Binding FlyoutIcon}"
@@ -41,5 +51,5 @@
                        HorizontalOptions="Center" />
             </StackLayout>
         </DataTemplate>
-    </Shell.FlyoutFooterTemplate>
+    </Shell.FlyoutFooterTemplate>-->
 </Shell>

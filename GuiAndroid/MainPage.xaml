@@ -22,7 +22,6 @@
     </ContentPage.BindingContext>
     <Grid RowDefinitions="500,*" ColumnDefinitions="*">
         <GraphicsView x:Name="GraphicsV" HeightRequest="225" WidthRequest="400" Drawable="{StaticResource drawable}" />
-
         <Grid Grid.Row="1" Grid.Column="0" ColumnDefinitions="*,90,*" Padding="10">
 
             <Button x:Name="green" ImageSource="up.png" Grid.Column="0"
