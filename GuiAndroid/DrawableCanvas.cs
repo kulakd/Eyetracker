@@ -26,14 +26,8 @@ namespace GuiAndroid
         }
 
         private IImage shownImage;
-
-        private Stopwatch _watch = Stopwatch.StartNew();
         public void Draw(ICanvas canvas, RectF dirtyRect)
         {
-
-            //if (_watch.ElapsedMilliseconds < 1000)
-            //    return;
-            //_watch.Restart();
             bool useFromBuffer = false;
             if (Stream == null || Stream.Length == 0)
                 useFromBuffer = true;
