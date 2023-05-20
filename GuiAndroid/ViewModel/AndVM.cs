@@ -1,6 +1,7 @@
 ﻿using Connections;
 using GuiAndroid.Model;
 using MVVMKit;
+using System.Diagnostics;
 using System.Windows.Input;
 
 namespace GuiAndroid.ViewModel
@@ -18,9 +19,16 @@ namespace GuiAndroid.ViewModel
             Application.Current.MainPage.Appearing += Instance_Appearing;
         }
 
+
+        private Stopwatch _watch = Stopwatch.StartNew();
         private void Connection_ImageReceived(object sender, MemoryStream e)
         {
             DrawableCanvas.Stream = e;
+
+            if (_watch.ElapsedMilliseconds < 100)
+                return;
+            _watch.Restart();
+
             MainPage.Canvas.Invalidate();
         }
 
