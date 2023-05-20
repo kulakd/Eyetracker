@@ -4,10 +4,6 @@ using MVVMKit;
 using System.Diagnostics;
 using System.Windows.Input;
 
-using System.Threading.Tasks;
-using Microsoft.Maui.Devices;
-using Microsoft.Maui.Controls;
-
 
 namespace GuiAndroid.ViewModel
 {
@@ -20,10 +16,23 @@ namespace GuiAndroid.ViewModel
         public AndVM()
         {
             model.Connection.ImageReceived += Connection_ImageReceived;
+            model.Connection.StringReceived += Connection_StringReceived;
 
             Application.Current.MainPage.Appearing += Instance_Appearing;
         }
 
+        private void Connection_StringReceived(object sender, string e)
+        {
+            switch (e[0])
+            {
+                case 'H':
+                    App.AlertServices.AlertVibrateAsync("Pomoc", "umieram", "ok", 10000);
+                    break;
+                case 'C':
+                    App.AlertServices.AlertVibrateAsync("przyjdz", "nie umieram ale cho tu", "ok", 500);
+                    break;
+            }
+        }
 
         private Stopwatch _watch = Stopwatch.StartNew();
         private void Connection_ImageReceived(object sender, MemoryStream e)

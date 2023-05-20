@@ -32,23 +32,20 @@ namespace MauiGui.Model
             Settings = new ConnectionSettings(add, 4000, 4001);
 
             cam.NewFrameEvent += (s, f) => Connection.Video = f;
+            Connection.ConnectionStateChanged += Connection_ConnectionStateChanged;
+            Start();
+        }
+
+        private void Connection_ConnectionStateChanged(object sender, ConnectionEventEventArgs e)
+        {
+            if (e.SenderState == ConnectionState.NotConnected &&
+                e.ReceiverState == ConnectionState.NotConnected)
+                Start();
         }
 
         public void Start()
         {
-            Task.Run(LoopWait);
-        }
-
-        public async void LoopWait()
-        {
-            bool res = await Task.FromResult(Connection.WaitForConnection(Settings));
-
-            if (res)
-                return;
-
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            Task.Run(LoopWait);
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            while (!Connection.WaitForConnection(Settings)) ;
         }
 
         public void OnClose()

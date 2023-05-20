@@ -8,7 +8,7 @@
         <vm:IPVM />
     </ContentPage.BindingContext>
     <VerticalStackLayout>
-        <Label Text="Type the address below into the app to attempt connection"
+        <Label Text="Type the address below into the app to atetmptconnection"
                VerticalOptions="Center"
                HorizontalOptions="Center" />
         <Label Text="{Binding Path=Address, Mode=OneWay}"
