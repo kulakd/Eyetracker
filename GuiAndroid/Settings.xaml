@@ -5,18 +5,34 @@
              x:Class="GuiAndroid.Settings"
              Title="Settings"
              BackgroundImageSource="{Binding Background}">
-
     <ContentPage.BindingContext>
         <vm:AndVM />
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style x:Key="LabelSt" TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+    </ContentPage.Resources>
 
+    <Grid RowDefinitions="*,*,*" Margin="10">
+        <Grid Grid.Row="0" RowDefinitions="*,*">
+            <Grid Grid.Row="0" ColumnDefinitions="300,*">
+                <Label Grid.Column="0" x:Name="RozmiarCzcionki" Text="Rozmiar frontu:" Style="{StaticResource LabelSt}" CharacterSpacing="6"/>
+                <Label Grid.Column="1" x:Name="SliderValue" Text="{Binding Font, Mode=OneWay}" Style="{StaticResource LabelSt}"/>
+            </Grid>
             <Slider 
                 Grid.Row="1"
                 x:Name="sliderFont"
                 Minimum="14" Maximum="20"
                 Value="{Binding Font, Mode=TwoWay}"
                 />
-
+        </Grid>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*">
+            <Label Grid.Column="0" x:Name="picker" Text="Wybierz tło:" CharacterSpacing="5" Style="{StaticResource LabelSt}"/>
             <Picker Grid.Column="1" x:Name="backgroundpicker"
 					Title="Wybierz tło"
 					SelectedItem="{Binding Background, Mode=TwoWay}"
@@ -45,10 +61,10 @@
                 </Picker.ItemsSource>
             </Picker>
         </Grid>
+    
         <Button Grid.Row="2" x:Name="Zapisz"
 				ImageSource="save.png"
 				Command="{Binding Zapisz}" BackgroundColor="ForestGreen"
-
                 TextColor="Black" FontSize="40" FontFamily="Bold" 
                 BorderColor="Black" BorderWidth="4" CornerRadius="90"/>
     </Grid>

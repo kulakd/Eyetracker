@@ -155,11 +155,6 @@ namespace GuiAndroid.ViewModel
             await App.Current.MainPage.DisplayAlert("Uwaga", "Zmiany zostaną wprowadzone po ponownym uruchomieniu aplikacji.", "OK");
         }
 
-        public async void Info()
-        {
-            await App.Current.MainPage.DisplayAlert("Uwaga", "Zmiany zostaną wprowadzone po ponownym uruchomieniu aplikacji.", "OK");
-        }
-
         public ICommand Zapisz
         {
             get
@@ -167,6 +162,5 @@ namespace GuiAndroid.ViewModel
                 return new RelayCommand((object p) => { Info(); _Zapisz(); });
             }
         }
-        #endregion
     }
 }

@@ -21,35 +21,5 @@
             <ShellContent ContentTemplate="{DataTemplate local:Credits}" Route="Credits" />
         </Tab>
     </TabBar>
-    <!--<Shell.ItemTemplate>
-        <DataTemplate>
-            <Grid ColumnDefinitions="0.2*,0.8*">
-                <Image Source="{Binding FlyoutIcon}"
-                       Margin="5"
-                       HeightRequest="50" 
-                       WidthRequest="100"/>
-                <Label Grid.Column="1"
-                       Text="{Binding Title}"
-                       FontAttributes="Bold"
-                       VerticalTextAlignment="Center" />
-            </Grid>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-    <ShellContent  Title="PODGLĄD KAMERY" Icon="camera.png" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
-    <ShellContent Title="USTAWIENIA"  Icon="gear.png"   ContentTemplate="{DataTemplate local:Settings}" Route="Settings" />
-    <ShellContent Title="LISTA PŁAC" Icon="books.png"  ContentTemplate="{DataTemplate local:Credits}" Route="Credits" />
-    <Shell.FlyoutFooterTemplate>
-        <DataTemplate>
-            <StackLayout>
-                <Label Text=""
-                       TextColor="{AppThemeBinding Light=Black, Dark=GhostWhite}"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center" />
-                <Label Text="Sprawny Zespół do Spraw Zespołowych"
-                       TextColor="{AppThemeBinding Light=Black, Dark=GhostWhite}"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center" />
-            </StackLayout>
-        </DataTemplate>
-    </Shell.FlyoutFooterTemplate>-->
+  
 </Shell>
