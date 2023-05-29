@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Guiwindows.ViewModel"
              x:Class="Guiwindows.MainPage"
-             BackgroundImageSource="steel.jpg">
+             BackgroundImageSource="steel2.jpg"
+             NavigationPage.HasNavigationBar="False"
+             >
 
     <ContentPage.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -13,8 +15,8 @@
             <Setter Property="FontSize" Value="50"/>
             <Setter Property="TextColor" Value="Black"/>
             <Setter Property="FontAttributes" Value="Bold"/>
-            <Setter Property="HeightRequest" Value="600"/>
-            <Setter Property="WidthRequest" Value="600"/>
+            <Setter Property="HeightRequest" Value="450"/>
+            <Setter Property="WidthRequest" Value="460"/>
         </Style>
     </ContentPage.Resources>
 
@@ -22,8 +24,11 @@
         <vm:WinVM />
     </ContentPage.BindingContext>
 
-    <Grid RowDefinitions="800">
-        <Grid Grid.Row="0" ColumnDefinitions="*,*,*">
+    <Grid RowDefinitions="100,*,100">
+        <Grid Grid.Row="0" >
+            <Image Source="logo.png" HorizontalOptions="Center"/>
+            </Grid>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*">
             <Button x:Name="STOPbtn" BackgroundColor="Green" ImageSource="low.png"
                 SemanticProperties.Hint="Wyłącz" Grid.Column="0" 
                 Command="{Binding Path=Stop}"  Style="{StaticResource ButtonStyle}"/>
@@ -34,6 +39,6 @@
                 SemanticProperties.Hint="Sytuacja zagrożenia" Grid.Column="2" 
                 Command="{Binding Path=Help}" Style="{StaticResource ButtonStyle}" />
         </Grid>
-        <!--<ProgressBar x:Name="Loading" ProgressColor="Lime" Margin="30" MinimumHeightRequest="50" Progress="0" Grid.Row="1"/>-->
+        <ProgressBar x:Name="Loading" ProgressColor="Lime" Margin="30" MinimumHeightRequest="50" Progress="0" Grid.Row="2"/>
     </Grid>
 </ContentPage>
