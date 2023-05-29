@@ -3,19 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Guiwindows.ViewModel"
              x:Class="Guiwindows.IPPage"
-             Title="IPPage">
+             Title="IPPage"
+             BackgroundImageSource="steel.jpg">
+
     <ContentPage.BindingContext>
         <vm:IPVM />
     </ContentPage.BindingContext>
-    <VerticalStackLayout>
-        <Label Text="Type the address below into the app to attempt connection"
+    <Grid RowDefinitions="*,*,*,*,*" BackgroundColor="LightGrey">
+        <Label Grid.Row="1" Text="Type the address below into the app to attempt connection"
                VerticalOptions="Center"
                HorizontalOptions="Center" />
-        <Label Text="{Binding Path=Address, Mode=OneWay}"
+        <Label Grid.Row="2" Text="{Binding Path=Address, Mode=OneWay}"
                VerticalOptions="Center" 
                HorizontalOptions="Center" />
-        <Label Text="{Binding Path=State}"
+        <Label Grid.Row="3" Text="{Binding Path=State}"
                VerticalOptions="Center"
                HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>

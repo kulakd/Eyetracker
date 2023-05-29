@@ -61,7 +61,6 @@
                 </Picker.ItemsSource>
             </Picker>
         </Grid>
-    
         <Button Grid.Row="2" x:Name="Zapisz"
 				ImageSource="save.png"
 				Command="{Binding Zapisz}" BackgroundColor="ForestGreen"

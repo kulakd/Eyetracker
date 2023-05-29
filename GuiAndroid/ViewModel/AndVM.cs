@@ -48,7 +48,7 @@ namespace GuiAndroid.ViewModel
             while (!flaga)
             {
 
-                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Podaj adres AjPI:", "Zatwierdź", "Anuluj");
+                string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Wpisz IP urządzenia:", "Potwierdź", "Anuluj");
                 try
                 {
                     ConnectionSettings CS = ConnectionSettings.Parse(IPaddress);
@@ -86,7 +86,7 @@ namespace GuiAndroid.ViewModel
                 if (red == null)
                     red = new RelayCommand(o =>
                     {
-                        Task<bool> answer = App.AlertServices.ChoiceAsync("Potwierdzenie", "Na pewno chcesz odmówić pomocy?", "Owszem", "Nie");
+                        Task<bool> answer = App.AlertServices.ChoiceAsync("Potwierdzenie", "Potwierdzenie: nie jesteś w stanie udzielić pomocy w obecnej chwili", "Tak", "Nie");
                         answer.ContinueWith(AnswerCont);
                     });
                 return red;

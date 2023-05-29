@@ -59,7 +59,7 @@
         </Grid>
 
         <Grid Grid.Row="6">
-            <Label CharacterSpacing="5" FontAttributes="Bold" FontSize="8" TextColor="Black" HorizontalTextAlignment="Center" Text="©SPRAWNY ZESPÓŁ DO SPRAW ZESPOŁOWYCH 2023"/>
+            <Label CharacterSpacing="5" FontAttributes="Bold" FontSize="8" TextColor="Black" HorizontalTextAlignment="Center" Text="©WAKEWATCH, ZESPÓŁ DO SPRAW ZESPOŁOWYCH 2023"/>
         </Grid>
     </Grid>
 </ContentPage>

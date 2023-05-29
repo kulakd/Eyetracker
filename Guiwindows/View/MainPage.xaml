@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Guiwindows.ViewModel"
              x:Class="Guiwindows.MainPage"
-             BackgroundColor="Black">
+             BackgroundImageSource="steel.jpg">
 
     <ContentPage.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -13,6 +13,8 @@
             <Setter Property="FontSize" Value="50"/>
             <Setter Property="TextColor" Value="Black"/>
             <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="HeightRequest" Value="600"/>
+            <Setter Property="WidthRequest" Value="600"/>
         </Style>
     </ContentPage.Resources>
 
@@ -20,21 +22,18 @@
         <vm:WinVM />
     </ContentPage.BindingContext>
 
-    <Grid RowDefinitions="800,*">
+    <Grid RowDefinitions="800">
         <Grid Grid.Row="0" ColumnDefinitions="*,*,*">
-
-            <Button x:Name="STOPbtn" BackgroundColor="Green"
-                SemanticProperties.Hint="Turn Off" Grid.Column="0" 
+            <Button x:Name="STOPbtn" BackgroundColor="Green" ImageSource="low.png"
+                SemanticProperties.Hint="Wyłącz" Grid.Column="0" 
                 Command="{Binding Path=Stop}"  Style="{StaticResource ButtonStyle}"/>
-
-            <Button x:Name="ComeBtn" BackgroundColor="Yellow"
-                SemanticProperties.Hint="Low-level alert" Grid.Column="1" 
+            <Button x:Name="ComeBtn" BackgroundColor="Yellow" ImageSource="mid.png"
+                SemanticProperties.Hint="Potrzebna pomoc" Grid.Column="1" 
                 Command="{Binding Path=Come}" Style="{StaticResource ButtonStyle}" />
-
-            <Button x:Name="HelpBtn" BackgroundColor="Red"
-                SemanticProperties.Hint="High-level alert" Grid.Column="2" 
+            <Button x:Name="HelpBtn" BackgroundColor="Red" ImageSource="high.png"
+                SemanticProperties.Hint="Sytuacja zagrożenia" Grid.Column="2" 
                 Command="{Binding Path=Help}" Style="{StaticResource ButtonStyle}" />
         </Grid>
-        <ProgressBar x:Name="Loading" ProgressColor="Lime" Margin="30" MinimumHeightRequest="50" Progress="0" Grid.Row="1"/>
+        <!--<ProgressBar x:Name="Loading" ProgressColor="Lime" Margin="30" MinimumHeightRequest="50" Progress="0" Grid.Row="1"/>-->
     </Grid>
 </ContentPage>

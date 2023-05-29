@@ -17,7 +17,7 @@
         <Tab Title="USTAWIENIA"  Icon="gear.png">
             <ShellContent ContentTemplate="{DataTemplate local:Settings}" Route="Settings" />
         </Tab>
-        <Tab Title="LISTA PŁAC" Icon="books.png">
+        <Tab Title="ZESPÓŁ" Icon="books.png">
             <ShellContent ContentTemplate="{DataTemplate local:Credits}" Route="Credits" />
         </Tab>
     </TabBar>
