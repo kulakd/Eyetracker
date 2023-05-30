@@ -18,6 +18,13 @@ namespace TrackerConnector
         private StreamReader pipeReader;
 
         public event EventHandler<TrackerEventType> TrackerEvent;
+        public event EventHandler<Exception> TrackerExceptionEvent;
+
+        private void ThrowException(Exception exception)
+        {
+            if (TrackerExceptionEvent != null) 
+                TrackerExceptionEvent(this, exception);
+        }
 
         private void DispatchEvent(Action a)
         {
@@ -27,7 +34,7 @@ namespace TrackerConnector
                 a();
         }
 
-        private async void ConnectPipe()
+        public async void ConnectPipe()
         {
             //try
             //{
@@ -70,6 +77,7 @@ namespace TrackerConnector
             }
             catch (Exception ex)
             {
+                ThrowException(ex);
             }
         }
     }

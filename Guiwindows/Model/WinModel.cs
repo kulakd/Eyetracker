@@ -2,6 +2,7 @@
 using EyeTracker;
 using System.Net;
 using System.Runtime.Versioning;
+using TrackerConnector;
 
 namespace MauiGui.Model
 {
@@ -24,6 +25,7 @@ namespace MauiGui.Model
 
         public readonly P2PTCPVideoConnection Connection = new P2PTCPVideoConnection();
         public readonly ConnectionSettings Settings;
+        public readonly PipeReceiver ETReceiver = new PipeReceiver();
 
         private WinModel()
         {
@@ -31,9 +33,28 @@ namespace MauiGui.Model
             IPAddress add = host.AddressList[1];
             Settings = new ConnectionSettings(add, 4000, 4001);
 
+            ETReceiver.TrackerEvent += HandleTrackerEvent;
+            ETReceiver.ConnectPipe();
+
             cam.NewFrameEvent += (s, f) => Connection.Video = f;
             Connection.ConnectionStateChanged += Connection_ConnectionStateChanged;
             Start();
+        }
+
+        private void HandleTrackerEvent(object sender, TrackerEventType e)
+        {
+            if (Connection.SenderConnectionState == ConnectionState.Connected)
+            {
+                switch (e)
+                {
+                    case TrackerEventType.WAKE_UP:
+                        Connection.Send("W");
+                        break;
+                    case TrackerEventType.ALARM:
+                        Connection.Send("A");
+                        break;
+                }
+            }
         }
 
         private void Connection_ConnectionStateChanged(object sender, ConnectionEventEventArgs e)
