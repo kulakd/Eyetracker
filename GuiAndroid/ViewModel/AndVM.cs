@@ -14,13 +14,11 @@ namespace GuiAndroid.ViewModel
     public class AndVM : MVVMKit.ViewModel
     {
         private readonly AndModel model = new AndModel();
-
         private readonly Parameters ustawienia = AndUstawienia.Wczytaj();
 
         public AndVM()
         {
             model.Connection.ImageReceived += Connection_ImageReceived;
-
             Application.Current.MainPage.Appearing += Instance_Appearing;
         }
 
@@ -29,11 +27,9 @@ namespace GuiAndroid.ViewModel
         private void Connection_ImageReceived(object sender, MemoryStream e)
         {
             DrawableCanvas.Stream = e;
-
             if (_watch.ElapsedMilliseconds < 100)
                 return;
             _watch.Restart();
-
             MainPage.Canvas.Invalidate();
         }
 
@@ -47,7 +43,6 @@ namespace GuiAndroid.ViewModel
             bool flaga = model.Connection.SenderConnectionState != ConnectionState.NotConnected;
             while (!flaga)
             {
-
                 string IPaddress = await App.AlertServices.InputBoxAsync("Adres IP", "Wpisz IP urządzenia:", "Potwierdź", "Anuluj");
                 try
                 {
@@ -61,66 +56,66 @@ namespace GuiAndroid.ViewModel
             }
             model.Connection.ReceiveVideo = true;
         }
+        // do wywalenia
 
-        #region MainPage Buttons
-        private ICommand green;
-        private ICommand red;
-        private ICommand gray;
+        //#region MainPage Buttons
+        //private ICommand green;
+        //private ICommand red;
+        //private ICommand gray;
 
-        public ICommand GreenBtnClick
-        {
-            get
-            {
-                if (green == null)
-                    green = new RelayCommand(o =>
-                    {
+        //public ICommand GreenBtnClick
+        //{
+        //    get
+        //    {
+        //        if (green == null)
+        //            green = new RelayCommand(o =>
+        //            {
 
-                    });
-                return green;
-            }
-        }
-        public ICommand RedBtnClick
-        {
-            get
-            {
-                if (red == null)
-                    red = new RelayCommand(o =>
-                    {
-                        Task<bool> answer = App.AlertServices.ChoiceAsync("Potwierdzenie", "Potwierdzenie: nie jesteś w stanie udzielić pomocy w obecnej chwili", "Tak", "Nie");
-                        answer.ContinueWith(AnswerCont);
-                    });
-                return red;
-            }
-        }
-        private async Task AnswerCont(Task<bool> answerTask)
-        {
-            bool answer = answerTask.Result;
-            if (answer)
-            {
-                await App.AlertServices.AlertAsync("Potwierdzenie", "To bierz się do roboty! :)", "Aye Aye Captain");
-                return;
-            }
-            else
-            {
-                await App.AlertServices.AlertAsync("Potwierdzenie", "Odmówiłeś Pomocy Osobie Potrzebującej :)", "Cieszę się :)");
-                Application.Current.CloseWindow(Application.Current.MainPage.Window);
-            }
-        }
+        //            });
+        //        return green;
+        //    }
+        //}
+        //public ICommand RedBtnClick
+        //{
+        //    get
+        //    {
+        //        if (red == null)
+        //            red = new RelayCommand(o =>
+        //            {
+        //                Task<bool> answer = App.AlertServices.ChoiceAsync("Potwierdzenie", "Potwierdzenie: nie jesteś w stanie udzielić pomocy w obecnej chwili", "Tak", "Nie");
+        //                answer.ContinueWith(AnswerCont);
+        //            });
+        //        return red;
+        //    }
+        //}
+        //private async Task AnswerCont(Task<bool> answerTask)
+        //{
+        //    bool answer = answerTask.Result;
+        //    if (answer)
+        //    {
+        //        await App.AlertServices.AlertAsync("Potwierdzenie", "To bierz się do roboty! :)", "Aye Aye Captain");
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        await App.AlertServices.AlertAsync("Potwierdzenie", "Odmówiłeś Pomocy Osobie Potrzebującej :)", "Cieszę się :)");
+        //        Application.Current.CloseWindow(Application.Current.MainPage.Window);
+        //    }
+        //}
 
-        public ICommand GrayBtnClick
-        {
-            get
-            {
-                if (gray == null)
-                    gray = new RelayCommand(o =>
-                    {
-                        ConnectPlease();
-                    });
-                return gray;
-            }
-        }
-        #endregion
-
+        //public ICommand GrayBtnClick
+        //{
+        //    get
+        //    {
+        //        if (gray == null)
+        //            gray = new RelayCommand(o =>
+        //            {
+        //                ConnectPlease();
+        //            });
+        //        return gray;
+        //    }
+        //}
+        //#endregion
         public int Font
         {
             get

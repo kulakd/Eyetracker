@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:GuiAndroid"
              x:Class="GuiAndroid.MainPage"    
              BackgroundImageSource="{Binding Background}">
+    
     <ContentPage.Resources>
         <Style x:Key="ButtonSt" TargetType="Button">
             <Setter Property="CornerRadius" Value="90"/>
@@ -17,16 +18,17 @@
         </Style>
         <local:DrawableCanvas x:Key="drawable" />
     </ContentPage.Resources>
+    
     <ContentPage.BindingContext>
         <vm:AndVM />
     </ContentPage.BindingContext>
-    <Grid RowDefinitions="600,*" ColumnDefinitions="*">
+    
+    <Grid RowDefinitions="600,*">
         <GraphicsView Grid.Row="0" x:Name="GraphicsV" HeightRequest="300" WidthRequest="400" Drawable="{StaticResource drawable}" />
-        <Grid Grid.Row="1" Grid.Column="0"  Padding="10">
-            <Button x:Name="grey" ImageSource="connect.png" Grid.Column="1"
-                            BackgroundColor="{AppThemeBinding Light=LightGrey, Dark=Grey}"
-                            Style="{StaticResource ButtonSt}"
-                            Command="{Binding GrayBtnClick}" />
+        <Grid Grid.Row="1" Padding="10">
+            <Button x:Name="grey" ImageSource="connect.png" 
+                    Style="{StaticResource ButtonSt}"
+                    Command="{Binding GrayBtnClick}" />
         </Grid>
     </Grid>
 </ContentPage>
