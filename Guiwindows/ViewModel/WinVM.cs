@@ -1,7 +1,6 @@
 ﻿using Connections;
 using MauiGui.Model;
 using MVVMKit;
-using Notifications;
 using System.Runtime.Versioning;
 using System.Windows.Input;
 
@@ -20,13 +19,8 @@ namespace Guiwindows.ViewModel
 
         private void ConnectionStateChanged(object sender, ConnectionEventEventArgs e)
         {
-            bool NotConnected =
-                   e.SenderState == ConnectionState.NotConnected ||
-                   e.ReceiverState == ConnectionState.NotConnected ||
-                   e.SenderState == ConnectionState.Waiting ||
-                   e.ReceiverState == ConnectionState.Waiting;
-
-            if (NotConnected)
+            if (e.SenderState == ConnectionState.NotConnected &&
+                e.ReceiverState == ConnectionState.NotConnected)
             {
                 model.Camera.Stop();
                 Shell.Current.GoToAsync("//IPPage");
@@ -44,7 +38,10 @@ namespace Guiwindows.ViewModel
             get
             {
                 if (stop == null)
-                    stop = new RelayCommand((o) => { return; });
+                    stop = new RelayCommand((o) =>
+                    {
+                        return;
+                    });
                 return stop;
             }
         }
@@ -53,7 +50,10 @@ namespace Guiwindows.ViewModel
             get
             {
                 if (come == null)
-                    come = new RelayCommand((o) => { return; });
+                    come = new RelayCommand((o) =>
+                    {
+                        model.Connection.Send("C");
+                    });
                 return come;
             }
         }
@@ -62,7 +62,10 @@ namespace Guiwindows.ViewModel
             get
             {
                 if (help == null)
-                    help = new RelayCommand((o) => { return; });
+                    help = new RelayCommand((o) =>
+                    {
+                        model.Connection.Send("H");
+                    });
                 return help;
             }
         }

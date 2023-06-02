@@ -1,10 +1,5 @@
 ﻿using MauiGui.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Versioning;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Guiwindows.ViewModel
 {
@@ -20,7 +15,6 @@ namespace Guiwindows.ViewModel
             model = WinModel.Instance;
             Address = model.Settings.ToString();
             OnPropertyChanged(nameof(Address));
-            model.Start();
 
             model.Connection.ConnectionStateChanged += Connection_ConnectionStateChanged;
             model.Camera.Index = 0;

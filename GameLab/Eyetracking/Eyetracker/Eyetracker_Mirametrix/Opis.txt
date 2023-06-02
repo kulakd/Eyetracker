@@ -1,3 +1,0 @@
-﻿Jest wersja 3.5. Trzeba cofnąć do 2.0!!!!!!!!!!!!!!!!!!!!!!!
-
-Wersja .NET: 2.0 (ze względu na współpracę z innymi programami, w szczególności Unity3D)

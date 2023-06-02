@@ -1,6 +1,0 @@
-﻿Zrobić klasę bazową lub wspólny interfejs do wszystkich managerów - V2
-Klasa bazowa - Region (z GameLab.Core, a nie System.Drawing)
-Klasa potomna - Control (Windows Forms, osobno WPF) - V2
-
-Zmienić nazwę biblioteki na GazeInteraction !!!!!!
-
