@@ -3,19 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Guiwindows.ViewModel"
              x:Class="Guiwindows.IPPage"
-             Title="IPPage">
+             Title="IPPage"
+             BackgroundImageSource="steel2.jpg"
+             NavigationPage.HasNavigationBar="False" >
+
     <ContentPage.BindingContext>
         <vm:IPVM />
     </ContentPage.BindingContext>
-    <VerticalStackLayout>
-        <Label Text="Type the address below into the app to atetmptconnection"
+    <Grid RowDefinitions="200,300,*,*,100" ColumnDefinitions="200,*,200">
+        <Image Grid.Row="0" Grid.Column="1" Source="logo.png" HorizontalOptions="Center"/>
+        <Label Grid.Row="1" Grid.Column="1"  Text="Przepisz poniższy adres IP do aplikacji WakeWatch, aby połączyć urządzenia i rozpocząć działanie"
                VerticalOptions="Center"
-               HorizontalOptions="Center" />
-        <Label Text="{Binding Path=Address, Mode=OneWay}"
+               FontSize="40"    
+               HorizontalOptions="Center"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               TextColor="Black" FontAttributes="Bold"/>
+        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Address, Mode=OneWay}"
                VerticalOptions="Center" 
-               HorizontalOptions="Center" />
-        <Label Text="{Binding Path=State}"
+               HorizontalOptions="Center" 
+               TextColor="Black" FontAttributes="Italic"
+               FontSize="30" />
+        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=State}"
                VerticalOptions="Center"
-               HorizontalOptions="Center" />
-    </VerticalStackLayout>
+               HorizontalOptions="Center" 
+               TextColor="Black" FontAttributes="Italic"
+               FontSize="30" />
+        <Label Grid.Row="4"  Grid.Column="1" Text="Zespół do Spraw Zespołowych 2023"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" 
+               TextColor="Black" FontAttributes="Italic"
+               FontSize="12" />
+    </Grid>
 </ContentPage>

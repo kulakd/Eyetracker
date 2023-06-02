@@ -1,5 +1,4 @@
 ﻿using Microsoft.Maui.Graphics.Platform;
-using System.Diagnostics;
 using IImage = Microsoft.Maui.Graphics.IImage;
 
 namespace GuiAndroid

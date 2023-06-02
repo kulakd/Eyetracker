@@ -21,7 +21,7 @@
     <Grid RowDefinitions="*,*,*" Margin="10">
         <Grid Grid.Row="0" RowDefinitions="*,*">
             <Grid Grid.Row="0" ColumnDefinitions="300,*">
-                <Label Grid.Column="0" x:Name="RozmiarCzcionki" Text="Rozmiar frontu:" Style="{StaticResource LabelSt}" CharacterSpacing="6"/>
+                <Label Grid.Column="0" x:Name="RozmiarCzcionki" Text="Rozmiar fontu:" Style="{StaticResource LabelSt}" CharacterSpacing="6"/>
                 <Label Grid.Column="1" x:Name="SliderValue" Text="{Binding Font, Mode=OneWay}" Style="{StaticResource LabelSt}"/>
             </Grid>
             <Slider 
@@ -61,7 +61,6 @@
                 </Picker.ItemsSource>
             </Picker>
         </Grid>
-    
         <Button Grid.Row="2" x:Name="Zapisz"
 				ImageSource="save.png"
 				Command="{Binding Zapisz}" BackgroundColor="ForestGreen"
