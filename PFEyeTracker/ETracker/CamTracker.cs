@@ -105,8 +105,13 @@ namespace EyeTracker
 
         public void Stop()
         {
-            if (isStreaming)
-                device.Stop();
+            try
+            {
+                if (isStreaming)
+                    device.Stop();
+            }
+            catch { }
+
             faceRects.Clear();
             index = -1;
         }

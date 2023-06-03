@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Net;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 
 namespace Connections
 {
@@ -56,7 +54,7 @@ namespace Connections
         private CancellationTokenSource receivingSource = new CancellationTokenSource();
         private CancellationTokenSource sendingSource = new CancellationTokenSource();
 
-        public Queue<Message> sendQ = new Queue<Message>();
+        private Queue<Message> sendQ = new Queue<Message>();
 
         private MemoryStream vid = new MemoryStream();
         public MemoryStream Video
