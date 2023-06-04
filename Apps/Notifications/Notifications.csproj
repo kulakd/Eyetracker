@@ -24,6 +24,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Moq" Version="4.18.4" />
 	  <PackageReference Include="Plugin.LocalNotification" Version="10.1.4" />
 	  <PackageReference Include="Plugin.Maui.Audio" Version="1.0.0" />
 	</ItemGroup>
