@@ -24,6 +24,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUIWindows", "GUIWindows\GU
 		{C5213771-2536-41C0-A26B-8315E6B26E16} = {C5213771-2536-41C0-A26B-8315E6B26E16}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectionsMaui.Tests", "ConnectionsMaui.Tests\ConnectionsMaui.Tests.csproj", "{4A90BACD-2354-46F7-8B86-C151A9B80DE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,14 @@ Global
 		{1DCB8232-27AC-4067-98BC-FB14EE565D7A}.Release|x64.ActiveCfg = Release|x64
 		{1DCB8232-27AC-4067-98BC-FB14EE565D7A}.Release|x64.Build.0 = Release|x64
 		{1DCB8232-27AC-4067-98BC-FB14EE565D7A}.Release|x64.Deploy.0 = Release|x64
+		{4A90BACD-2354-46F7-8B86-C151A9B80DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A90BACD-2354-46F7-8B86-C151A9B80DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A90BACD-2354-46F7-8B86-C151A9B80DE9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4A90BACD-2354-46F7-8B86-C151A9B80DE9}.Debug|x64.Build.0 = Debug|Any CPU
+		{4A90BACD-2354-46F7-8B86-C151A9B80DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A90BACD-2354-46F7-8B86-C151A9B80DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A90BACD-2354-46F7-8B86-C151A9B80DE9}.Release|x64.ActiveCfg = Release|Any CPU
+		{4A90BACD-2354-46F7-8B86-C151A9B80DE9}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
