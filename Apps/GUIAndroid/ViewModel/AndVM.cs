@@ -26,8 +26,14 @@ namespace GuiAndroid.ViewModel
                 case 'W':
                     App.AlertServices.AlertVibrateAsync("Info", "Pacjent obudził się", "ok", 500);
                     break;
+                case 'C':
+                    App.AlertServices.AlertVibrateAsync("Info", "Pacjent wymaga uwagi", "ok", 1500);
+                    break;
+                case 'H':
+                    App.AlertServices.AlertVibrateAsync("Alarm", "Pacjent wzywa pomocy", "ok", 8000);
+                    break;
                 case 'A':
-                    App.AlertServices.AlertVibrateAsync("Info", "Pacjent nie żyje", "ok", 10000);
+                    App.AlertServices.AlertVibrateAsync("Alarm", "Pacjent potrzebuje pomocy", "ok", 10000);
                     break;
             }
         }
