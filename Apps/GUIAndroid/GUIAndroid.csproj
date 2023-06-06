@@ -1,0 +1,91 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>GuiAndroid</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>GuiAndroid</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.guiandroid</ApplicationId>
+		<ApplicationIdGuid>551c7d1f-e1b1-4c5f-bb66-84196d0f837e</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="Orange" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\appicon.svg" Color="Orange" />
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\aaaa.png" />
+	  <None Remove="Resources\Images\abcdefghijk.png" />
+	  <None Remove="Resources\Images\capybara.png" />
+	  <None Remove="Resources\Images\cat.png" />
+	  <None Remove="Resources\Images\connect.png" />
+	  <None Remove="Resources\Images\dark_theme.png" />
+	  <None Remove="Resources\Images\dotnetbot.png" />
+	  <None Remove="Resources\Images\down.png" />
+	  <None Remove="Resources\Images\frog.png" />
+	  <None Remove="Resources\Images\frog1.png" />
+	  <None Remove="Resources\Images\green.png" />
+	  <None Remove="Resources\Images\monkey.png" />
+	  <None Remove="Resources\Images\on.png" />
+	  <None Remove="Resources\Images\tiger.png" />
+	  <None Remove="Resources\Images\up.png" />
+	  <None Remove="Resources\Images\zielen.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Moq" Version="4.18.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Credits.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Settings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Resources\Splash\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\ConnectionsMaui\ConnectionsMaui.csproj" />
+	  <ProjectReference Include="..\Notifications\Notifications.csproj" />
+	</ItemGroup>
+
+</Project>
