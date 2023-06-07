@@ -59,10 +59,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\EyeTracker\ConnectionsMaui\ConnectionsMaui.csproj" />
+	  <ProjectReference Include="..\EyeTracker\FaceCam\FaceCam.csproj" />
+	  <ProjectReference Include="..\EyeTracker\TrackerConnector\TrackerConnector.csproj" />
 	  <ProjectReference Include="..\Notifications\Notifications\Notifications.csproj" />
-	  <ProjectReference Include="..\PFEyeTracker\ConnectionsMaui\ConnectionsMaui.csproj" />
-	  <ProjectReference Include="..\PFEyeTracker\ETracker\EyeTracker.csproj" />
-	  <ProjectReference Include="..\PFEyeTracker\TrackerConnector\TrackerConnector.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 	  <MauiXaml Update="View\IPPage.xaml">

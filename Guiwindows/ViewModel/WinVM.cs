@@ -40,7 +40,7 @@ namespace Guiwindows.ViewModel
                 if (stop == null)
                     stop = new RelayCommand((o) =>
                     {
-                        return;
+                        model.Connection.Send("N");
                     });
                 return stop;
             }

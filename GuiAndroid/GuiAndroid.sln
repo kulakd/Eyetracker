@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuiAndroid", "GuiAndroid.csproj", "{DF00796E-5183-4F78-A2A5-7A7B2BEA8897}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectionsMaui", "..\PFEyeTracker\ConnectionsMaui\ConnectionsMaui.csproj", "{5FC9D573-02D8-4685-95CC-5CBB2C2DB6A3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifications", "..\Notifications\Notifications\Notifications.csproj", "{2F50677B-815B-4BBC-8007-EA605B0DC669}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectionsMaui", "..\EyeTracker\ConnectionsMaui\ConnectionsMaui.csproj", "{7E940BC2-92A9-46D4-9E99-89E1231092C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +21,14 @@ Global
 		{DF00796E-5183-4F78-A2A5-7A7B2BEA8897}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF00796E-5183-4F78-A2A5-7A7B2BEA8897}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DF00796E-5183-4F78-A2A5-7A7B2BEA8897}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{5FC9D573-02D8-4685-95CC-5CBB2C2DB6A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FC9D573-02D8-4685-95CC-5CBB2C2DB6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FC9D573-02D8-4685-95CC-5CBB2C2DB6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FC9D573-02D8-4685-95CC-5CBB2C2DB6A3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2F50677B-815B-4BBC-8007-EA605B0DC669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2F50677B-815B-4BBC-8007-EA605B0DC669}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F50677B-815B-4BBC-8007-EA605B0DC669}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F50677B-815B-4BBC-8007-EA605B0DC669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E940BC2-92A9-46D4-9E99-89E1231092C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E940BC2-92A9-46D4-9E99-89E1231092C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E940BC2-92A9-46D4-9E99-89E1231092C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E940BC2-92A9-46D4-9E99-89E1231092C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

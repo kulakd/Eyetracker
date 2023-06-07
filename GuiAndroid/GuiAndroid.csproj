@@ -35,7 +35,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="Orange" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\appicon.svg" Color="Orange"/>
+		<MauiSplashScreen Include="Resources\Splash\appicon.svg" Color="Orange" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 
@@ -70,8 +70,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\EyeTracker\ConnectionsMaui\ConnectionsMaui.csproj" />
 	  <ProjectReference Include="..\Notifications\Notifications\Notifications.csproj" />
-	  <ProjectReference Include="..\PFEyeTracker\ConnectionsMaui\ConnectionsMaui.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
