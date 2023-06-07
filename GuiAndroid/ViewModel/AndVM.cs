@@ -65,66 +65,20 @@ namespace GuiAndroid.ViewModel
             }
             model.Connection.ReceiveVideo = true;
         }
-        // do wywalenia
+        private ICommand gray;
 
-        //#region MainPage Buttons
-        //private ICommand green;
-        //private ICommand red;
-        //private ICommand gray;
-
-        //public ICommand GreenBtnClick
-        //{
-        //    get
-        //    {
-        //        if (green == null)
-        //            green = new RelayCommand(o =>
-        //            {
-
-        //            });
-        //        return green;
-        //    }
-        //}
-        //public ICommand RedBtnClick
-        //{
-        //    get
-        //    {
-        //        if (red == null)
-        //            red = new RelayCommand(o =>
-        //            {
-        //                Task<bool> answer = App.AlertServices.ChoiceAsync("Potwierdzenie", "Potwierdzenie: nie jesteś w stanie udzielić pomocy w obecnej chwili", "Tak", "Nie");
-        //                answer.ContinueWith(AnswerCont);
-        //            });
-        //        return red;
-        //    }
-        //}
-        //private async Task AnswerCont(Task<bool> answerTask)
-        //{
-        //    bool answer = answerTask.Result;
-        //    if (answer)
-        //    {
-        //        await App.AlertServices.AlertAsync("Potwierdzenie", "To bierz się do roboty! :)", "Aye Aye Captain");
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        await App.AlertServices.AlertAsync("Potwierdzenie", "Odmówiłeś Pomocy Osobie Potrzebującej :)", "Cieszę się :)");
-        //        Application.Current.CloseWindow(Application.Current.MainPage.Window);
-        //    }
-        //}
-
-        //public ICommand GrayBtnClick
-        //{
-        //    get
-        //    {
-        //        if (gray == null)
-        //            gray = new RelayCommand(o =>
-        //            {
-        //                ConnectPlease();
-        //            });
-        //        return gray;
-        //    }
-        //}
-        //#endregion
+        public ICommand GrayBtnClick
+        {
+            get
+            {
+                if (gray == null)
+                    gray = new RelayCommand(o =>
+                    {
+                        ConnectPlease();
+                    });
+                return gray;
+            }
+        }
         public int Font
         {
             get
