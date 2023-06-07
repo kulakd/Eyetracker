@@ -19,8 +19,8 @@ namespace EyetrackerApp
         private DateTime lastGazeUpdateTime = DateTime.Now;
         private const int sleepThresholdInMinutes = 3;
         private bool isUserAsleep = false;
-        private string alarmStart;
-        private string alarmEnd;
+        private string alarmStart="00:00";
+        private string alarmEnd="06:00";
 
         public Form1()
         {
