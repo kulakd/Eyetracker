@@ -16,7 +16,6 @@
             <Setter Property="TextColor" Value="Black"/>
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="HeightRequest" Value="450"/>
-            <Setter Property="WidthRequest" Value="460"/>
         </Style>
     </ContentPage.Resources>
 
@@ -29,15 +28,12 @@
             <Image Source="logo.png" HorizontalOptions="Center"/>
             </Grid>
         <Grid Grid.Row="1" ColumnDefinitions="*,*,*">
-            <Button x:Name="STOPbtn" BackgroundColor="Green" ImageSource="low.png"
-                SemanticProperties.Hint="Wyłącz" Grid.Column="0" 
-                Command="{Binding Path=Stop}"  Style="{StaticResource ButtonStyle}"/>
-            <Button x:Name="ComeBtn" BackgroundColor="Yellow" ImageSource="mid.png"
-                SemanticProperties.Hint="Potrzebna pomoc" Grid.Column="1" 
-                Command="{Binding Path=Come}" Style="{StaticResource ButtonStyle}" />
-            <Button x:Name="HelpBtn" BackgroundColor="Red" ImageSource="high.png"
-                SemanticProperties.Hint="Sytuacja zagrożenia" Grid.Column="2" 
-                Command="{Binding Path=Help}" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="STOPbtn" BackgroundColor="Green" ImageSource="low.png" SemanticProperties.Hint="Wyłącz" Grid.Column="0" 
+                Command="{Binding Path=Stop}"  Style="{StaticResource ButtonStyle}" HorizontalOptions="Fill"/>
+            <Button x:Name="ComeBtn" BackgroundColor="Yellow" ImageSource="mid.png" SemanticProperties.Hint="Potrzebna pomoc" Grid.Column="1" 
+                Command="{Binding Path=Come}" Style="{StaticResource ButtonStyle}" HorizontalOptions="Fill"/>
+            <Button x:Name="HelpBtn" BackgroundColor="Red" ImageSource="high.png" SemanticProperties.Hint="Sytuacja zagrożenia" Grid.Column="2" 
+                Command="{Binding Path=Help}" Style="{StaticResource ButtonStyle}" HorizontalOptions="Fill"/>
         </Grid>
         <ProgressBar x:Name="Loading" ProgressColor="Lime" Margin="30" MinimumHeightRequest="50" Progress="0" Grid.Row="2"/>
     </Grid>
