@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Guiwindows.ViewModel"
              x:Class="Guiwindows.IPPage"
-             Title="IPPage"
              BackgroundImageSource="steel2.jpg"
              NavigationPage.HasNavigationBar="False" >
 

@@ -65,6 +65,6 @@
 				ImageSource="save.png"
 				Command="{Binding Zapisz}" BackgroundColor="ForestGreen"
                 TextColor="Black" FontSize="40" FontFamily="Bold" 
-                BorderColor="Black" BorderWidth="4" CornerRadius="90"/>
+                BorderColor="Black" BorderWidth="4" HorizontalOptions="Fill" VerticalOptions="Fill"/>
     </Grid>
 </ContentPage>

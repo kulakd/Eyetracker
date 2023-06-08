@@ -8,7 +8,6 @@
     
     <ContentPage.Resources>
         <Style x:Key="ButtonSt" TargetType="Button">
-            <Setter Property="CornerRadius" Value="90"/>
             <Setter Property="BorderWidth" Value="2"/>
             <Setter Property="BorderColor" Value="Black"/>
             <Setter Property="FontSize" Value="50"/>
@@ -25,10 +24,8 @@
     
     <Grid RowDefinitions="600,*">
         <GraphicsView Grid.Row="0" x:Name="GraphicsV" HeightRequest="300" WidthRequest="400" Drawable="{StaticResource drawable}" />
-        <Grid Grid.Row="1" Padding="10">
-            <Button x:Name="grey" ImageSource="connect.png" 
-                    Style="{StaticResource ButtonSt}"
-                    Command="{Binding GrayBtnClick}" />
+        <Grid Grid.Row="1" Padding="10" HorizontalOptions="Fill" VerticalOptions="Fill">
+            <Button x:Name="grey" ImageSource="connect.png" Style="{StaticResource ButtonSt}" Command="{Binding GrayBtnClick}" />
         </Grid>
     </Grid>
 </ContentPage>
