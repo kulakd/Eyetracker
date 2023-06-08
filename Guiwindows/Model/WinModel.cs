@@ -32,7 +32,7 @@ namespace MauiGui.Model
         {
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
             var addList = host.AddressList.Where(a=>a.AddressFamily == AddressFamily.InterNetwork).ToList();
-            IPAddress add = addList[1];
+            IPAddress add = addList.First();
             Settings = new ConnectionSettings(add, 4000, 4001);
 
             ETReceiver.TrackerEvent += HandleTrackerEvent;
