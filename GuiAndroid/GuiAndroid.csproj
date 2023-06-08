@@ -60,6 +60,7 @@
 	  <None Remove="Resources\Images\green.png" />
 	  <None Remove="Resources\Images\monkey.png" />
 	  <None Remove="Resources\Images\on.png" />
+	  <None Remove="Resources\Images\steel2.jpg" />
 	  <None Remove="Resources\Images\tiger.png" />
 	  <None Remove="Resources\Images\up.png" />
 	  <None Remove="Resources\Images\zielen.png" />

@@ -22,7 +22,20 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+        // Add dependecy injection to main page
+        builder.Services.AddSingleton<MainPage>();
+
+#if ANDROID
+        builder.Services.AddTransient<IServiceTest, DemoServices>();
+#endif
+
+        return builder.Build();
 	}
 
+}
+
+public interface IServiceTest
+{
+    void Start();
+    void Stop();
 }

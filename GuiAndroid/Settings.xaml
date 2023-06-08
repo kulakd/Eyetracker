@@ -42,6 +42,7 @@
                     VerticalTextAlignment="Center" IsVisible="True">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
+                        <x:String>steel2</x:String>
                         <x:String>white</x:String>
                         <x:String>blue</x:String>
                         <x:String>skyblue</x:String>

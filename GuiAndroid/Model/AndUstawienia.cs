@@ -17,8 +17,8 @@ namespace GuiAndroid.Model
 
         public static Parameters Wczytaj()
         {
-            int font = Preferences.Default.Get("Rozmiar_czcionki", 18);
-            string background = Preferences.Default.Get("Tlo", "aaaa");
+            int font = Preferences.Default.Get("Rozmiar_czcionki", 14);
+            string background = Preferences.Default.Get("Tlo", "steel2.jpg");
             return new Parameters(font, background);
         }
     }
