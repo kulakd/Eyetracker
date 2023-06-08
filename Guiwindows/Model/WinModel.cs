@@ -1,6 +1,7 @@
 ﻿using Connections;
 using FaceCam;
 using System.Net;
+using System.Net.Sockets;
 using System.Runtime.Versioning;
 using TrackerConnector;
 
@@ -30,7 +31,8 @@ namespace MauiGui.Model
         private WinModel()
         {
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress add = host.AddressList[1];
+            var addList = host.AddressList.Where(a=>a.AddressFamily == AddressFamily.InterNetwork).ToList();
+            IPAddress add = addList[1];
             Settings = new ConnectionSettings(add, 4000, 4001);
 
             ETReceiver.TrackerEvent += HandleTrackerEvent;

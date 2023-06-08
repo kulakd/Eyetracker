@@ -16,7 +16,14 @@ namespace GuiAndroid.ViewModel
         {
             model.Connection.ImageReceived += Connection_ImageReceived;
             model.Connection.StringReceived += Connection_StringReceived;
+            model.Connection.ConnectionStateChanged += Connection_ConnectionStateChanged;
             Application.Current.MainPage.Appearing += Instance_Appearing;
+        }
+
+        private void Connection_ConnectionStateChanged(object sender, ConnectionEventEventArgs e)
+        {
+            if (e.SenderState == ConnectionState.NotConnected && e.ReceiverState == ConnectionState.NotConnected)
+                App.AlertServices.AlertVibrateAsync("Info", "Połączenie z pacjentem zostało przerwane", "ok", 500);
         }
 
         private void Connection_StringReceived(object sender, string e)

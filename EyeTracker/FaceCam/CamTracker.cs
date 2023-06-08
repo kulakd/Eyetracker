@@ -35,7 +35,7 @@ namespace FaceCam
             set
             {
                 if (value == index) return;
-                if (value < 0 || value > filters.Count)
+                if (value < 0 || value >= filters.Count)
                     throw new ArgumentOutOfRangeException(nameof(value), value, "No Camera of this index!");
 
                 if (device != null)

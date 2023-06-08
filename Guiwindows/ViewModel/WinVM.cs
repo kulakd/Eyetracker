@@ -26,7 +26,13 @@ namespace Guiwindows.ViewModel
                 Shell.Current.GoToAsync("//IPPage");
             }
             else
-                model.Camera.Index = 0;
+            {
+                try
+                {
+                    model.Camera.Index = 0;
+                }
+                catch { }
+            }
         }
 
         private ICommand stop;

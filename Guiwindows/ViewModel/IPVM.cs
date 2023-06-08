@@ -17,7 +17,11 @@ namespace Guiwindows.ViewModel
             OnPropertyChanged(nameof(Address));
 
             model.Connection.ConnectionStateChanged += Connection_ConnectionStateChanged;
-            model.Camera.Index = 0;
+            try
+            {
+                model.Camera.Index = 0;
+            }
+            catch { }
         }
 
         private void Connection_ConnectionStateChanged(object sender, Connections.ConnectionEventEventArgs e)
