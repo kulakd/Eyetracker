@@ -23,7 +23,7 @@ namespace GuiAndroid.ViewModel
         private void Connection_ConnectionStateChanged(object sender, ConnectionEventEventArgs e)
         {
             if (e.SenderState == ConnectionState.NotConnected && e.ReceiverState == ConnectionState.NotConnected)
-                App.AlertServices.AlertVibrateAsync("UWAGA", "POŁĄCZENIE Z PACJENTEM ZOSTAŁO ZERWANE, PROSZE POŁĄCZYĆ SIĘ PONOWNIE", "Zamknij", 500);
+                App.AlertServices.AlertVibrateAsync("UWAGA!", "POŁĄCZENIE Z PACJENTEM ZOSTAŁO ZERWANE, PROSZĘ POŁĄCZYĆ SIĘ PONOWNIE", "Zamknij", 500);
         }
 
         private void Connection_StringReceived(object sender, string e)
@@ -31,13 +31,13 @@ namespace GuiAndroid.ViewModel
             switch (e[0])
             {
                 case 'N':
-                    App.AlertServices.AlertVibrateAsync("WSZYSTKO WPORZĄDKU", "Pacjent nie potrzebuje uwagi", "Zamknij", 500);
+                    App.AlertServices.AlertVibrateAsync("WSZYSTKO W PORZĄDKU", "Pacjent nie potrzebuje uwagi", "Zamknij", 500);
                     break;
                 case 'W':
                     App.AlertServices.AlertVibrateAsync("INFORMACJA", "Pacjent przebudził się", "Zamknij", 500);
                     break;
                 case 'C':
-                    App.AlertServices.AlertVibrateAsync("UWAGA", "Pacjent może wymagać pilnej uwagi", "Zamknij", 1500);
+                    App.AlertServices.AlertVibrateAsync("UWAGA!", "Pacjent może wymagać pilnej uwagi", "Zamknij", 1500);
                     break;
                 case 'H':
                     App.AlertServices.AlertVibrateAsync("NIEBEZPIECZEŃSTWO", "Pacjent pilnie potrzebuje pomocy", "Zamknij", 8000);
@@ -126,7 +126,7 @@ namespace GuiAndroid.ViewModel
 
         public async void Info()
         {
-            await App.Current.MainPage.DisplayAlert("UWAGA", "Zmiany zostaną wprowadzone po ponownym uruchomieniu aplikacji.", "Potwierdź");
+            await App.Current.MainPage.DisplayAlert("UWAGA!", "Zmiany zostaną wprowadzone po ponownym uruchomieniu aplikacji.", "Potwierdź");
         }
 
         public ICommand Zapisz
