@@ -51,13 +51,6 @@
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="5" ColumnDefinitions="60,*">
-            <Image Grid.Column="0" Source="tiger.png"/>
-            <Grid Grid.Column="1" >
-                <Label CharacterSpacing="5" Text="USTAWIENIA APLIKACJI MOBILNEJ&#10;MAKSYMILIAN KUDELSKI" Style="{StaticResource authors}"/>
-            </Grid>
-        </Grid>
-
         <Grid Grid.Row="6">
             <Label CharacterSpacing="5" FontAttributes="Bold" FontSize="8" TextColor="Black" HorizontalTextAlignment="Center" Text="©WAKEWATCH, ZESPÓŁ DO SPRAW ZESPOŁOWYCH 2023"/>
         </Grid>
