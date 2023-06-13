@@ -19,7 +19,7 @@ namespace GuiAndroid.ViewModel
             model.Connection.StringReceived += Connection_StringReceived;
             model.Connection.ConnectionStateChanged += Connection_ConnectionStateChanged;
             Application.Current.MainPage.Appearing += Instance_Appearing;
-            ((AlertService)App.AlertServices).Sound = "alarma alarma.mp3";
+            ((AlertService)App.AlertServices).Sound = "siren-alert-96052.mp3";
         }
 
         private void Connection_ConnectionStateChanged(object sender, ConnectionEventEventArgs e)

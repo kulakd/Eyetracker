@@ -64,7 +64,7 @@
 	  <None Remove="Resources\Images\tiger.png" />
 	  <None Remove="Resources\Images\up.png" />
 	  <None Remove="Resources\Images\zielen.png" />
-	  <None Remove="Resources\Raw\alarma alarma.mp3" />
+	  <None Remove="Resources\Raw\siren-alert-96052.mp3" />
 	</ItemGroup>
 
 	<ItemGroup>
