@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents;
 using Notifications;
+using Plugin.Maui.Audio;
 
 namespace GuiAndroid;
 
@@ -17,6 +18,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
         builder.Services.AddSingleton<IAlertService, AlertService>();
+		builder.Services.AddSingleton<IAudioManager,  AudioManager>();
 
 #if DEBUG
         builder.Logging.AddDebug();

@@ -62,7 +62,6 @@
 	  <ProjectReference Include="..\EyeTracker\ConnectionsMaui\ConnectionsMaui.csproj" />
 	  <ProjectReference Include="..\EyeTracker\FaceCam\FaceCam.csproj" />
 	  <ProjectReference Include="..\EyeTracker\TrackerConnector\TrackerConnector.csproj" />
-	  <ProjectReference Include="..\Notifications\Notifications\Notifications.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 	  <MauiXaml Update="View\IPPage.xaml">

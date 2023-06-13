@@ -1,6 +1,7 @@
 ﻿using Connections;
 using GuiAndroid.Model;
 using MVVMKit;
+using Notifications;
 using System.Diagnostics;
 using System.Windows.Input;
 
@@ -18,6 +19,7 @@ namespace GuiAndroid.ViewModel
             model.Connection.StringReceived += Connection_StringReceived;
             model.Connection.ConnectionStateChanged += Connection_ConnectionStateChanged;
             Application.Current.MainPage.Appearing += Instance_Appearing;
+            ((AlertService)App.AlertServices).Sound = "alarma alarma.mp3";
         }
 
         private void Connection_ConnectionStateChanged(object sender, ConnectionEventEventArgs e)
